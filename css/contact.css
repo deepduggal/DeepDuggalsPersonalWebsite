@@ -37,7 +37,7 @@ body nav a:hover {
 body .main {
   height: 80%;
   width: 90%;
-  padding: 5%;
+  padding: 0.75em;
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 
