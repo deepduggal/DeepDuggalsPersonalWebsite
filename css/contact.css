@@ -65,9 +65,12 @@ body .main form input{
 
 .bttn {
   color: #F6F8E2;
-  font-weight: bold;
-  background-color: #EDA61A;
+  background-color: #343434;
   text-align: center;
-  width: auto;
+  width: auto; !important
   padding: 0 0.5em 0 0.5em;
+}
+
+.bttn:hover {
+  color: #EDA61A;
 }
