@@ -59,7 +59,7 @@ body .main form input{
 }
 
 .form-group > input {
-  margin-bottom: 2%;
+  margin-bottom: 1.1em;
   min-height: 1.1em;
 }
 
