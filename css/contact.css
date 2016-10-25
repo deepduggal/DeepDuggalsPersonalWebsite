@@ -44,3 +44,20 @@ body .main {
   margin: 0.75em;
   font-family: "Open Sans", Helvetica, sans-serif;
 }
+
+body .main form {
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.form-group > input, .form-group > label {
+  width: 100%;
+  float: left;
+  font-weight: bold;
+}
+
+.bttn {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  color: #F6F8E2;
+  font-weight: bold;
+  background-color: #EDA61A;
+}
