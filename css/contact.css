@@ -36,8 +36,8 @@ body nav a:hover {
 }
 body .main {
   height: 80%;
-  width: 100%;
-  margin: 0.75em;
+  width: 90%;
+  margin: 5%;
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 
@@ -45,11 +45,13 @@ body .main form input{
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 
-.form
-
-.form-group > input, .form-group > label {
+.form-goup {
   width: 90%;
   padding: 5%;
+}
+
+.form-group > input, .form-group > label {
+  width: 100%;
   float: left;
   font-weight: bold;
 }
