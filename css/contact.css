@@ -47,7 +47,7 @@ body .main form input{
 
 .form-group {
   width: 100%;
-  max-width: 968px;
+  max-width: 368px;
   padding: 3%;
 }
 
@@ -55,6 +55,7 @@ body .main form input{
   width: 100%;
   float: left;
   font-weight: bold;
+  min-height: 1em;
 }
 
 .form-group > input {
