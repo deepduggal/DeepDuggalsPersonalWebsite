@@ -46,15 +46,19 @@ body .main form input{
 }
 
 .form-goup {
-  width: 90%;
-  padding: 5%;
+  width: 94%;
+  padding: 3%;
 }
 
 .form-group > input, .form-group > label {
-  width: 100%;
+  width: 50%;
+  padding-right: 50%;
   float: left;
   font-weight: bold;
 }
+
+.form-group > input {
+  margin-bottom: 2%;
 
 .bttn {
   color: #F6F8E2;
