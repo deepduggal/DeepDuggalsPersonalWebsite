@@ -67,4 +67,6 @@ body .main form input{
   font-weight: bold;
   background-color: #EDA61A;
   text-align: center;
+  width: auto;
+  padding: 0 0.5em 0 0.5em;
 }
