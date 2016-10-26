@@ -46,6 +46,7 @@ body .main {
   width: 100%;
   margin: 0.75em;
   font-family: "Open Sans", Helvetica, sans-serif;
+  "background-image: url(/res/space.jpeg)";
 }
 body #terminal {
   height: 80%;
