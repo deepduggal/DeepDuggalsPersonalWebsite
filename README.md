@@ -1,2 +1,2 @@
-# waxter013.github.io
+# deepduggal.me
 Deep Duggal's personal website. 
