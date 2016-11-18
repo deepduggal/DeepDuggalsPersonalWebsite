@@ -40,6 +40,8 @@ body nav a:hover {
   color: #EDA61A;
   padding-bottom: 0.3em;
   border-bottom: 0.25em solid #EDA61A;
+  -webkit-transition: border-bottom 0.2s ease;
+  transition: border-bottom 0.2s ease-in-out;
 }
 body .main {
   height: 80%;
