@@ -23,8 +23,9 @@ body nav a {
   text-decoration: none;
   float: left;
   line-height: 75%;
+  min-height: 1em;
   width: 23.33%;
-  margin: 0 5% 0 5%;
+  padding: 0 5% 0 5%;
   font-family: "Open Sans", Helvetica, sans-serif;
   color: #F6F8E2;
   text-align: center;
@@ -34,6 +35,8 @@ body nav a:hover {
   color: #EDA61A;
   padding-bottom: 0.3em;
   border-bottom: 0.25em solid #EDA61A;
+  -webkit-transition: border-bottom 0.2s ease;
+  transition: border-bottom 0.2s ease-in-out;
 }
 body .main {
   height: 74%;
@@ -65,15 +68,18 @@ form {
 
 .form-group > input {
   margin-bottom: 1.1em;
+  min-height: 1.1em;
 }
 
 input[type=text] {
   border-radius: 6px;
   padding: 0.5em;
+  
 }
 
 input[type=text]:focus {
   outline: 0.25em solid #343434;
+  box-shadow: 10px 10px #343434;
 }
 
 .bttn {
@@ -84,9 +90,12 @@ input[type=text]:focus {
   min-height: 1.1em;
   padding: 1%;
   border: none;
+  border-radius: 6px;
+  outline: none;
 }
 
 .bttn:hover {
   color: #EDA61A;
   border-bottom: #EDA61A 0.25em solid;
+  box-shadow: 5px 5px #EDA61A;
 }
