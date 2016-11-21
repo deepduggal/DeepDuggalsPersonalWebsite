@@ -1,7 +1,4 @@
-/*** Converted from SCSS on codepen.io***/
-/*** VARIABLES ***/
-/*** CSS ***/
-html {
+html, body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -9,55 +6,98 @@ html {
 }
 
 body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #C63717;
+  background-color: #B43215;
   color: #F6F8E2;
 }
+
 body nav {
-  height: auto;
+  height: 2.1em;
   width: 100%;
-  min-height: 1em;
   padding: 1% 0 1% 0;
   background-color: #343434;
   font-size: 100%;
+  position: fixed;
+  bottom: 0;
 }
 body nav a {
   display: block;
   text-decoration: none;
   float: left;
-  line-height: 75%;
+  height: 100%;
   width: 23.33%;
-  padding: 0 5% 0 5%;
+  padding: 0% 5% 0% 5% ;
   font-family: "Open Sans", Helvetica, sans-serif;
   color: #F6F8E2;
   text-align: center;
   font-weight: bold;
+  font-size: 1em;
+  position: relative;
+  top: 50%; 
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 body nav a:hover {
   color: #EDA61A;
   padding-bottom: 0.3em;
   border-bottom: 0.25em solid #EDA61A;
   -webkit-transition: border-bottom 0.2s ease;
-  transition: border-bottom 0.2s ease-in-out;
+  transition: border-bottom 0.2s ease-out;
 }
 body .main {
-  height: 80%;
-  width: 100%;
-  padding: 0.75em;
+  max-width: 100%;
+  margin: 0.75em;
+  border: 1em #D6C17E solid;
+  padding: 0.5em;
   font-family: "Open Sans", Helvetica, sans-serif;
 }
-.main h1:hover, .main a:hover {
-  font-size: 3em;
+
+.main #title, .main #author{
+  text-align: center;
+}
+
+.main > .heading {
+  font-size: 2.5em;
   color: #EDA61A;
-  -webkit-transition: font-size 1s ease;
-  transition: font-size 1s ease;
+}
+
+.main > section {
+/*  height: 94%;*/
+  width: 100%;
+  margin-left: 0.5em;
+}
+
+.main section > .subheading {
+  font-size: 1.6em;
+}
+
+.main section > .text {
+  font-size: 1.1em;
+}
+
+.main .skills {
+}
+
+.main .skills > .skillCategory {
+  font-size: 1.2em;
+  font-weight: bolder;
+  margin: 0.75em 0.75em 0 0;
+  border-bottom: 0.25em #EDA61A solid;
+}
+
+.main .skills > .skillCategory:hover {
+  border-bottom: 0.5em #EDA61A solid;
+  animation: border-bottom 2s ease;
+}
+
+.main .skills > .skillItem {
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 0.3em;
+  margin-left: 0.5em;
 }
 
 /*Override component defaults*/
 a {
-  list-style: none;
+  text-decoration: none;
   color: white;
 }
