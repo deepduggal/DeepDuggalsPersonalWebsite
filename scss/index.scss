@@ -24,15 +24,28 @@ h2 {
   font-size: 2.5em;
   font-size: 4vw;
 }
-
+a {
+  text-decoration: underline;
+}
+a:hover {
+  color: #F48FB1;
+  cursor: pointer;
+}
+* {
+  cursor: url('https://github.com/waxter013/DeepDuggalsPersonalWebsite/blob/master/res/cursors/banana.ani'), auto;
+}
 // CSS
 body {
   background-color: #E91E63;
   color: #F6F8E2;
   animation: appear 1s;
   font-family: 'Lato', Helvetica, Verdana, sans-serif;
-  cursor: url('http://downloads.totallyfreecursors.com/cursor_files/banana-dance-ani.ani'), auto;
 
+  .beta {
+    padding: 0.3em 0 0.3em 0;
+    background-color: #E91E63;
+    text-align: center;
+  }
   .landing {
     height: calc(100% - 2em);
     width: calc(100% - 2em);
@@ -94,7 +107,7 @@ body {
 
     form {
       width: calc(100% - 3);
-      height: 100%;
+      min-height: 100%;
       border: 1em black solid;
       padding: 0.5em; 
       font-family: "Lato", Helvetica, sans-serif;
@@ -114,6 +127,7 @@ body {
       .header:hover {
         span {
           color: black;
+          text-decoration: underline;
         }
         span:hover {
           color: orange;

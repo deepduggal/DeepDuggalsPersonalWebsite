@@ -51,7 +51,7 @@ var projects = {
     name: 'Sexy Calc',
     description: 'A beautiful and responsive calculator. ',
     url: '',
-    img: 'res/sexycalc.png'
+    img: 'res/sexycalc.PNG'
   }
 }; 
 
@@ -135,6 +135,8 @@ window.onload = function() {
 
 //Reset stored window-related values
 window.onresize = function() {
+  leftSide = 0;
+  rightSide = 0;
   rightSide = leftSide + bounceElem.clientWidth; 
   topSide = bottomSide + bounceElem.clientHeight;
   height = window.innerHeight;
@@ -185,27 +187,32 @@ didScroll = false, oldScrollY = window.scrollY;
 
 // Store elements and values
 var bounceElem = document.body.getElementsByClassName('bounce')[0],
-  height = window.innerHeight,
-  width = window.innerWidth;
+    height = window.innerHeight,
+    width = window.innerWidth;
 
-//Window Walls
-leftWall = 0; 
-rightWall = width; 
-bottomWall = 0; 
-topWall = height;
-//Text Sides
-leftSide = 0; 
-rightSide = leftSide + bounceElem.clientWidth; 
-bottomSide = 0; 
-topSide = bottomSide + bounceElem.clientHeight;
-// Animation values
-speed = 10; 
-dx = 2; // Rate of change/increment 
-dy = 2; // Rate of change/increment
+//Sets initial values for bounce animation
+(function initBounce() {
+  //Window Walls
+  leftWall = 0; 
+  rightWall = width; 
+  bottomWall = 0; 
+  topWall = height;
 
-//Init
-bounceElem.style.top = '1px';
-bounceElem.style.left = '1px';
+  //Text Sides
+  leftSide = 0; 
+  rightSide = leftSide + bounceElem.clientWidth; 
+  bottomSide = 0; 
+  topSide = bottomSide + bounceElem.clientHeight;
+
+  // Animation values
+  speed = 10; 
+  dx = 2; // Rate of change/increment 
+  dy = 2; // Rate of change/increment
+
+  //Init
+  bounceElem.style.top = '1px';
+  bounceElem.style.left = '1px';
+})()
 
 // Appends 'px' to a number or string.
 // Returns a String. 
@@ -216,14 +223,19 @@ function toPx(num) {
 //Bounce Animation
 var bounce = setInterval(function() {
   if (rightSide > rightWall) {
+    leftSide += dx;
     dx = dx * -1;
   } else if (leftSide < leftWall) {
+    leftSide += dx;
     dx = dx * -1;
   } else if (topSide > topWall) {
+    bottomSide += dy;
     dy = dy * -1;
   } else if (bottomSide < bottomWall) {
+    bottomSide += dy;
     dy = dy * -1;
   }
+
   bottomSide += dy;
   leftSide += dx;
   
@@ -231,6 +243,7 @@ var bounce = setInterval(function() {
   bounceElem.style.top = toPx(bottomSide);
   bounceElem.style.left = toPx(leftSide);
   
+  //Reset values
   rightWall = width; 
   topWall = height; 
   rightSide = leftSide + bounceElem.clientWidth; 

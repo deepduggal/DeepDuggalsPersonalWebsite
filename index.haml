@@ -2,34 +2,49 @@
   /[if lte IE 8]
     <h1>Your Browser is out of date. Please switch to a modern browser <a href="https://www.google.com/chrome/browser">here.</a><h1>
   %head
-    %title Portfolio | Deep Duggal - Front End Web Developer
+    %title
+      Portfolio | Deep Duggal - Front End Web Developer
     %link{:rel=>"stylesheet", :href=>"http://fonts.googleapis.com/css?family=Lato"}
     %link{:rel=>"stylesheet", :href=>"css/index.css"}
   %body
+    .beta
+      Welcome to my site! Please report bugs to &nbsp;
+      %a{:src=>"mailto:deep@deepduggal.me"}
+        deep@deepduggal.me
+      %span . 
     %section.landing
       %h1.bounce
         Deep Duggal Front End Developer
     %section.projects
     %section.links
       %a.link{:href=>"http://www.github.com/waxter013", :target=>"_blank"}
-        %img{:src=>"res/logos/Github_Logo.png"}
+        %img{:src=>"res/logos/GitHub_Logo.png"}
       %a.link{:href=>"http://www.codepen.com/waxter013", :target=>"_blank"}
         %img{:src=>"res/logos/codepen_logo.svg"}
     %section.contact
       %form{:action => "https://www.enformed.io/33t716tv", :method => "POST"}
         %h1.header
           Get in Touch!
-          %span (Woo hoo!)
+          %span
+            (Woo hoo!)
         .formItem
-          %label Who are you?
-          %input{:name => "name", :type => "text", :placeholder => "Your Name"}
+          %label{:for=>"name"}
+            Who are you?
+          %input{:name => "name", :type => "text", :placeholder => "Name"}
         .formItem
-          %label How can I respond to you?
-          %input{:name => "email", :type => "text", :placeholder => "Your Email"}
+          %label{:for=>"email"}
+            How can I reach you?
+          %input{:name => "email", :type => "text", :placeholder => "Email"}
         .formItem
-          %label What do you want?
-          %input{:name => "message", :type => "text", :placeholder => "Your Mom"}
-        .formItem
+          %label{:for=>"message"}
+            How can I help you?
+          %input{:name => "message", :type => "text", :placeholder => "Message"}
+        .formItem 
+          %input{:type=>"hidden", :name=>"*redirect", :value=>"https://www.yoursite.com"}
           %input{:name => "*reply", :type => "hidden", :value => "deep@deepduggal.me"}
+          %input{:name => "*honeypot", :type => "hidden"}/
+          %input{:name => "*subject", :type => "hidden", :value => "Message from DeepDuggal.me"}
+          %input{:name => "*redirect", :type => "hidden", :value => "http://deepduggal.me"}
+        .formItem
           %input{:type => "submit", :value => "Finish!"}
     %script{:src=>"js/index-dist.js"}
