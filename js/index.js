@@ -51,7 +51,7 @@ var projects = {
     name: 'Sexy Calc',
     description: 'A beautiful and responsive calculator. ',
     url: '',
-    img: 'https://github.com/waxter013/DeepDuggalsPersonalWebsite/blob/master/res/sexycalc.PNG'
+    img: 'res/sexycalc.PNG'
   }
 }; 
 
@@ -136,7 +136,7 @@ window.onload = function() {
 //Reset stored window-related values
 window.onresize = function() {
   leftSide = 0;
-  rightSide = 0;
+  rightSide = 0;  
   rightSide = leftSide + bounceElem.clientWidth; 
   topSide = bottomSide + bounceElem.clientHeight;
   height = window.innerHeight;
