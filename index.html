@@ -1,67 +1,51 @@
-<doctype! html>
 <html>
+  <!--[if lte IE 8]>
+    <h1>Your Browser is out of date. Please switch to a modern browser <a href="https://www.google.com/chrome/browser">here.</a><h1>
+  <![endif]-->
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Playground of Deep Duggal</title>
-    <link type="text/css" rel="stylesheet" href="css/index.css">
+    <title>Portfolio | Deep Duggal - Front End Web Developer</title>
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <a href='index.html'>About<br>Deep</a>
-      <a href='#'>Case<br>Studies</a>
-      <a href='contact.html'>Get In<br>Touch</a>
-    </nav>
-    <div class='main'>
-      <h1 id="title">THE INTELLIGENT DEVELOPER</h1>
-      <h2 id="author">
-        <a href="mailto:deep@deepduggal.me?Subject=Getting%20In%20Touch">DEEP DUGGAL</a>
-      </h2>
-      <h1 class="heading">What I Do</h1>
-      <section>
-        <h4 class="text">I design and develop websites with sex-appeal.<br><br>Elegant and aesthetically-pleasing.<br>Responsive and mobile-friendly.<br>Front End is my forte. </h4>
-        <h2 class="subheading">Skills</h2>
-        <div class="skills">
-          <div class="skillCategory">Templating</div>
-          <div class="skillItem" data-skillLevel="">HTML</div>
-          <div class="skillItem" data-skillLevel="">HAML</div>
-          <div class="skillCategory">Styling</div>
-          <div class="skillItem" data-skillLevel="">CSS</div>
-          <div class="skillItem" data-skillLevel="">SCSS &amp; SASS</div>
-          <div class="skillCategory">Client-Side Programming</div>
-          <div class="skillItem" data-skillLevel="">JavaScript</div>
-          <div class="skillItem" data-skillLevel="">CoffeeScript</div>
-          <div class="skillCategory">Libraries &amp; Frameworks</div>
-          <div class="skillItem" data-skillLevel="">Twitter Bootstrap</div>
-          <div class="skillItem" data-skillLevel="">Zurb Foundation</div>
-          <div class="skillItem" data-skillLevel="">jQuery</div>
-          <div class="skillItem" data-skillLevel="">Angular.js</div>
-          <div class="skillCategory">Back End Programming Languages</div>
-          <div class="skillItem" data-skillLevel="">Python</div>
-          <div class="skillItem" data-skillLevel="">Java</div>
-          <div class="skillItem" data-skillLevel="">Node.js</div>
-          <div class="skillCategory">Other Tools and Technologies</div>
-          <div class="skillItem" data-skillLevel="">Github</div>
-          <div class="skillItem" data-skillLevel="">CodePen.io</div>
-          <div class="skillItem" data-skillLevel="">NPM</div>
-          <div class="skillItem" data-skillLevel="">Bower</div>
-          <div class="skillItem" data-skillLevel="">Grunt</div>
-          <div class="skillItem" data-skillLevel="">Gulp</div>
-          <div class="skillCategory">Other Skills</div>
-          <div class="skillItem" data-skillLevel="">Android Development</div>
-          <div class="skillItem" data-skillLevel="">Oracle ADF</div>
-          <div class="skillItem" data-skillLevel="">Oracle MAF</div>
-          <div class="skillCategory">Paradigms</div>
-          <div class="skillItem" data-skillLevel="">Responsive Design</div>
+    <section class="landing">
+      <h1 class="bounce">
+        Deep Duggal Front End Developer
+      </h1>
+    </section>
+    <section class="projects"></section>
+    <section class="links">
+      <a class="link" href="http://www.github.com/waxter013" target="_blank">
+        <img src="res/logos/Github_Logo.png">
+      </a>
+      <a class="link" href="http://www.codepen.com/waxter013" target="_blank">
+        <img src="res/logos/codepen_logo.svg">
+      </a>
+    </section>
+    <section class="contact">
+      <form action="https://www.enformed.io/33t716tv" method="POST">
+        <h1 class="header">
+          Get in Touch!
+          <span>(Woo hoo!)</span>
+        </h1>
+        <div class="formItem">
+          <label>Who are you?</label>
+          <input name="name" placeholder="Your Name" type="text">
         </div>
-      </section>
-      <hr>
-      <h1 class="heading">What I Want</h1>
-      <section>
-        <h2 class="subheading">Hire me</h2>
-        <h4 class="text">I want to work on websites with engaging user experiences. I enjoy modernizing old-fashioned websites, and creating an online presence for small businesses.<br><br>I'm looking for front end web development jobs and organizations that need a great website. </h4>
-      </section>
-      <hr>
-      
-    </div>
+        <div class="formItem">
+          <label>How can I respond to you?</label>
+          <input name="email" placeholder="Your Email" type="text">
+        </div>
+        <div class="formItem">
+          <label>What do you want?</label>
+          <input name="message" placeholder="Your Mom" type="text">
+        </div>
+        <div class="formItem">
+          <input name="*reply" type="hidden" value="deep@deepduggal.me">
+          <input type="submit" value="Finish!">
+        </div>
+      </form>
+    </section>
+    <script src="js/index-dist.js"></script>
   </body>
 </html>
