@@ -31,9 +31,7 @@ a:hover {
   color: #F48FB1;
   cursor: pointer;
 }
-* {
-  cursor: url('https://github.com/waxter013/DeepDuggalsPersonalWebsite/blob/master/res/cursors/banana.ani'), auto;
-}
+
 // CSS
 body {
   background-color: #E91E63;
@@ -138,8 +136,8 @@ body {
         width: calc(100% - 1em);
         margin-bottom: calc(0.5em);
         float: left;
-        font-size: 1.25em;
-        font-size: 4vw;
+        font-size: 1em;
+        font-size: 3vw;
         font-weight: 600;
         
           label {
@@ -154,8 +152,8 @@ body {
             width: 100%;
             float: left;
             font-weight: bold;
-            font-size: 1.25em;
-            font-size: 4vw;
+            font-size: 1em;
+            font-size: 3vw;
             min-height: 1em;
             margin-bottom: 1.1em;
             min-height: 1.1em;

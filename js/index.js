@@ -51,7 +51,7 @@ var projects = {
     name: 'Sexy Calc',
     description: 'A beautiful and responsive calculator. ',
     url: '',
-    img: 'res/sexycalc.png'
+    img: 'http://deepduggal.me/res/sexycalc.png'
   }
 }; 
 
