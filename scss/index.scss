@@ -47,7 +47,7 @@ body {
   .landing {
     height: calc(100% - 2em);
     width: calc(100% - 2em);
-    background: #222 url("http://deepduggal.me/res/source.gif") no-repeat center;
+    background: #222 url("https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/1864_10207448693749860_2379238858051690700_n.jpg?oh=18961602a6003c8bcbac5ec36af844a2&oe=58FCD649") no-repeat center;
     background-size: cover;
     padding: 1em;
 
@@ -57,18 +57,22 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      opacity: 0.6;
+      opacity: 0.4;
       background-color: black;
     }
 
-    h1 {
+    .text {
       height: calc(50% + 2em);
-      width: 100%;
+      width: 70%;
+      padding: 0 15% 0 15%;
       position: absolute;
-      top: calc(35% - 2em);
+      top: calc(25% - 2em);
       left: 0;
-      text-align: center;
-      color: #E91E63;
+      color: #F6F8E2;
+
+      h4{
+        padding-top: 1em;
+      }
     }
 
     .bounce {
