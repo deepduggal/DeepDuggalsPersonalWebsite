@@ -39,17 +39,14 @@ body {
   animation: appear 1s;
   font-family: 'Lato', Helvetica, Verdana, sans-serif;
 
-  .beta {
-    padding: 0.3em 0 0.3em 0;
-    background-color: #E91E63;
-    text-align: center;
-  }
   .landing {
     height: calc(100% - 2em);
     width: calc(100% - 2em);
     background: #222 url("https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/1864_10207448693749860_2379238858051690700_n.jpg?oh=18961602a6003c8bcbac5ec36af844a2&oe=58FCD649") no-repeat center;
     background-size: cover;
     padding: 1em;
+    overflow: hidden;
+    
 
     .dim {
       height: calc(100% + 2em);
