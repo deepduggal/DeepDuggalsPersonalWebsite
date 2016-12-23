@@ -50,14 +50,14 @@ var projects = {
   sexyCalc: {
     name: 'Sexy Calc',
     description: 'A beautiful and responsive calculator. ',
-    url: 'http://deepduggal.me/Sexy%20Calc/index.html',
-    img: 'http://deepduggal.me/Sexy%20Calc/sexycalc.png'
+    url: 'Sexy%20Calc/sexycalc.html',
+    img: 'Sexy%20Calc/sexycalc.png'
   }, 
   digitalServices: {
     name: 'Digital Services Website',
     description: 'A simple, but attractive sample digital services website. Made with Bootstrap and Font Awesome. ',
-    url: 'http://deepduggal.me/Digital%20Services%20Website/index.html',
-    img: 'http://deepduggal.me/Digital%20Services%20Website/screenshot.gif'
+    url: 'Digital%20Services%20Website/digitalservices.html',
+    img: 'Digital%20Services%20Website/screenshot.gif'
   }
 }; 
 
