@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- TODO: Hover color change for backspace and gray buttons. Color change on click. -->
+<!-- TODO: Add touch compatability -->
+<!-- Add keyboard button supprt -->
+<!-- TODO: Add separate css for desktop. Have a header, some info, add keywords/SEO stuff, ads on both sides -->
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Sexy Calc</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="css/sexycalc.css" rel="stylesheet" type="text/css">
+    <!-- normalize.css? -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <div class="col" id="calculator">
+      <!-- Contains Solution and full Equation -->
+      <div class="row" id="solutionContainer">
+        <div class="col" id="display">
+          <input class="row" id="equation" name="equation" readonly="readonly" type="text" value="">
+          <input class="row" id="solution" name="solution" readonly="readonly" type="text" value="0">
+        </div>
+        <input class="col button" id="backspaceButton" name="backspace" type="button" value="X">
+      </div>
+      <!-- Contains all calculator functionallity -->
+      <form class="row col" id="buttonsContainer">
+        <div class="col" id="clear">
+          <input class="button" name="clear" type="button" value="Clear All">
+        </div>
+        <div class="col" id="mainCol">
+          <div class="row" id="specialOperators">
+            <input class="button col-1" name="percent" type="button" value="%">
+            <input class="button col-1" name="squareRoot" type="button" value="sqrt">
+            <input class="button col-1" name="squared" type="button" value="^2">
+          </div>
+          <div class="row" id="7_8_9_Container">
+            <input class="button col-1" name="seven" type="button" value="7">
+            <input class="button col-1" name="eight" type="button" value="8">
+            <input class="button col-1" name="nine" type="button" value="9">
+          </div>
+          <div class="row" id="4_5_6_Container">
+            <input class="button col-1" name="four" type="button" value="4">
+            <input class="button col-1" name="five" type="button" value="5">
+            <input class="button col-1" name="six" type="button" value="6">
+          </div>
+          <div class="row" id="1_2_3_Container">
+            <input class="button col-1" name="one" type="button" value="1">
+            <input class="button col-1" name="two" type="button" value="2">
+            <input class="button col-1" name="three" type="button" value="3">
+          </div>
+          <div class="row" id="0_._Container">
+            <input class="button col-2" name="zero" type="button" value="0">
+            <input class="button col-1" name="decimalPoint" type="button" value=".">
+          </div>
+        </div>
+        <div class="col" id="operatorsCol">
+          <input class="button row" name="divide" type="button" value="/">
+          <input class="button row" name="multiply" type="button" value="*">
+          <input class="button row" name="subtract" type="button" value="-">
+          <input class="button row" name="add" type="button" value="+">
+          <input class="button row" name="equals" type="button" value="=">
+        </div>
+      </form>
+    </div>
+    <script src="js/sexycalc.js" type="text/javascript"></script>
+  </body>
+</html>

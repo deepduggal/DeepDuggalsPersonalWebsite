@@ -1,0 +1,90 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title Digital Services Website
+    %link{:href => "https://fonts.googleapis.com/css?family=Tauri", :rel => "stylesheet"}
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css", :rel => "stylesheet"}
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{:href => "css/sexycalc.css", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    %section.landing
+      %video{:autoplay=>"true", :loop=>"true", :muted=>"true", :poster=>"", :src=>"https://player.vimeo.com/external/174002664.hd.mp4?s=a9462820bdba3dee151d2ff32e4cbcebd982d77e&profile_id=119&oauth2_token_id=57447761"}
+      .dim
+      .text
+        %h1
+          %span Digital services don't have to be
+          %br
+          %span "like a box of chocolates."
+    %section.services
+      .container-fluid
+        .underlined-title
+          %div
+            %h1 WHAT WE DO
+          %hr
+        .col-md-4.col-sm-12.col-xs-12.service
+          .col-xs-2
+            %span.fa.fa-pencil.icon
+          .col-xs-10
+            %div
+              %h4.serviceName Branding
+            %div
+              %p.serviceInfo Separate yourself from your competitiors. Help your customers understand what you do and why.
+        .col-md-4.col-sm-12.col-xs-12.service
+          .col-xs-2
+            %span.fa.fa-code.icon
+          .col-xs-10
+            %div
+              %h4.serviceName Web Design
+            %div
+              %p.serviceInfo We can give your users an engaging experience that keeps them on your site longer.
+        .col-md-4.col-sm-12.col-xs-12.service
+          .col-xs-2
+            %span.fa.fa-comments-o.icon
+          .col-xs-10
+            %div
+              %h4.serviceName Social Media
+            %div
+              %p.serviceInfo Connect with your consumers in the languages they understand. Twitter, Facebook, Instagram, etc.
+        .col-md-4.col-sm-12.col-xs-12.service
+          .col-xs-2
+            %span.fa.fa-search.icon
+          .col-xs-10
+            %div
+              %h4.serviceName SEO
+            %div
+              %p.serviceInfo Let us get you to the top of the list, where your customers can see you first. The right words count.
+        .col-md-4.col-sm-12.col-xs-12.service
+          .col-xs-2
+            %span.fa.fa-mobile.icon
+          .col-xs-10
+            %div
+              %h4.serviceName Mobile Apps
+            %div
+              %p.serviceInfo More than half of your users are on mobile.  Why aren't you?
+        .col-md-4.col-sm-12.col-xs-12.service
+          .col-xs-2
+            %span.fa.fa-bookmark.icon
+          .col-xs-10
+            %div
+              %h4.serviceName Logos
+            %div
+              %p.serviceInfo We'll create stunning visual imagery that will reinforce your brand to your customers.
+    %section.testimonials
+      %br
+      %h1 Testimonials
+      .container
+        %br
+        %blockquote
+          %p "Great!" - Bill Gates
+        %blockquote
+          %p "Spectacular!" - Elon Musk
+        %br
+    %section.contact
+      %form.container{:autocomplete=>"off"}
+        %br
+        %h1 Contact Us
+        %br
+        %input.col-md-12.col-sm-12.col-xs-12{:type => "text", :name => "name", :value => "", :placeholder => "Name"}
+        %input.col-md-12.col-sm-12.col-xs-12{:type => "text", :name => "email", :value => "", :placeholder => "Email"}
+        %input.col-md-12.col-sm-12.col-xs-12{:type => "text", :name => "message", :value => "", :placeholder => "Message"}

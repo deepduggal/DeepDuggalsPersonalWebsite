@@ -50,8 +50,14 @@ var projects = {
   sexyCalc: {
     name: 'Sexy Calc',
     description: 'A beautiful and responsive calculator. ',
-    url: '',
-    img: 'http://deepduggal.me/res/sexycalc.png'
+    url: 'http://deepduggal.me/Sexy%20Calc/index.html',
+    img: 'http://deepduggal.me/Sexy%20Calc/sexycalc.png'
+  }, 
+  digitalServices: {
+    name: 'Digital Services Website',
+    description: 'A simple, but attractive sample digital services website. Made with Bootstrap and Font Awesome. ',
+    url: 'http://deepduggal.me/Digital%20Services%20Website/index.html',
+    img: 'http://deepduggal.me/Digital%20Services%20Website/screenshot.gif'
   }
 }; 
 
@@ -117,6 +123,17 @@ function createPortfolio() {
       h2.style.color = 'white';
       header.innerHTML = projects[keys[i]].name;
       overlay.appendChild(header);
+    }
+
+    //Open url on click
+    if(projects[keys[i]].url !== null || projects[keys[i]].url !== '') {
+      portfolio[i].style.cursor = 'pointer';
+
+      portfolio[i].onclick = function(arg) {
+        return function() {
+          location.href = projects[keys[arg]].url;
+        }
+      }(i);
     }
 
     //Add project to document
