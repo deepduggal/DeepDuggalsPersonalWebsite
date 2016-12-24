@@ -221,6 +221,21 @@ body {
   }
 }
 
+@media screen and (min-width: 768) {
+  .projects {
+    .project {
+      width: 50%;
+    }
+  }
+}
+@media screen and (max-width: 768) {
+  .projects {
+    .project {
+      width: 100%;
+    }
+  }
+}
+
 .overlayContainer {
   overflow: hidden;
   

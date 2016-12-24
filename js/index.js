@@ -9,7 +9,8 @@
 ////////////////////////////
 
 //Stored values
-var height = window.innerHeight;
+var height = window.innerHeight,
+    width = window.innerWidth;
 
 // Store elements and values
 var h1 = document.body.getElementsByClassName('bounce')[0],
@@ -66,7 +67,7 @@ var style = {
   primaryColor: '#222', 
   secondaryColor: '#343434', 
   fontColor: 'white', 
-  numPortfolioColumns: 1
+  numPortfolioColumns: (width < 769)? 1: 2
 };
 
 ////////////////////////////
@@ -75,9 +76,9 @@ var style = {
 
 // UI portfolio item
 var portfolioItem = document.createElement('div');
-portfolioItem.setAttribute('class', 'project overlayContainer');
+portfolioItem.className = 'project overlayContainer';
 portfolioItem.style.height = '100%';
-portfolioItem.style.width = (100/window.style.numPortfolioColumns) + '%';
+portfolioItem.style.width = 100 / style.numPortfolioColumns + '%';
 portfolioItem.style.float = 'left';
 
 /** Generates a grid Portfolio UI
@@ -94,8 +95,6 @@ function createPortfolio() {
     //Overlay Container Div
     portfolio[i] = portfolioItem.cloneNode();
     portfolio[i].classList.add('overlayContainer');
-    portfolio[i].style.height = portfolioItem.style.height;
-    portfolio[i].style.width = portfolioItem.style.width;
 
     //1. Img
     var content = img.cloneNode();
@@ -146,22 +145,18 @@ function createPortfolio() {
 ////////////////////////////
 
 window.onload = function() {
-  bounce;
   createPortfolio();
 };
 
 //Reset stored window-related values
 window.onresize = function() {
-  leftSide = 0;
-  rightSide = 0;  
-  rightSide = leftSide + bounceElem.clientWidth; 
-  topSide = bottomSide + bounceElem.clientHeight;
   height = window.innerHeight;
   width = window.innerWidth;
-  leftWall = 0; 
-  bottomWall = 0;
-  rightWall = width; 
-  topWall = height;
+
+  style.numPortfolioColumns = (width < 769)? 1: 2;
+  portfolioItem.style.width = 100 / style.numPortfolioColumns + '%';
+  projectsDiv.innerHTML = '';
+  createPortfolio();
 };
 
 // Set didScroll
@@ -197,73 +192,3 @@ function scrollAnimation(start, end) {
 }
 
 didScroll = false, oldScrollY = window.scrollY;
-
-////////////////////////////
-// Bounce Animation
-////////////////////////////
-
-// Store elements and values
-var bounceElem = document.body.getElementsByClassName('bounce')[0],
-    height = window.innerHeight,
-    width = window.innerWidth;
-
-//Sets initial values for bounce animation
-(function initBounce() {
-  //Window Walls
-  leftWall = 0; 
-  rightWall = width; 
-  bottomWall = 0; 
-  topWall = height;
-
-  //Text Sides
-  leftSide = 0; 
-  rightSide = leftSide + bounceElem.clientWidth; 
-  bottomSide = 0; 
-  topSide = bottomSide + bounceElem.clientHeight;
-
-  // Animation values
-  speed = 10; 
-  dx = 2; // Rate of change/increment 
-  dy = 2; // Rate of change/increment
-
-  //Init
-  bounceElem.style.top = '1px';
-  bounceElem.style.left = '1px';
-})()
-
-// Appends 'px' to a number or string.
-// Returns a String. 
-function toPx(num) {
-  return num + 'px';
-}
-
-//Bounce Animation
-var bounce = setInterval(function() {
-  if (rightSide > rightWall) {
-    leftSide += dx;
-    dx = dx * -1;
-  } else if (leftSide < leftWall) {
-    leftSide += dx;
-    dx = dx * -1;
-  } else if (topSide > topWall) {
-    bottomSide += dy;
-    dy = dy * -1;
-  } else if (bottomSide < bottomWall) {
-    bottomSide += dy;
-    dy = dy * -1;
-  }
-
-  bottomSide += dy;
-  leftSide += dx;
-  
-  // Move div
-  bounceElem.style.top = toPx(bottomSide);
-  bounceElem.style.left = toPx(leftSide);
-  
-  //Reset values
-  rightWall = width; 
-  topWall = height; 
-  rightSide = leftSide + bounceElem.clientWidth; 
-  topSide = bottomSide + bounceElem.clientHeight;
-
-}, speed);
