@@ -2,82 +2,61 @@
  *    - Listen for keyboard events, Press corresponding button on keypress. 
  *    - Add error handling. ex. can't do do 3**=43 or divide by zero. 
  */
-
-//TODO: Delete when finished!
-// Old Model
-var previousNum = '',
-    currentNum = '',
-    previousOperator = '';
-
 // View
-var equation = document.getElementById('equation');
-var solution = document.getElementById('solution');
+var equationUI = document.getElementById('equation');
+var solutionUI = document.getElementById('solution');
 
 // Model
-var wasInputtingNum = false,
-    firstNum, //The first number in a simple function, or the current number outside of a function. 
-    secondNum; //The second number in a simple function, or null outside of a function. 
+var equation = '', 
+    solution = '', 
+    numbers = [], 
+    operators = [];
+
+/* Getters and Setters - Update Model and View Simultaneously*/
+function getEquation() {
+  return window.equation;
+}
+function setEquation(val) {
+  window.equation = val;
+  window.equationUI.value = val;
+}
+function getSolution() {
+  return window.solution;
+}
+function setSolution(val) {
+  window.solution = val;
+  window.solutionUI.value = val;
+} 
 
 // Controller
-function isNum(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
-
-//TODO: Validation
-//  First item must be a number
-//  Disallow pressing two operators in a row
-//  Disallow divide by zero
-//
-//TODO: Make it actually do the math
-//TODO: Add handling for bttnVal==='backspace'
-//TODO: Make it not ugly. Redesign the program (see notebook). 
-function bttnHandler(bttnVal) {
+function bttnHandler(val) {
     //Handle digits
-    if (isNum(bttnVal)) {
-        currentNum += bttnVal;
-        solution.value = currentNum;
-        wasInputtingNum = true;
+    if (isNum(val)) {
+      setSolution(getSolution() + val);
+      setEquation(getSolution());
     }
     //Handle simple functions
-    else if (bttnVal === '/' || bttnVal === '*' || bttnVal === '-' || bttnVal === '+') {
-        //After inputting 1st number
-        if (wasInputtingNum) {
-            equation.value += previousNum + bttnVal;
-            solution.value = currentNum;
-        }
-
-        //When inputting 2nd number
-        if (wasInputtingNum && currentNum) {
-            if (bttnVal === '/') currentNum = previousNum / currentNum;
-            else if (bttnVal === '*') currentNum = previousNum * currentNum;
-            else if (bttnVal === '-') currentNum = previousNum - currentNum;
-            else if (bttnVal === '+') currentNum = previousNum + currentNum;
-            else console.log('Error!');
-        }
-
-        wasInputingNum = false;
+    else if (val === '/' || val === '*' || val === '-' || val === '+') {
+      setEquation(getEquation() + val); //Add oper to equation
+      splitEqn(getEquation());
+      var result = solveEqn(numbers, operators);
+      setSolution(result);
+      // setEquation(getSolution());
     }
     //Handle modifier operations/special functions
-    else if (bttnVal === '.') {
-        if (currentNum.indexOf('.') == -1) currentNum += bttnVal;
-        solution.value = currentNum;
-    } else if (bttnVal === 'clear') {
-        currentNum = '';
-        equation.value = '';
-        solution.value = currentNum;
-    } else if (bttnVal === 'percent') {
-        currentNum *= 100;
-        solution.value = currentNum;
-    } else if (bttnVal === 'sqrt') {
-        currentNum = Math.sqrt(currentNum);
-        solution.value = currentNum;
-    } else if (bttnVal === 'squared') {
-        currentNum *= currentNum;
-        solution.value = currentNum;
-    } else if (bttnVal === 'backspace') {
-        currentNum = currentNum.slice(0, -1); //Remove the last digit from currentNumk
-        solution.value = currentNum;
+    else if (val === '.') {
+        if (currentNum.indexOf('.') == -1) currentNum += val;
+    } else if (val === 'clear') {
+        setEquation('');
+        setSolution('');
+    } else if (val === 'percent') {
+        setSolution(getSolution()*100);
+    } else if (val === 'sqrt') {
+        setSolution(Math.sqrt(getSolution()));
+    } else if (val === 'squared') {
+        setSolution(getSolution()*getSolution());
+    } else if (val === 'backspace') {
+        setSolution(getSolution().slice(0, -1));
     }
 }
 
@@ -104,6 +83,8 @@ document.body.onkeypress = function(event) {
         9: bttnHandler('9'),
         backspace: bttnHandler('backspace')
     }
+
+    console.log('key: ' + event.key);
 
     if (keyBindings.hasOwnProperty(event.key)) {
         currentNum += keyBindings[event.key];
@@ -149,6 +130,8 @@ document.body.onclick = function(event) {
         backspace: 'backspace'
     }
 
+    console.log('bttnName: ' + currentElemName);
+
     //If a valid button (in buttonNames) was pressed, 
     if (buttonNames.hasOwnProperty(currentElemName)) {
         bttnHandler(buttonNames[currentElemName]);
@@ -156,95 +139,121 @@ document.body.onclick = function(event) {
     event.stopPropagation();
 }
 
-//When <input> button is pressed. Append the input.name to the equation. Set the currentNumber. 
+//Solves an equation string, which is simply a lot of simple operations in one string
+function solveEqn(nums, ops) {
+  if(numbers.length < 2) {
+    return '';
+  }
+  var subResult; //Store the result of the previous Simple Operation
 
-
-
-
-//Terms: Digit, Number, special function(Math that modifies one value), simple function (math involving two values)
-
-/*
-  Press digit bttn, means starting a number. - isInputtingNum = false; append digit to previousNum; 
-  Press special function (%, sqrt, ^2, clear, backspace, .) bttn, means ending a number and modifying it. 
-  Press simple function (*, /, +, -) bttn, means ending a number,specifiying an operation,
-  Press =, means end number. 
-
-  ----------------------------------------------------------------------------------------------------
-  1. Check what bttn was pressed
-
-  2. bttnHandler(bttn)
-
-  //Do this if a digit bttn was pressed
-  else if(isInputingDigit)
-    - Keep appending new digits to previousNum (Update Model)
-    - Update UI
-  
-  //Do this if neither a digit bttn nor a special function bttn was pressed (aka if a simple function was pressed)
-  else if(!isInputingDigit //&& is not a special function//): 
-    - Figure out which simple function was pressed
-
-    //Handle simple function pressed twice in a row
-    if() {
-  
-    isInputingDigit = false; //Reset Values
-    - Update UI: Backspace and give friendly error msg that goes away quickly. 
+  subResult = solveSimple(nums[0], ops[0], nums[1]);
+  for(var i = 1, len = operators.length; i < len; i++) {
+    subResult = solveSimple(subResult, ops[i], nums[i+1]);
+  }
+  return subResult;
+}
+//Does an operation between two numbers (a simple operation)
+function solveSimple(num1, oper, num2) {
+  // if there's no second number, return empty string
+  if(!num2)
+    return '';
+  else {
+    switch (oper) {
+      case '*':
+        return num1 * num2;
+        break;
+      case '/':
+        return num1 / num2;
+        break;
+      case '+':
+        return num1 + num2;
+        break;
+      case '-':
+        return num1 - num2;
+        break;
+      default:
+        errorMsg("Unknown Operation");
+        return 'Unknown Operation';
+        break;
     }
+  }
+}
+//Separates equation into numbers and operators
+function splitEqn(eqn) {
+  numbers = [];
+  operators = [];
 
-    //Wait for 2nd number input
-    if(secondNum) {
-      - When done inputing 2nd num (!isInputingDigit again)
-        - Do simple function between previousNum and currentNum
-        //Reset Values
-        firstNum = currentNum; 
-        secondNum = null;
-        - Update UI
+  //Check that first char is number, else error
+  if(isOperator(eqn.charAt(0))) {
+    errorMsg("Must start with an operator");
+    return 'started with operator';
+  }
+  for(var i = 0, operPos = 0, len = eqn.length, char = ''; i < len; i++) {
+    char = eqn.charAt(operPos); //Cache current char
+    console.log('----------------');
+    console.log('i: ' + i);
+    console.log('operPos: ' + operPos)
+    console.log('char: ' + char);
+
+    //Handle Operators
+    if (isOperator(char)) {
+      console.log('isOper');
+      //Logical Error Handling - Operation on an operation
+      if(isOperator(eqn.charAt(i - 1))) {
+        errorMsg("Can't do two operators in a row. ");
+        return "Can't do two operators in a row. ";
+      }
+      //If Error Free: Add operator to operators
+      else {
+        operators.push(char);
+      }
+      operPos++;
     }
-
-*/
-
-function doMath() {
-    // Handle special functions
-    if (bttnVal === '.') {
-        if (currentNum.indexOf('.') == -1) currentNum += bttnVal;
-        solution.value = currentNum;
-    } else if (bttnVal === 'clear') {
-        currentNum = '';
-        equation.value = '';
-        solution.value = currentNum;
-    } else if (bttnVal === 'percent') {
-        currentNum *= 100;
-        solution.value = currentNum;
-    } else if (bttnVal === 'sqrt') {
-        currentNum = Math.sqrt(currentNum);
-        solution.value = currentNum;
-    } else if (bttnVal === 'squared') {
-        currentNum *= currentNum;
-        solution.value = currentNum;
-    } else if (bttnVal === 'backspace') {
-        currentNum = currentNum.slice(0, -1); //Remove the last digit from currentNumk
-        solution.value = currentNum;
+    //Handle Nums
+    else if (isNum(char)) {
+      console.log('isNum');
+      //Logical Error Handling - Divide by Zero
+      if(char === '0' && eqn.charAt(i - 1) === '/') {
+        errorMsg("Can't divide by zero. ");
+        return "Can't divide by zero. ";
+      }
+      //Add digit to end of number
+      else if(numbers[operPos]) {
+        numbers[operPos] += char;
+      }
+      //Or add it if it doesn't exist
+      else {
+        numbers.push(char);
+      }
     }
-    /// Handle number input
-    else if(isNum(bttnVal)) {
-
+    else {
+      errorMsg('Unknown Error. Please contact my creator: deep@deepduggal.me');
+      return 'unknown error';
     }
-
+  }
+  console.log('numbers: ' + numbers);
+  console.log('operators: ' + operators);
+}
+function numOps(eqn) {
+  var num = 0;
+  for(var i = 0, len = eqn.length; i < len; i++) {
+    if(isOperator(eqn.charAt(i))) {
+      num++;
+    }
+  }
+  return num;
 }
 
-// Updates (and validates) UI values
-function updateUI(equation, solution, errorMsg) {
-    //Valid Chars: numbers, /, *, +, -
-    if (equationVal) {
-        equation.value = equationVal;
-    }
-    //Valid Chars: numbers
-    if (solutionVal) {
-        solution.value = solutionVal;
-    }
-    if (errorMsg) {
-        //Flash error msg on screen
-        // - Option 1: Temporarily replace either, equation.value or solution.value, with an error message
-        // - Option 2: Temporarily replace, #display div with an error message, 
-        // - Option 3: Add an #error div behind #display div (in html). Hide #display div. Show #error div. 
-    }
+function isNum(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+function isOperator(char) {
+  return char === '*' || char === '/' || char === '+' || char === '-';
+}
+
+//Set equation to error message
+function errorMsg(str) {
+  var tempSolution = getSolution();
+  //Do animation to temporarily show error
+  setSolution(tempSolution);
 }
