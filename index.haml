@@ -25,17 +25,20 @@
 
       ga('create', 'UA-89293172-1', 'auto');
       ga('send', 'pageview');
+    %link{:rel=>"stylesheet", :href=>"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"}
+    %link{:rel=>"stylesheet", :href=>"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"}
     %link{:rel=>"stylesheet", :href=>"http://fonts.googleapis.com/css?family=Lato"}
     %link{:rel=>"stylesheet", :href=>"css/index.css"}
   %body
     %section.landing
       .dim
       .text
-        %h1
+        %h1.animated.slideInLeft
           DEEP DUGGAL
-        %h2 Front End Developer
-        %h4
-          I love making websites.
+        %h2.animated.slideInRight Front End Developer
+        %h3.animated.rollIn
+          I make the web. 
+      %i.fa-2x.fa.fa-caret-down.animated.infinite.bounce{:'aria-hidden'=>"true"}
     %section.projects
     %section.links
       %a.link{:href=>"http://www.github.com/waxter013", :target=>"_blank"}

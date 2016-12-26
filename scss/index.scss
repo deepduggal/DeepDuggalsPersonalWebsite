@@ -38,6 +38,7 @@ body {
   color: #F6F8E2;
   animation: appear 1s;
   font-family: 'Lato', Helvetica, Verdana, sans-serif;
+  overflow-x: hidden;
 
   .landing {
     height: calc(100% - 2em);
@@ -65,11 +66,19 @@ body {
       position: absolute;
       top: calc(25% - 2em);
       left: 0;
+      font-style: italic;
       color: #F6F8E2;
+      text-shadow: 4px 4px red;
 
-      h4{
-        padding-top: 1em;
+      h3 {
+        padding-top: 0.6em;
       }
+    }
+
+    .fa-caret-down {
+      position: absolute;
+      top: calc(100% - 1.3em);
+      left: 50%;
     }
 
     .bounce {
