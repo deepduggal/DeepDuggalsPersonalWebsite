@@ -1,6 +1,14 @@
+/*
+  URGENT TODO - Fix bugs: 
+    1. Disallow   double operators (3**=43), disallow divide by zero
+    2. Make 'equals' button work
+    3. Allow double digits. Currently, pressing two nums in a row doesn't work. 
+
+*/
+
 /** TODO: 
  *    - Listen for keyboard events, Press corresponding button on keypress. 
- *    - Add error handling. ex. can't do do 3**=43 or divide by zero. 
+ *    - Add error handling. ex. can't do do or divide by zero. 
  */
 // View
 var equationUI = document.getElementById('equation');
@@ -32,20 +40,28 @@ function setSolution(val) {
 function bttnHandler(val) {
     //Handle digits
     if (isNum(val)) {
+      splitEqn(getEquation()); //reset numbers and operators
+      //If last input was an operator
+      if(isOperator(getEquation().slice(-1)) ) {
+        setSolution(''); //reset solution
+      }
       setSolution(getSolution() + val);
-      setEquation(getSolution());
     }
     //Handle simple functions
     else if (val === '/' || val === '*' || val === '-' || val === '+') {
-      setEquation(getEquation() + val); //Add oper to equation
+      //Set equation
+      setEquation((numbers.length === 0)? getSolution() + val: getEquation() + getSolution() + val);
+      //Prep for solving
       splitEqn(getEquation());
-      var result = solveEqn(numbers, operators);
+      //Solve eqn
+      var result = solveEqn(numbers, operators); //solve eqn
+      console.log('numbers: ' + numbers);
+      console.log('operators: ' + operators);
       setSolution(result);
-      // setEquation(getSolution());
     }
     //Handle modifier operations/special functions
     else if (val === '.') {
-        if (currentNum.indexOf('.') == -1) currentNum += val;
+      if (currentNum.indexOf('.') == -1) currentNum += val;
     } else if (val === 'clear') {
         setEquation('');
         setSolution('');
@@ -57,6 +73,13 @@ function bttnHandler(val) {
         setSolution(getSolution()*getSolution());
     } else if (val === 'backspace') {
         setSolution(getSolution().slice(0, -1));
+    } else if (val === 'equals') {
+        setEquation(getEquation() + getSolution());
+        //Prep for solving
+        splitEqn(getEquation());
+        //Solve eqn
+        var result = solveEqn(numbers, operators); //solve eqn
+        setSolution(result);
     }
 }
 
@@ -120,7 +143,7 @@ document.body.onclick = function(event) {
         multiply: '*',
         subtract: '-',
         add: '+',
-        equals: '=',
+        equals: 'equals',
 
         //Do stuff to currentNum
         clear: 'clear', //equation = "", currentNumber = ""
@@ -129,8 +152,6 @@ document.body.onclick = function(event) {
         squared: 'squared', //currentNum*currentNum
         backspace: 'backspace'
     }
-
-    console.log('bttnName: ' + currentElemName);
 
     //If a valid button (in buttonNames) was pressed, 
     if (buttonNames.hasOwnProperty(currentElemName)) {
@@ -141,19 +162,20 @@ document.body.onclick = function(event) {
 
 //Solves an equation string, which is simply a lot of simple operations in one string
 function solveEqn(nums, ops) {
-  if(numbers.length < 2) {
-    return '';
-  }
   var subResult; //Store the result of the previous Simple Operation
 
   subResult = solveSimple(nums[0], ops[0], nums[1]);
   for(var i = 1, len = operators.length; i < len; i++) {
-    subResult = solveSimple(subResult, ops[i], nums[i+1]);
+    if(nums[i+1]) {
+      subResult = solveSimple(subResult, ops[i], nums[i+1]);
+    }
   }
   return subResult;
 }
 //Does an operation between two numbers (a simple operation)
 function solveSimple(num1, oper, num2) {
+  num1 = parseInt(num1);
+  num2 = parseInt(num2);
   // if there's no second number, return empty string
   if(!num2)
     return '';
@@ -189,15 +211,10 @@ function splitEqn(eqn) {
     return 'started with operator';
   }
   for(var i = 0, operPos = 0, len = eqn.length, char = ''; i < len; i++) {
-    char = eqn.charAt(operPos); //Cache current char
-    console.log('----------------');
-    console.log('i: ' + i);
-    console.log('operPos: ' + operPos)
-    console.log('char: ' + char);
+    char = eqn.charAt(i); //Cache current char
 
     //Handle Operators
     if (isOperator(char)) {
-      console.log('isOper');
       //Logical Error Handling - Operation on an operation
       if(isOperator(eqn.charAt(i - 1))) {
         errorMsg("Can't do two operators in a row. ");
@@ -211,7 +228,6 @@ function splitEqn(eqn) {
     }
     //Handle Nums
     else if (isNum(char)) {
-      console.log('isNum');
       //Logical Error Handling - Divide by Zero
       if(char === '0' && eqn.charAt(i - 1) === '/') {
         errorMsg("Can't divide by zero. ");
@@ -231,8 +247,6 @@ function splitEqn(eqn) {
       return 'unknown error';
     }
   }
-  console.log('numbers: ' + numbers);
-  console.log('operators: ' + operators);
 }
 function numOps(eqn) {
   var num = 0;
@@ -255,5 +269,5 @@ function isOperator(char) {
 function errorMsg(str) {
   var tempSolution = getSolution();
   //Do animation to temporarily show error
-  setSolution(tempSolution);
+  setSolution(str);
 }
