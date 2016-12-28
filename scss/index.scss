@@ -25,7 +25,11 @@ h2 {
   font-size: 4vw;
 }
 a {
+  color: white;
   text-decoration: underline;
+}
+a:visited {
+  color: white;
 }
 a:hover {
   color: #F48FB1;
@@ -67,10 +71,10 @@ body {
       top: calc(25% - 2em);
       left: 0;
       font-style: italic;
-      color: #F6F8E2;
       text-shadow: 4px 4px red;
 
       h3 {
+        color: white;
         padding-top: 0.6em;
       }
     }
@@ -153,12 +157,12 @@ body {
       }
 
       .header:hover {
-        span {
-          color: black;
-          text-decoration: underline;
-        }
+        color: black;
+        // text-decoration: underline;
+
         span:hover {
           color: orange;
+          text-decoration: underline;
         }
       }
 
@@ -230,14 +234,14 @@ body {
   }
 }
 
-@media screen and (min-width: 768) {
+@media screen and (min-width: 768px) {
   .projects {
     .project {
       width: 50%;
     }
   }
 }
-@media screen and (max-width: 768) {
+@media screen and (max-width: 768px) {
   .projects {
     .project {
       width: 100%;
@@ -318,35 +322,3 @@ body {
   from {opacity: 1;}
   to {opacity: 0;}
 }
-
-// @media only screen and (min-width: 768px) {
-//   /* tablets and desktop */
-//   .col-1 {width: 8.33%;}
-//   .col-2 {width: 16.66%;}
-//   .col-3 {width: 25%;}
-//   .col-4 {width: 33.33%;}
-//   .col-5 {width: 41.66%;}
-//   .col-6 {width: 50%;}
-//   .col-7 {width: 58.33%;}
-//   .col-8 {width: 66.66%;}
-//   .col-9 {width: 75%;}
-//   .col-10 {width: 83.33%;}
-//   .col-11 {width: 91.66%;}
-//   .col-12 {width: 100%;}
-// }
-
-// @media only screen and (max-width: 767px) {
-//   /* phones */
-//   .col-1 {width: 8.33%;}
-//   .col-2 {width: 16.66%;}
-//   .col-3 {width: 25%;}
-//   .col-4 {width: 33.33%;}
-//   .col-5 {width: 41.66%;}
-//   .col-6 {width: 100%;}
-//   .col-7 {width: 58.33%;}
-//   .col-8 {width: 66.66%;}
-//   .col-9 {width: 75%;}
-//   .col-10 {width: 83.33%;}
-//   .col-11 {width: 91.66%;}
-//   .col-12 {width: 100%;}
-// }

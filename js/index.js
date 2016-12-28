@@ -159,6 +159,24 @@ window.onresize = function() {
   createPortfolio();
 };
 
+function smoothScroll(selector) {
+  // Scroll to a certain element
+  var elem = document.querySelector(selector), 
+      elemY = elem.getBoundingClientRect().top,
+      currentY = window.scrollY;
+
+
+  var timer = setInterval(function() {
+    if (window.scrollY === 'elemY') {
+      clearInterval(timer);
+    }
+    else if (scrollY){
+
+    }
+  }, 100);
+
+
+}
 // Set didScroll
 window.onscroll = function() {
   didScroll = true;
