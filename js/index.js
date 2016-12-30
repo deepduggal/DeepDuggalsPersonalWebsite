@@ -181,7 +181,7 @@ function smoothScroll(selector) {
 window.onscroll = function() {
   didScroll = true;
 };
-
+  
 //Handle scrolling
 setInterval(function() {
   if (didScroll) {
