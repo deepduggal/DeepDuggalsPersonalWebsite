@@ -30,51 +30,65 @@
     %link{:rel=>"stylesheet", :href=>"http://fonts.googleapis.com/css?family=Lato"}
     %link{:rel=>"stylesheet", :href=>"css/index.css"}
   %body
-    %section.landing
-      .dim
-      .text
-        %h1.animated.slideInLeft
-          DEEP DUGGAL
-        %h2.animated.slideInRight Front End Developer
-        %h3.animated.rollIn
-          I make engaging, responsive websites.
-          %p
-            Check out my
-            %a{:href=>"http://deepduggal.me/res/docs/resume.pdf"}resume
-            or
-            %a{:href=>"#contact"}contact
-            me. 
-      %i.fa-2x.fa.fa-caret-down.animated.infinite.bounce{:'aria-hidden'=>"true"}
-    %section.projects
-    %section.links
-      %a.link{:href=>"http://www.github.com/waxter013", :target=>"_blank"}
-        %img{:src=>"res/logos/GitHub_Logo.png"}
-      %a.link{:href=>"http://www.codepen.io/waxter013", :target=>"_blank"}
-        %img{:src=>"res/logos/codepen_logo.svg"}
-    %section.contact#contact
-      %form{:action => "https://www.enformed.io/33t716tv", :method => "POST"}
-        %h1.header
-          Get in Touch!
-          %span
-            (Woo hoo!)
-        .formItem
-          %label{:for=>"name"}
-            Who are you?
-          %input{:name => "name", :type => "text", :placeholder => "Name"}
-        .formItem
-          %label{:for=>"email"}
-            How can I reach you?
-          %input{:name => "email", :type => "text", :placeholder => "Email"}
-        .formItem
-          %label{:for=>"message"}
-            How can I help you?
-          %input{:name => "message", :type => "text", :placeholder => "Message"}
-        .formItem 
-          %input{:type=>"hidden", :name=>"*redirect", :value=>"https://www.yoursite.com"}
-          %input{:name => "*reply", :type => "hidden", :value => "deep@deepduggal.me"}
-          %input{:name => "*honeypot", :type => "hidden"}/
-          %input{:name => "*subject", :type => "hidden", :value => "Message from DeepDuggal.me"}
-          %input{:name => "*redirect", :type => "hidden", :value => "http://deepduggal.me"}
-        .formItem
-          %input{:type => "submit", :value => "Finish!"}
+    %nav
+      %a.home.bttn.active{:href=>"#"}
+        %i.fa.fa-home.fa-lg
+        Home
+      %a.portfolio.bttn{:href=>"#projects"}
+        %i.fa.fa-code.fa-lg
+        Portfolio
+      %a.about.bttn{:href=>"about.html"}
+        %i.fa.fa-smile-o.fa-lg
+        About
+      %a.contact.bttn{:href=>"#contactForm"}
+        %i.fa.fa-envelope-o.fa-lg
+        Contact
+    .main
+      %section.landing
+        .dim
+        .text
+          %h1.animated.slideInLeft
+            DEEP DUGGAL
+          %h2.animated.slideInRight Front End Developer
+          %h3.animated.rollIn
+            I make engaging, responsive websites.
+            %p
+              Check out my
+              %a{:href=>"http://deepduggal.me/res/docs/resume.pdf"}resume
+              or
+              %a{:href=>"#contactForm"}contact
+              me. 
+        %i.fa-2x.fa.fa-caret-down.animated.infinite.bounce{:'aria-hidden'=>"true"}
+      %section.projects#projects
+      %section.links
+        %a.link{:href=>"http://www.github.com/waxter013", :target=>"_blank"}
+          %img{:src=>"res/logos/GitHub_Logo.png"}
+        %a.link{:href=>"http://www.codepen.io/waxter013", :target=>"_blank"}
+          %img{:src=>"res/logos/codepen_logo.svg"}
+      %section.contactForm#contactForm
+        %form{:action => "https://www.enformed.io/33t716tv", :method => "POST"}
+          %h1.header
+            Get in Touch!
+            %span
+              (Woo hoo!)
+          .formItem
+            %label{:for=>"name"}
+              Who are you?
+            %input{:name => "name", :type => "text", :placeholder => "Name"}
+          .formItem
+            %label{:for=>"email"}
+              How can I reach you?
+            %input{:name => "email", :type => "text", :placeholder => "Email"}
+          .formItem
+            %label{:for=>"message"}
+              How can I help you?
+            %input{:name => "message", :type => "text", :placeholder => "Message"}
+          .formItem 
+            %input{:type=>"hidden", :name=>"*redirect", :value=>"https://www.yoursite.com"}
+            %input{:name => "*reply", :type => "hidden", :value => "deep@deepduggal.me"}
+            %input{:name => "*honeypot", :type => "hidden"}/
+            %input{:name => "*subject", :type => "hidden", :value => "Message from DeepDuggal.me"}
+            %input{:name => "*redirect", :type => "hidden", :value => "http://deepduggal.me"}
+          .formItem
+            %input{:type => "submit", :value => "Finish!"}
     %script{:src=>"js/index-dist.js"}

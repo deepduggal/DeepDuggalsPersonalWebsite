@@ -1,3 +1,6 @@
+//Imports
+@import 'colors', 'rounded-scrollbar', 'vertical-navbar';
+
 // Variables
 $dimColor: black;
 $speed: 0.5s;
@@ -5,7 +8,7 @@ $dim: 0.6;
 
 // Override Defaults
 html, body {
-  min-height: 100%;
+  height: 100%;
   width: 100%;
   margin: 0;
 }
@@ -31,7 +34,8 @@ a {
 a:visited {
   color: white;
 }
-a:hover {
+
+a:hover, a:active {
   color: #F48FB1;
   cursor: pointer;
 }
@@ -42,7 +46,6 @@ body {
   color: #F6F8E2;
   animation: appear 1s;
   font-family: 'Lato', Helvetica, Verdana, sans-serif;
-  overflow-x: hidden;
 
   .landing {
     height: calc(100% - 2em);
@@ -123,7 +126,7 @@ body {
         transition: all 0.3s;
       }
     }
-    .link:hover {
+    .link:hover, link:active {
       img {
         -moz-transform: scale(1.1);
         -webkit-transform: scale(1.1);
@@ -132,7 +135,7 @@ body {
     }
 
   }
-  .contact {
+  .contactForm {
     width: calc(100% - 1.5em);
     margin: 0.75em;
 
@@ -155,11 +158,11 @@ body {
         span {font-size: 2em;font-size:2vw;}
       }
 
-      .header:hover {
+      .header:hover, .header:active {
         color: black;
         // text-decoration: underline;
 
-        span:hover {
+        span:hover, span:active {
           color: orange;
           text-decoration: underline;
         }
@@ -202,7 +205,7 @@ body {
             color: black;
             outline: none;
           }
-          input[type=text]:focus, input[type=text]:hover {
+          input[type=text]:focus, input[type=text]:hover, input[type=text]:active {
             border: 2px solid black;
             box-shadow: 8px 8px black;
             color: white;
@@ -223,7 +226,7 @@ body {
             outline: none;
             cursor: pointer;
           }
-          input[type=submit]:hover {
+          input[type=submit]:hover, input[type=submit]:active {
             color: black;
             background-color: white;
             box-shadow: 8px 8px black;
@@ -281,7 +284,26 @@ body {
     text-align: center;
   }
 }
-.overlayContainer:hover {
+.overlayContainer:hover, .overlayContainer:active {
+  .background {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  .dim {
+    animation: un-dim $speed;
+    opacity: $dim;
+  }
+  .overlay {
+    animation: show $speed ease;
+    opacity: 1;
+  }
+  .overlay > * {
+    animation: show $speed/2;
+    opacity: 1;
+  }
+}
+.overlayContainer:focus {
   .background {
     -moz-transform: scale(1.2);
     -webkit-transform: scale(1.2);
@@ -304,7 +326,7 @@ body {
 .bttn {
   cursor: pointer;
 }
-.bttn:hover {
+.bttn:hover, .bttn:active {
 
 }
 

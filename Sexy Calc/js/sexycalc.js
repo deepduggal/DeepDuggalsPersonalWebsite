@@ -1,15 +1,12 @@
 /*
-  URGENT TODO - Fix bugs: 
-    1. Disallow   double operators (3**=43), disallow divide by zero
+  TODO - Fix bugs: 
+    1. Disallow double operators (3**=43), disallow divide by zero
     2. Make 'equals' button work
     3. Allow double digits. Currently, pressing two nums in a row doesn't work. 
-
+    4. Fix decimal button
+    5. Fix KeyboardEvent Handler
 */
 
-/** TODO: 
- *    - Listen for keyboard events, Press corresponding button on keypress. 
- *    - Add error handling. ex. can't do do or divide by zero. 
- */
 // View
 var equationUI = document.getElementById('equation');
 var solutionUI = document.getElementById('solution');
@@ -45,7 +42,7 @@ function bttnHandler(val) {
       if(isOperator(getEquation().slice(-1)) ) {
         setSolution(''); //reset solution
       }
-      setSolution(getSolution() + val);
+      setSolution(Number(getSolution() + val));
     }
     //Handle simple functions
     else if (val === '/' || val === '*' || val === '-' || val === '+') {
@@ -55,22 +52,24 @@ function bttnHandler(val) {
       splitEqn(getEquation());
       //Solve eqn
       var result = solveEqn(numbers, operators); //solve eqn
+
       console.log('numbers: ' + numbers);
       console.log('operators: ' + operators);
+
       setSolution(result);
     }
     //Handle modifier operations/special functions
     else if (val === '.') {
-      if (currentNum.indexOf('.') == -1) currentNum += val;
+      setSolution(getSolution() + '.');
     } else if (val === 'clear') {
         setEquation('');
         setSolution('');
     } else if (val === 'percent') {
-        setSolution(getSolution()*100);
+        setSolution(getSolution() * 100);
     } else if (val === 'sqrt') {
         setSolution(Math.sqrt(getSolution()));
     } else if (val === 'squared') {
-        setSolution(getSolution()*getSolution());
+        setSolution(getSolution() * getSolution());
     } else if (val === 'backspace') {
         setSolution(getSolution().slice(0, -1));
     } else if (val === 'equals') {
@@ -93,7 +92,7 @@ document.body.onkeypress = function(event) {
         '-': bttnHandler('-'),
         '+': bttnHandler('+'),
         '=': bttnHandler('='),
-        '.': bttnHandler('.'),
+        'Decimal': bttnHandler('.'),
         0: bttnHandler('0'),
         1: bttnHandler('1'),
         2: bttnHandler('2'),
@@ -110,8 +109,7 @@ document.body.onkeypress = function(event) {
     console.log('key: ' + event.key);
 
     if (keyBindings.hasOwnProperty(event.key)) {
-        currentNum += keyBindings[event.key];
-        solution.value = event.key;
+        keyBindings[event.key];
     }
 }
 
@@ -174,8 +172,8 @@ function solveEqn(nums, ops) {
 }
 //Does an operation between two numbers (a simple operation)
 function solveSimple(num1, oper, num2) {
-  num1 = parseInt(num1);
-  num2 = parseInt(num2);
+  num1 = Number(num1);
+  num2 = Number(num2);
   // if there's no second number, return empty string
   if(!num2)
     return '';

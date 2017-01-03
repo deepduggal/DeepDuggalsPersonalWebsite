@@ -33,73 +33,93 @@
     <link href="css/index.css" rel="stylesheet">
   </head>
   <body>
-    <section class="landing">
-      <div class="dim"></div>
-      <div class="text">
-        <h1 class="animated slideInLeft">
-          DEEP DUGGAL
-        </h1>
-        <h2 class="animated slideInRight">Front End Developer</h2>
-        <h3 class="animated rollIn">
-          I make engaging, responsive websites.
-          <p>
-            Check out my
-            <a href="http://deepduggal.me/res/docs/resume.pdf">resume</a>
-            or
-            <a href="#contact">contact</a>
-            me.
-          </p>
-        </h3>
-      </div>
-      <i aria-hidden="true" class="fa-2x fa fa-caret-down animated infinite bounce"></i>
-    </section>
-    <section class="projects"></section>
-    <section class="links">
-      <a class="link" href="http://www.github.com/waxter013" target="_blank">
-        <img src="res/logos/GitHub_Logo.png">
+    <nav>
+      <a class="home bttn active" href="#">
+        <i class="fa fa-home fa-lg"></i>
+        Home
       </a>
-      <a class="link" href="http://www.codepen.io/waxter013" target="_blank">
-        <img src="res/logos/codepen_logo.svg">
+      <a class="portfolio bttn" href="#projects">
+        <i class="fa fa-code fa-lg"></i>
+        Portfolio
       </a>
-    </section>
-    <section class="contact" id="contact">
-      <form action="https://www.enformed.io/33t716tv" method="POST">
-        <h1 class="header">
-          Get in Touch!
-          <span>
-            (Woo hoo!)
-          </span>
-        </h1>
-        <div class="formItem">
-          <label for="name">
-            Who are you?
-          </label>
-          <input name="name" placeholder="Name" type="text">
+      <a class="about bttn" href="about.html">
+        <i class="fa fa-smile-o fa-lg"></i>
+        About
+      </a>
+      <a class="contact bttn" href="#contactForm">
+        <i class="fa fa-envelope-o fa-lg"></i>
+        Contact
+      </a>
+    </nav>
+    <div class="main">
+      <section class="landing">
+        <div class="dim"></div>
+        <div class="text">
+          <h1 class="animated slideInLeft">
+            DEEP DUGGAL
+          </h1>
+          <h2 class="animated slideInRight">Front End Developer</h2>
+          <h3 class="animated rollIn">
+            I make engaging, responsive websites.
+            <p>
+              Check out my
+              <a href="http://deepduggal.me/res/docs/resume.pdf">resume</a>
+              or
+              <a href="#contactForm">contact</a>
+              me.
+            </p>
+          </h3>
         </div>
-        <div class="formItem">
-          <label for="email">
-            How can I reach you?
-          </label>
-          <input name="email" placeholder="Email" type="text">
-        </div>
-        <div class="formItem">
-          <label for="message">
-            How can I help you?
-          </label>
-          <input name="message" placeholder="Message" type="text">
-        </div>
-        <div class="formItem">
-          <input name="*redirect" type="hidden" value="https://www.yoursite.com">
-          <input name="*reply" type="hidden" value="deep@deepduggal.me">
-          <input name="*honeypot" type="hidden">
-          <input name="*subject" type="hidden" value="Message from DeepDuggal.me">
-          <input name="*redirect" type="hidden" value="http://deepduggal.me">
-        </div>
-        <div class="formItem">
-          <input type="submit" value="Finish!">
-        </div>
-      </form>
-    </section>
+        <i aria-hidden="true" class="fa-2x fa fa-caret-down animated infinite bounce"></i>
+      </section>
+      <section class="projects" id="projects"></section>
+      <section class="links">
+        <a class="link" href="http://www.github.com/waxter013" target="_blank">
+          <img src="res/logos/GitHub_Logo.png">
+        </a>
+        <a class="link" href="http://www.codepen.io/waxter013" target="_blank">
+          <img src="res/logos/codepen_logo.svg">
+        </a>
+      </section>
+      <section class="contactForm" id="contactForm">
+        <form action="https://www.enformed.io/33t716tv" method="POST">
+          <h1 class="header">
+            Get in Touch!
+            <span>
+              (Woo hoo!)
+            </span>
+          </h1>
+          <div class="formItem">
+            <label for="name">
+              Who are you?
+            </label>
+            <input name="name" placeholder="Name" type="text">
+          </div>
+          <div class="formItem">
+            <label for="email">
+              How can I reach you?
+            </label>
+            <input name="email" placeholder="Email" type="text">
+          </div>
+          <div class="formItem">
+            <label for="message">
+              How can I help you?
+            </label>
+            <input name="message" placeholder="Message" type="text">
+          </div>
+          <div class="formItem">
+            <input name="*redirect" type="hidden" value="https://www.yoursite.com">
+            <input name="*reply" type="hidden" value="deep@deepduggal.me">
+            <input name="*honeypot" type="hidden">
+            <input name="*subject" type="hidden" value="Message from DeepDuggal.me">
+            <input name="*redirect" type="hidden" value="http://deepduggal.me">
+          </div>
+          <div class="formItem">
+            <input type="submit" value="Finish!">
+          </div>
+        </form>
+      </section>
+    </div>
     <script src="js/index-dist.js"></script>
   </body>
 </html>
