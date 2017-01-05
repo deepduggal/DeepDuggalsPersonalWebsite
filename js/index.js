@@ -48,6 +48,12 @@ var projects = {
   //   url: '',
   //   img: 'http://placehold.it/800x800'
   // }, 
+  catClicker: {
+    name: 'Cat Clicker Game',
+    description: 'A strangely addicting game involving clicking a cat repeatedly.',
+    url: 'portfolio/Cat%20Clicker/clicker.html',
+    img: 'portfolio/Cat%20Clicker/screenshot.png'
+  },
   sexyCalc: {
     name: 'Sexy Calc',
     description: 'A beautiful and responsive calculator. ',

@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  text-align: center;
+  background-color: orange;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+body h1 {
+  height: 1em;
+  margin: 0.5rem;
+}
+
+body img {
+  max-height: 100%;
+  width: 100%;
+  justify-content: center;
+  /*object-fit: cover;*/
+}
+
+body h3 {
+  width: 100%;
+  position: fixed;
+  top: calc(50% - 1.6em);
+  left: 0;
+  font-size: 20em;
+}

@@ -242,6 +242,9 @@ body {
     .project {
       width: 50%;
     }
+    .project:nth-child(1) {
+      width: 100%;
+    }
   }
 }
 @media screen and (max-width: 768px) {
@@ -261,9 +264,9 @@ body {
     width: 100%;
     position: relative;
     object-fit: cover;
-    -moz-transition: all 0.1s;
-    -webkit-transition: all 0.1s;
-    transition: all 0.1s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
   }
   .dim {
     max-height: 100%;
