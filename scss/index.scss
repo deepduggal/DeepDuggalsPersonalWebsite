@@ -136,13 +136,14 @@ body {
 
   }
   .contactForm {
-    width: calc(100% - 1.5em);
-    margin: 0.75em;
+    height: 100%;
+    width: calc(100%);
 
     form {
-      width: calc(100% - 3);
+      width: calc(100% - 3em);
       min-height: 100%;
-      border: 1em black solid;
+      border: 1em white solid;
+      margin: 0;
       padding: 0.5em; 
       font-family: "Lato", Helvetica, sans-serif;
       overflow: auto;
