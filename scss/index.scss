@@ -260,9 +260,9 @@ body {
     width: 100%;
     position: relative;
     object-fit: cover;
-    -moz-transition: all 0.375s;
-    -webkit-transition: all 0.375s;
-    transition: all 0.375s;
+    -moz-transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
   }
   .dim {
     max-height: 100%;
@@ -275,35 +275,19 @@ body {
     opacity: 0;
   }
   .overlay {
-    height: 100%;
+    height: 50%;
     width: 100%;
     position: relative;
     top: -200%;
     opacity: 0;
+    padding-top: calc(50% - 1em);
+    font-size: 5rem;
     color: white;
     text-align: center;
+    overflow: auto;
   }
 }
-.overlayContainer:hover, .overlayContainer:active {
-  .background {
-    -moz-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  .dim {
-    animation: un-dim $speed;
-    opacity: $dim;
-  }
-  .overlay {
-    animation: show $speed ease;
-    opacity: 1;
-  }
-  .overlay > * {
-    animation: show $speed/2;
-    opacity: 1;
-  }
-}
-.overlayContainer:focus {
+.overlayContainer:hover, .overlayContainer:focus, .overlayContainer:active {
   .background {
     -moz-transform: scale(1.2);
     -webkit-transform: scale(1.2);
