@@ -1,0 +1,64 @@
+.overlayContainer {
+  overflow: hidden; }
+  .overlayContainer .background {
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+  .overlayContainer .dim {
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    background: black no-repeat center;
+    background-size: cover;
+    position: relative;
+    top: -100%;
+    opacity: 0; }
+  .overlayContainer .overlay {
+    height: 50%;
+    width: 100%;
+    position: relative;
+    top: -200%;
+    opacity: 0;
+    padding-top: calc(50% - 1em);
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+    overflow: auto; }
+
+.overlayContainer:hover .background, .overlayContainer:focus .background, .overlayContainer:active .background {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2); }
+
+.overlayContainer:hover .dim, .overlayContainer:focus .dim, .overlayContainer:active .dim {
+  -webkit-animation: un-dim 0.5s;
+  animation: un-dim 0.5s;
+  opacity: 0.6; }
+
+.overlayContainer:hover .overlay, .overlayContainer:focus .overlay, .overlayContainer:active .overlay {
+  -webkit-animation: show 0.5s ease;
+  animation: show 0.5s ease;
+  opacity: 1; }
+
+.overlayContainer:hover .overlay > *, .overlayContainer:focus .overlay > *, .overlayContainer:active .overlay > * {
+  -webkit-animation: show 0.25s;
+  animation: show 0.25s;
+  opacity: 1; }
+
+@-webkit-keyframes un-dim {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.6; } }
+
+@keyframes un-dim {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.6; } }

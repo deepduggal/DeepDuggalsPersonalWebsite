@@ -1,0 +1,66 @@
+// Variables
+$dimColor: black;
+$speed: 0.2s;
+$dim: 0.6;
+
+.overlayContainer {
+  overflow: hidden;
+  
+  .background {
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+    -moz-transition: all $speed;
+    -webkit-transition: all $speed;
+    transition: all $speed;
+  }
+  .dim {
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    background: $dimColor no-repeat center;
+    background-size: cover;
+    position: relative;
+    top: -100%;
+    opacity: 0;
+  }
+  .overlay {
+    height: 50%;
+    width: 100%;
+    position: relative;
+    top: -200%;
+    opacity: 0;
+    padding-top: calc(50% - 1em);
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+    overflow: auto;
+  }
+}
+.overlayContainer:hover, .overlayContainer:focus, .overlayContainer:active {
+  .background {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  .dim {
+    animation: un-dim $speed;
+    opacity: $dim;
+  }
+  .overlay {
+    animation: show $speed ease;
+    opacity: 1;
+  }
+  .overlay > * {
+    animation: show $speed/2;
+    opacity: 1;
+  }
+}
+
+//Animations
+@keyframes un-dim {
+  from {opacity: 0;}
+  to {opacity: $dim;}
+}
