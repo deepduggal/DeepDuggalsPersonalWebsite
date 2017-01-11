@@ -9,8 +9,7 @@
 ////////////////////////////
 
 // Store elements and values
-var h1 = document.body.getElementsByClassName('bounce')[0],
-  img = document.createElement('img'),
+var img = document.createElement('img'),
   height = window.innerHeight,
   width = window.innerWidth, 
   // Scroll Values

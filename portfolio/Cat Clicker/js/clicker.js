@@ -1,3 +1,25 @@
+var dataUrl = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny+cat',
+      giphyData, 
+      gifUrl, 
+      cat1;
+
+function getJSON(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url);
+  xhr.send(null);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        callback(JSON.parse(xhr.responseText)['data']['image_url']);
+      }
+      else {
+        console.log('Error: ' + xhr.status);
+      }
+    }
+  };
+}
+
 function Cat(name, img) {
   this.name = name;
   this.img = img;
@@ -32,5 +54,7 @@ Cat.prototype.appendCat = function(someKitty) {
   document.body.appendChild(container);
 }
 
-var cat1 = new Cat('Ultimate Cat Clicker', 'http://www.catgifpage.com/ui/images/grumpy.png')
-Cat.prototype.appendCat(cat1);
+getJSON(dataUrl, function(url) {
+  cat1 = new Cat('Ultimate Cat Clicker', url)
+  Cat.prototype.appendCat(cat1);
+});
