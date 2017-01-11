@@ -30,11 +30,11 @@ var projects = {
   //   url: '',
   //   img: 'http://placehold.it/800x800'
   // }, 
-  catClicker: {
-    name: 'Cat Clicker Game',
-    description: 'A strangely addicting game involving clicking a cat repeatedly.',
-    url: 'portfolio/Cat%20Clicker/clicker.html',
-    img: 'portfolio/Cat%20Clicker/screenshot.png'
+  withLoveBani: {
+    name: 'With Love, Bani',
+    description: 'A High-End, Designer Fashion Website',
+    url: 'http://withlovebani.com',
+    img: 'http://deepduggal.me/res/with-love-bani-screenshot.gif'
   },
   sexyCalc: {
     name: 'Sexy Calc',
@@ -47,6 +47,12 @@ var projects = {
     description: 'A simple, but attractive sample digital services website. Made with Bootstrap and Font Awesome. ',
     url: 'Digital%20Services%20Website/digitalservices.html',
     img: 'Digital%20Services%20Website/screenshot.gif'
+  },
+  catClicker: {
+    name: 'Cat Clicker Game',
+    description: 'A strangely addicting game involving clicking a cat repeatedly.',
+    url: 'portfolio/Cat%20Clicker/clicker.html',
+    img: 'portfolio/Cat%20Clicker/screenshot.png'
   }
 }; 
 
