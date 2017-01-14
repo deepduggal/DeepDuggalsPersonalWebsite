@@ -92,7 +92,7 @@ body {
     background: #343434;
 
     .project {
-      height: 50%;
+      height: 25%;
       background-size: 'cover';
       float: 'left';
       color: 'white';
@@ -233,11 +233,8 @@ body {
 
 @media screen and (min-width: 768px) {
   .projects {
-    .project:not(:first-child) {
-      width: 50%;
-    }
-    .project:first-child {
-      width: 100%;
+    .project {
+      width: 25%;
     }
   }
 }
