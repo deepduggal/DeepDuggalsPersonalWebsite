@@ -297,6 +297,6 @@ function errorMsg(str) {
 window.onload = function() {
   var calc = document.getElementsByClassName('calculator')[0];
   setTimeout(function() {
-    zenscroll.center(calc);
+    zenscroll.center(calc, 250);
   }, 2000);
 };
