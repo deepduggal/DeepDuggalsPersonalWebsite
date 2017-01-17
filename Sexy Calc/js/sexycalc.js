@@ -1,10 +1,10 @@
 /*
-  TODO - Fix bugs: 
-    1. Disallow double operators (3**=43), disallow divide by zero
-    2. Make 'equals' button work
-    3. Allow double digits. Currently, pressing two nums in a row doesn't work. 
-    4. Fix decimal button
-    5. Fix KeyboardEvent Handler
+  TODO: 
+    - Fix errorMsg();
+    - Fix decimal button
+    - Fix KeyboardEvent Handler
+    - Fix backspace key
+    - Change CSS: 
 */
 
 // View
@@ -15,7 +15,8 @@ var solutionUI = document.getElementById('solution');
 var equation = '', 
     solution = '', 
     numbers = [], 
-    operators = [];
+    operators = [],
+    previousVal = '';
 
 /* Getters and Setters - Update Model and View Simultaneously*/
 function getEquation() {
@@ -31,47 +32,60 @@ function getSolution() {
 function setSolution(val) {
   window.solution = val;
   window.solutionUI.value = val;
-} 
+}
 
 // Controller
 function bttnHandler(val) {
     //Handle digits
     if (isNum(val)) {
-      splitEqn(getEquation()); //reset numbers and operators
       //If last input was an operator
-      if(isOperator(getEquation().slice(-1)) ) {
+      if(isOperator(previousVal)) {
         setSolution(''); //reset solution
       }
+      if(val === '0') {
+        if(previousVal === '/') {
+          errorMsg('Cannot divide by zero');
+        }
+      }
       setSolution(Number(getSolution() + val));
+      previousVal = val;
     }
     //Handle simple functions
-    else if (val === '/' || val === '*' || val === '-' || val === '+') {
+    else if (isOperator(val)) {
+      //Error Handling: Operating on an operator
+      if(isOperator(previousVal)) {
+        setSolution(getSolution().slice(0, -1));
+        errorMsg("Cannot do " + "'" + previousVal + val + "'" + '. ');
+      }
       //Set equation
       setEquation((numbers.length === 0)? getSolution() + val: getEquation() + getSolution() + val);
       //Prep for solving
       splitEqn(getEquation());
       //Solve eqn
       var result = solveEqn(numbers, operators); //solve eqn
-
-      console.log('numbers: ' + numbers);
-      console.log('operators: ' + operators);
-
       setSolution(result);
+      previousVal = val;
     }
     //Handle modifier operations/special functions
     else if (val === '.') {
       setSolution(getSolution() + '.');
+      previousVal = val;
     } else if (val === 'clear') {
         setEquation('');
         setSolution('');
+        previousVal = val;
     } else if (val === 'percent') {
         setSolution(getSolution() * 100);
+        previousVal = val;
     } else if (val === 'sqrt') {
         setSolution(Math.sqrt(getSolution()));
+        previousVal = val;
     } else if (val === 'squared') {
         setSolution(getSolution() * getSolution());
+        previousVal = val;
     } else if (val === 'backspace') {
         setSolution(getSolution().slice(0, -1));
+        previousVal = val;
     } else if (val === 'equals') {
         setEquation(getEquation() + getSolution());
         //Prep for solving
@@ -79,39 +93,40 @@ function bttnHandler(val) {
         //Solve eqn
         var result = solveEqn(numbers, operators); //solve eqn
         setSolution(result);
+        previousVal = val;
     }
 }
 
 //TODO: Fix keypress listener. Change from onkeypress to onkeydown. Adjust keybinding keys. 
 //TODO: Change keybindings backspace key to ASCII value of backspace button. 
 //Keypress Listener
-document.body.onkeypress = function(event) {
-    var keyBindings = {
-        '/': bttnHandler('/'),
-        '*': bttnHandler('*'),
-        '-': bttnHandler('-'),
-        '+': bttnHandler('+'),
-        '=': bttnHandler('='),
-        'Decimal': bttnHandler('.'),
-        0: bttnHandler('0'),
-        1: bttnHandler('1'),
-        2: bttnHandler('2'),
-        3: bttnHandler('3'),
-        4: bttnHandler('4'),
-        5: bttnHandler('5'),
-        6: bttnHandler('6'),
-        7: bttnHandler('7'),
-        8: bttnHandler('8'),
-        9: bttnHandler('9'),
-        backspace: bttnHandler('backspace')
-    }
+// document.body.onkeypress = function(event) {
+//     var keyBindings = {
+//         '/': bttnHandler('/'),
+//         '*': bttnHandler('*'),
+//         '-': bttnHandler('-'),
+//         '+': bttnHandler('+'),
+//         '=': bttnHandler('='),
+//         'Decimal': bttnHandler('.'),
+//         0: bttnHandler('0'),
+//         1: bttnHandler('1'),
+//         2: bttnHandler('2'),
+//         3: bttnHandler('3'),
+//         4: bttnHandler('4'),
+//         5: bttnHandler('5'),
+//         6: bttnHandler('6'),
+//         7: bttnHandler('7'),
+//         8: bttnHandler('8'),
+//         9: bttnHandler('9'),
+//         backspace: bttnHandler('backspace')
+//     }
 
-    console.log('key: ' + event.key);
+//     console.log('key: ' + event.key);
 
-    if (keyBindings.hasOwnProperty(event.key)) {
-        keyBindings[event.key];
-    }
-}
+//     if (keyBindings.hasOwnProperty(event.key)) {
+//         keyBindings[event.key];
+//     }
+// }
 
 //Button Click Listener
 document.body.onclick = function(event) {
@@ -255,14 +270,12 @@ function numOps(eqn) {
   }
   return num;
 }
-
 function isNum(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 function isOperator(char) {
   return char === '*' || char === '/' || char === '+' || char === '-';
 }
-
 //Set equation to error message
 function errorMsg(str) {
   var tempSolution = getSolution();
