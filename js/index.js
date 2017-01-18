@@ -38,21 +38,21 @@ var projects = {
   },
   sexyCalc: {
     name: 'Sexy Calc',
-    description: 'A beautiful and responsive calculator. ',
-    url: 'Sexy%20Calc/sexycalc.html',
-    img: 'Sexy%20Calc/sexycalc.png'
+    description: "The world's most beautiful, mobile-friendly online calculator.",
+    url: 'http://sexycalc.com',
+    img: 'http://deepduggal.me/res/sexycalc.png'
   }, 
   digitalServices: {
     name: 'Digital Services Website',
     description: 'A simple, but attractive sample digital services website. Made with Bootstrap and Font Awesome. ',
     url: 'Digital%20Services%20Website/digitalservices.html',
-    img: 'Digital%20Services%20Website/screenshot.gif'
+    img: 'http://deepduggal.me/Digital%20Services%20Website/screenshot.gif'
   },
   catClicker: {
     name: 'Cat Clicker Game',
     description: 'A strangely addicting game involving clicking a cat repeatedly.',
     url: 'portfolio/Cat%20Clicker/clicker.html',
-    img: 'portfolio/Cat%20Clicker/screenshot.png'
+    img: 'http://deepduggal.me/portfolio/Cat%20Clicker/screenshot.png'
   }
 }; 
 
