@@ -30,8 +30,11 @@
     <link href="css/index.css" rel="stylesheet">
   </head>
   <body>
-    <audio controls="controls">
-      <source autoplay="autoplay" src="http://cf-media.sndcdn.com/fLTorX3bE8VS?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZkxUb3JYM2JFOFZTIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNDg4Njc5NTI2fX19XX0_&amp;Signature=cgqK0R9ko-Iv4AP68G8~~9xSTVsrVtNw4ZMCuoHviKaE19~-X7Zs0p9vauzft4rLt5U0rcvw1ZWdGhe3eeDuXrbD06BZvKxQoo9-2RisUQH2morPpd7SfQ~CLWYzLi5tvAhCApTAjVZDSipyrb84Wq7dMI-5jDkVy6RXS7IpxI0vUaFJX5smT~~kLVP~EprIm8xvnJ6j04JgQKMSxJM2SIRBJei2pQH7YOz178qcvXEYKWVZLul~hDtkMTS-Wik7ZnrMydduvAFZ5dZF4SeMYDYPMuA-usyGkiGhiioLwU6D44Sv7oYYth8wBrCP8Vz11~RMFSNXB9xazjTBUJVBLg__&amp;Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ" type="audio/mp3">
+    <div class="loading">
+      <img src="res/img/loading.gif">
+    </div>
+    <audio loop="loop">
+      <source src="res/audio/yaverclap-the-sky.mp3" type="audio/mp3">
     </audio>
     <nav>
       <a href="http://deepduggal.me/about.html">About</a>
@@ -94,18 +97,19 @@
             </text>
           </svg>
         </div>
+        <div class="addthis_inline_share_toolbox"></div>
       </section>
       <section class="spotlight">
         <div class="spotlightBlock">
           <div class="spotlightItem" onclick="window.location.href='http://sexycalc.com'">
             <h4 class="subheader">HAML, SCSS, JS</h4>
             <h1 class="header">Sexy Calc</h1>
-            <img src="http://deepduggal.me/res/img/project-screenshots/sexy-calc.png">
+            <!-- %img{:src=>"http://deepduggal.me/res/img/project-screenshots/sexy-calc.png"} -->
           </div>
           <div class="spotlightItem" onclick="window.location.href='http://withlovebani.com'">
             <h4 class="subheader">jQuery</h4>
             <h1 class="header">With Love, Bani</h1>
-            <img src="http://deepduggal.me/res/img/project-screenshots/with-love-bani.gif">
+            <!-- %img{:src=>"http://deepduggal.me/res/img/project-screenshots/with-love-bani.gif"} -->
           </div>
           <div class="spotlightItem" onclick="window.location.href=''#">
             <h4 class="subheader">Angular 2</h4>
@@ -115,16 +119,18 @@
           <div class="spotlightItem" onclick="window.location.href='https://waxter013.github.io/Cat-Clicker/'">
             <h4 class="subheader">HTML, CSS, JS, GIPHY API</h4>
             <h1 class="header">Cat Clicker</h1>
-            <img src="http://deepduggal.me/res/img/project-screenshots/cat-clicker.png">
+            <!-- %img{:src=>"http://deepduggal.me/res/img/project-screenshots/cat-clicker.png"} -->
           </div>
           <div class="spotlightItem" onclick="window.location.href='https://waxter013.github.io/Digital-Services-Website/'">
             <h4 class="subheader">Bootstrap</h4>
             <h1 class="header">Digital Services Website</h1>
-            <img src="http://deepduggal.me/res/img/project-screenshots/digital-services-website.gif">
+            <!-- %img{:src=>"http://deepduggal.me/res/img/project-screenshots/digital-services-website.gif"} -->
           </div>
         </div>
       </section>
     </div>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
   <script src="js/index-dist.js"></script>
+  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58bde355b505572b" type="text/javascript"></script>
 </html>

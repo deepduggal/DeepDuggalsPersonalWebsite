@@ -32,6 +32,14 @@ $red: #ef4658;
 $orange: #f4ad49;
 $green: #69de92;
 
+.nohighlight {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
 @mixin size($height: 100%, $width: 100%) {
   height: $height;
   width: $width;
@@ -54,14 +62,31 @@ h1, h2, h3, h4, h5, h6 {
 //CSS
 body {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  
+
+  .loading {
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+    img {
+      height: 128px;
+      width: 128px;
+      position: absolute;
+      top: calc(50% - 56px);
+      left: calc(50% - 56px);
+    }
+  }
   nav {
     display: none;
     height: calc(100% - 4rem - 8rem);
     padding: 4rem; 
     width: calc(100% - 8rem);
     position: fixed;
-    top: 4rem;
+    top: 3.95rem;
     z-index: 1;
     background: black;
     overflow: auto;
@@ -79,8 +104,9 @@ body {
       text-decoration: none;
       text-align: center;
       cursor: pointer;
-      @include transition();
       padding-bottom: 2.5rem;
+      @include transition();
+      @extend .nohighlight;
     }
     a:hover {
       color: white;
@@ -96,7 +122,9 @@ body {
     width: 100%;
     background: black;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-    
+    overflow: hidden;
+    @extend .nohighlight;
+
     a {
       height: 2rem;
       width: 2rem;
@@ -148,6 +176,9 @@ body {
       font-size: 2rem;
       font-weight: bold;
       float: right;
+      color: $yellow;
+      padding: 1rem;
+      cursor: pointer;
     }
   }
   .main {
@@ -159,6 +190,8 @@ body {
     .landing {
       height: 100%;
       width: 100%;
+      @extend .nohighlight;
+      cursor: default;
       
       .background {
         position: absolute;
@@ -179,12 +212,17 @@ body {
       }
       .text {
         position: absolute;
-        
+        overflow: hidden;
         width: 80%;
         margin: calc(10% - 1em) 10% 10% 10%;
         font-size: 3rem;
         font-weight: bolder;
         font-style: italic;
+      }
+      .addthis_inline_share_toolbox {
+        position: fixed;
+        bottom: 0;
+        right: 1rem;
       }
     }
     section.spotlight {
@@ -252,6 +290,9 @@ body {
 
 //Desktop
 @media (min-width: 769px) {
+  body header .name {
+    font-size: 2rem;
+  }
   .spotlightItem {
     .header {
       font-size: 2.5rem;
@@ -357,6 +398,10 @@ body {
 
 //Tablets and Phones
 @media (max-width: 768px) {
+  body header .name {
+    font-size: 1.5rem;
+  }
+
   section.spotlight .spotlightItem {
     width: calc(100% - 4rem);
     
