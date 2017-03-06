@@ -1,275 +1,422 @@
-//Imports
-@import 'colors', 'rounded-scrollbar', 'vertical-navbar', 'overlay';
+//Montserrat Font
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v10/SKK6Nusyv8QPNMtI4j9J2yEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v10/gFXtEMCp1m_YzxsBpKl68iEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v10/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 
+$yellow: #ffda44;
+$yellowDark: #FFCF11;
+$pink: #f04576;
+$blue: #53a2e3;
+$red: #ef4658;
+$orange: #f4ad49;
+$green: #69de92;
 
-// Override Defaults
+@mixin size($height: 100%, $width: 100%) {
+  height: $height;
+  width: $width;
+}
+@mixin transition($attr: all, $time: 0.1s) {
+  -webkit-transition: $attr $time;
+  -moz-transition: $attr $time;
+  -o-transition: $attr $time;
+  transition: $attr $time;
+}
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
 }
-
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  color: white;
 }
 
-h1 {
-  font-size: 4em;
-  font-size: 6vw;
-}
-h2 {
-  font-size: 2.5em;
-  font-size: 4vw;
-}
-a {
-  color: white;
-  text-decoration: underline;
-}
-a:visited {
-  color: white;
-}
-
-a:hover, a:active {
-  color: #F48FB1;
-  cursor: pointer;
-}
-
-// CSS
+//CSS
 body {
-  background-color: #E91E63;
-  color: #F6F8E2;
-  font-family: 'Lato', Helvetica, Verdana, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  
+  nav {
+    display: none;
+    height: calc(100% - 4rem - 8rem);
+    padding: 4rem; 
+    width: calc(100% - 8rem);
+    position: fixed;
+    top: 4rem;
+    z-index: 1;
+    background: black;
+    overflow: auto;
+    animation: disappear 0.15s, appear 0.15s;
 
-  .landing {
-    height: calc(100% - 2em);
-    width: calc(100% - 2em);
-    background: #222 url("http://deepduggal.me/res/sexy-deep.jpg") no-repeat center;
-    background-size: cover;
-    padding: 1em;
-    overflow: hidden;
-
-    .dim {
-      height: calc(100% + 2em);
+    a {
+      height: calc(16.6665% - 3rem);
       width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0.4;
-      background-color: black;
-    }
-
-    .text {
-      height: calc(50% + 2em);
-      width: 70%;
-      padding: 0 15% 0 15%;
-      position: absolute;
-      top: calc(25% - 2em);
-      left: 0;
+      display: block;
+      float: left;
+      font-weight: bold;
+      font-size: 3rem;
       font-style: italic;
-      text-shadow: 4px 4px red;
-
-      h3 {
-        color: white;
-        padding-top: 0.6em;
-      }
+      color: $yellow;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      @include transition();
+      padding-bottom: 2.5rem;
     }
-
-    .fa-caret-down {
-      position: absolute;
-      top: calc(100% - 1.3em);
-      left: 50%;
-    }
-
-    .bounce {
-      position: absolute;
-      width: 8em; 
+    a:hover {
+      color: white;
+      text-decoration: underline;
     }
   }
-  .projects {
-    min-height: 100%;
+
+  header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    height: 3.95rem;
     width: 100%;
-    background: #343434;
-
-    .project {
-      height: 25%;
-      background-size: 'cover';
-      float: 'left';
-      color: 'white';
-      text-align: center; 
-    }
-  }
-  .links {
-    width: calc(100% - 1em);
-    padding: 0.5em;
-    background-color: white;
-    overflow: hidden;
-
-    .link{
-      width: 100%;
+    background: black;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    
+    a {
+      height: 2rem;
+      width: 2rem;
+      padding: 1rem 1rem 1rem 0;
+      display: block;
       float: left;
       cursor: pointer;
-      overflow: hidden;
+      text-align: center;
+      color: $yellow;
+      text-decoration: none;
       
-
-      img {
-        max-height: 50%;
-        width: 95%;
-        -moz-transition: all 0.2s;
-        -webkit-transition: all 0.2s;
-        transition: all 0.2s;
-      }
-    }
-    .link:hover, link:active {
-      img {
-        -moz-transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-      }
-    }
-
-  }
-  .contactForm {
-    height: 100%;
-    width: calc(100%);
-
-    form {
-      width: calc(100% - 3em);
-      min-height: 100%;
-      border: 1em white solid;
-      margin: 0;
-      padding: 0.5em; 
-      font-family: "Lato", Helvetica, sans-serif;
-      overflow: auto;
-      -moz-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s;
-
-      .header {
-        margin: 3% 0 5% calc(50% + 0.5em);
-        font-size: 4em;
-        font-size: 4.5vw;
-        font-style: italic;
-        text-decoration: underline;
-
-
-        span {font-size: 2em;font-size:2vw;}
-      }
-
-      .header:hover, .header:active {
-        color: black;
-        -moz-transition: all 0.3s;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s;
-
-        span:hover, span:active {
-          color: orange;
-          text-decoration: underline;
-          -moz-transition: all 0.3s;
-          -webkit-transition: all 0.3s;
-          transition: all 0.3s;
+      svg {
+        g {
+          path {
+            fill: $yellow;
+          }
         }
       }
+    }
+    a:hover {
+      @include transition(color, 0.15s);
+      color: white;
+      
+      svg {
+        g {
+          path {
+            @include transition(fill, 0.15s);
+            fill: white;
+          }
+        }
+      }
+    }
+    .social {
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .social:first-child {
+      padding: 1rem;
+    }
+    .name {
+      height: 2rem;
+      width: calc(100% - 13rem - 3.25rem - 1.25rem);
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .navTrigger {
+      font-size: 2rem;
+      font-weight: bold;
+      float: right;
+    }
+  }
+  .main {
+    @include size(calc(100%), 100%);
+    position: fixed;
+    top: 0;
+    overflow: auto;
 
-      .formItem {
-        width: calc(100% - 1em);
-        margin-bottom: calc(0.5em);
-        float: left;
-        font-size: 1em;
-        font-size: 3vw;
-        font-weight: 600;
+    .landing {
+      height: 100%;
+      width: 100%;
+      
+      .background {
+        position: absolute;
+        z-index: -2;
+        height: 100%;
+        width: 100%;
+        background: url(http://deepduggal.me/res/img/planning.jpeg);
+        background-size: cover;
+        overflow: hidden;
+      }
+      .dim {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        background: black;
+        opacity: 0.5;
+      }
+      .text {
+        position: absolute;
         
-          label {
-            width: calc(50% - 1em - 4px);
-            padding: calc(0.5em);
-            margin: 2px;
-            display: block;
-            float: left;
-            text-align: right;
-          }
-          input {
-            width: 100%;
-            float: left;
-            font-weight: bold;
-            font-size: 1em;
-            font-size: 3vw;
-            min-height: 1em;
-            margin-bottom: 1.1em;
-            min-height: 1.1em;
-          }
+        width: 80%;
+        margin: calc(10% - 1em) 10% 10% 10%;
+        font-size: 3rem;
+        font-weight: bolder;
+        font-style: italic;
+      }
+    }
+    section.spotlight {
+      @include size();
+      color: black;
+      
+      .spotlightBlock {
+        @include size();
 
-          input[type=text] {
-            width: calc(50% - 1em - 4px);
-            padding: 0.5em;
-            border: 2px solid white;
-            border-radius: 10px;
-            float: left;
-            background-color: inherit;
-            color: black;
-            outline: none;
+        .spotlightItem {
+          display: block;
+          float: left;
+          overflow: hidden;
+          padding: 2rem;
+          @include transition(all, 1s);
+          
+          .header {
+            width: 100%;
+            font-weight: bold;
+            text-transform: uppercase;
           }
-          input[type=text]:focus, input[type=text]:hover, input[type=text]:active {
-            border: 2px solid black;
-            box-shadow: 8px 8px black;
-            color: white;
-            -moz-transition: all 0.3s;
-            -webkit-transition: all 0.3s;
-            transition: all 0.3s;
+          .subheader {
+            width: 100%;
+            text-transform: uppercase;
           }
-          input[type=submit] {
-            position: relative;
-            left: 50%;
-            color: white;
-            font-size: 2em;
-            font-size: 6vw;
-            background-color: black;
-            text-align: center;
-            width: auto; //!important
-            min-height: 1.1em;
-            padding: 1%;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-            cursor: pointer;
-          }
-          input[type=submit]:hover, input[type=submit]:active {
-            color: black;
-            background-color: white;
-            box-shadow: 8px 8px black;
-            -moz-transition: all 0.3s;
-            -webkit-transition: all 0.3s;
-            transition: all 0.3s;
+          img {
+            margin-top: 1rem;
+            object-fit: cover;
           }
         }
+        .spotlightItem:hover {
+          cursor: pointer;
+          
+          .header, .subheader {
+            text-decoration: underline;
+            color: white;
+            @include transition(color, 0.25s);
+          }
+        }
+      }
     }
-    form:hover{
-      border: 1em black solid;
-      -moz-transition: all 1s;
-      -webkit-transition: all 1s;
-      transition: all 1s;
+  }
+}
+.text {
+  margin: 0;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  svg {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    text-transform: uppercase;
+
+    .img-layer {
+      fill: url(#p-img);
+    }
+    .gradient-layer {
+      fill: url(#gr-overlay);
     }
   }
 }
 
-@media screen and (min-width: 768px) {
-  .projects {
-    .project {
-      width: 25%;
+//Desktop
+@media (min-width: 769px) {
+  .spotlightItem {
+    .header {
+      font-size: 2.5rem;
     }
-  }
-}
-@media screen and (max-width: 768px) {
-  .projects {
-    .project {
+    .subheader {
+      font-size: 1.5rem;
+    }
+    img {
+      max-height: calc(100% - 1rem - 2.5rem - 1.5rem);
       width: 100%;
     }
   }
+  .spotlightBlock {
+    .spotlightItem:nth-child(1) {
+      @extend .tall;
+      background: $pink;
+    }
+    .spotlightItem:nth-child(2) {
+      @extend .square;
+      background: $blue;
+
+      img {
+        max-height: 65%;
+        width: 100%;
+      }
+    }
+    .spotlightItem:nth-child(3) {
+      @extend .wide;
+      background: $red;
+    }
+    .spotlightItem:nth-child(4) {
+      @extend .wide;
+      background: $orange;
+    }
+    .spotlightItem:nth-child(5) {
+      @extend .square;
+      background: $green;
+
+      .header {
+        text-align: left;
+      }
+      .subheader {
+        text-align: left;
+      }
+      .img {
+        width: 100%;
+      }
+    }
+  }
+  .spotlightBlock:nth-child(2n) {
+    .spotlightItem:nth-child(1) {
+      @extend .square;
+      background: $blue;
+    }
+    .spotlightItem:nth-child(2) {
+      @extend .wide;
+      background: $red;
+
+      .header {
+        text-align: left;
+      }
+      .subheader {
+        text-align: left;
+      }
+      .img {
+        width: 100%;
+      }
+    }
+    .spotlightItem:nth-child(3) {
+      @extend .wide;
+      background: $orange;
+
+      img {
+        max-height: 65%;
+        width: 100%;
+      }
+    }
+    .spotlightItem:nth-child(4) {
+      @extend .square;
+      background: $green;
+    }
+    .spotlightItem:nth-child(5) {
+      @extend .tall;
+      background: $pink;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  // For SCSS inheritance (@extend)
+  .tall {
+    @include size(calc(100% - 4rem), calc(25% - 4rem));
+    text-align: center;
+  }
+  .wide {
+    @include size(calc(50% - 4rem), calc(50% - 4rem));
+  }
+  .square {
+    @include size(calc(50% - 4rem), calc(25% - 4rem));
+    text-align: center;
+  }
 }
-// @keyframes appear {
-//   from {opacity: 0;}
-//   to {opacity: 1;}
-// }
-// @keyframes disappear {
-//   from {opacity: 1;}
-//   to {opacity: 0;}
-// }
+
+//Tablets and Phones
+@media (max-width: 768px) {
+  section.spotlight .spotlightItem {
+    width: calc(100% - 4rem);
+    
+    .subheader {
+      font-size: 1rem;
+    }
+    .header {
+      font-size: 2rem;
+    }
+    img {
+      max-height: calc(100% - 1rem - 2rem - 1rem);
+      width: 100%;
+    }
+  }
+  //Long, Center, Pink
+  .spotlightItem:nth-child(10n-9), .spotlightItem:nth-child(10n) {
+    background: #f04576;
+
+    .button {
+      margin-top: 25%;
+    }
+  }
+  //Square, Center, Blue
+  .spotlightItem:nth-child(10n-8), .spotlightItem:nth-child(10n-2) {
+    background: #53a2e3;
+    width: 50%;
+  }
+  //Wide, Right, Red
+  .spotlightItem:nth-child(10n-7), .spotlightItem:nth-child(10n-4) {
+    background: #ef4658;
+    width: 25%;
+  }
+  //Square, Center, Yellow
+  .spotlightItem:nth-child(10n-6), .spotlightItem:nth-child(10n-1) {
+    background: #f4ad49;
+    width: 25%;
+  }
+  //Wide, Left, Green
+  .spotlightItem:nth-child(10n-5), .spotlightItem:nth-child(10n-3) {
+      background: #69de92;
+      width: 50%;
+      
+      .header {
+        text-align: left;
+      }
+      .subheader {
+        text-align: left;
+      }
+      .img {
+        width: 100%;
+      }
+    }
+}
+
+// Animations
+@keyframes appear{
+  from{opacity: 0; display: none;}
+  to{opacity: 1; display: block;}
+}
+@keyframes disappear{
+  from{opacity: 1; display: block;}
+  to{opacity: 0; display: none;}
+}
