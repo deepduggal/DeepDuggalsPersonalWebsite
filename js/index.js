@@ -1,40 +1,75 @@
 var navTrigger = document.querySelector('.navTrigger'), 
     nav = document.querySelector('nav'),
-    loading = document.querySelector('.loading'), 
+    header = document.querySelector('header'),
+    loading = document.querySelector('.loading'),
+    main = document.querySelector('.main'),
+    spotlightItems = document.querySelectorAll('.spotlightItem'),
     audio = document.querySelector('audio');
 
 navTrigger.onclick = function() {
+  //hide
   if(nav.style.display === 'block') {
-    nav.style.display = 'none';
+    // TweenMax.to(header, 0.3, {background: 'black'});
+    TweenMax.to(nav, 0.3, {height: 0, paddingTop: 0, display: 'none'});
   }
+  //show
   else {
-    nav.style.display = 'block';
+    // TweenMax.to(header, 0.3, {background: 'black'});
+    TweenMax.to(nav, 0.3, {display: 'block', height: '100%', paddingTop: '4rem'});
+    TweenMax.from('.navItem', 0.3, {right: 0, delay: 0.3});
   }
 };
 
+//on window load
 window.addEventListener('load', function() {
-  audio.play();
-  fadeIn(audio, 1000);
-  loading.style.animation = 'disappear 1s';
-  setTimeout(function() {
-    loading.style.display = 'none';
-  }, 1000);
+  //fade out page loading animation
+  TweenMax.to(loading, 0.25, {left: '-100%'});
+  TweenMax.from(header, 0.25, {delay: 0.25, top: '-100%'});
+  TweenMax.from(main, 0.25, {left: '101%'});
 }, false);
-window.addEventListener('scroll', function() {
-  console.log('scrolled');
-  if(window.scrollY >= window.innerHeight) {
-    TweenMax.to('.spotlightItem', 0.3, {top: '-200%'});
-  }
-}, false)
-;
-function fadeIn(audio, speed) {
-  audio.volume = 0;
-  var timer = setInterval(function() {
-    if(audio.volume >= 0.9) {
-      clearInterval(timer);
-    }
-    else {
-      audio.volume += (1/10);
-    }
-  }, speed/10);
+
+//scroll Animations
+main.addEventListener('scroll', function() {
+  //.spotlightItems
+  // TweenMax.staggerFrom(['.spotlightItem .header', '.spotlightItem .subheader'], 0.3, {x: '100%'}, 0.3);
+}, false);
+
+/**
+ * Check if an element is visible in viewport
+ * @param el - The element
+ */
+function isVisible(elem) {
+    var rect = elem.getBoundingClientRect();
+
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 }
+
+/*
+TODO
+=============================
+  Fix
+    - Landing Page text: sucks, doesn't fit on page, etc.
+    - Implement isVisible as an Event Listener (http://stackoverflow.com/a/7557433/5628);
+    - Hide "Deep Duggal" from %header on mobile (or remove completely?)
+    - Improve page loading screen
+    - .spotlightItem Animations. Do them one at a time. Only when visible. 
+    - Navbar transition
+    - Change resume link
+
+  Add
+   - On 1st click of .socialBttn, show description. Open on 2nd click. 
+   - For resume .socialBttn, onclick show popup with file type options. 
+   - Add cool, quick animations, for when the page loads. 
+   - Logo to %header
+   - Remove Music
+   - Make .landing interactive and fun. Something that works on mobile too. (Valid Events: onSwipe)
+   - Add transition between pages. Using push state AJAX. 
+   - Add About Page
+   - Add Contact Page
+   - Add new projects to .spotlight
+*/

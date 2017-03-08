@@ -92,9 +92,10 @@ body {
     overflow: auto;
     animation: disappear 0.15s, appear 0.15s;
 
-    a {
-      height: calc(16.6665% - 3rem);
+    .navItem {
+      height: calc(33.333% - 3rem);
       width: 100%;
+      box-sizing: border-box;
       display: block;
       float: left;
       font-weight: bold;
@@ -104,11 +105,10 @@ body {
       text-decoration: none;
       text-align: center;
       cursor: pointer;
-      padding-bottom: 2.5rem;
       @include transition();
       @extend .nohighlight;
     }
-    a:hover {
+    .navItem:hover {
       color: white;
       text-decoration: underline;
     }
@@ -145,13 +145,13 @@ body {
       }
     }
     a:hover {
-      @include transition(color, 0.15s);
+      @include transition(color, 0.2s);
       color: white;
       
       svg {
         g {
           path {
-            @include transition(fill, 0.15s);
+            @include transition(fill, 0.2s);
             fill: white;
           }
         }
@@ -171,6 +171,18 @@ body {
       width: calc(100% - 13rem - 3.25rem - 1.25rem);
       font-size: 2rem;
       font-weight: bold;
+      @include transition(all, 0.2s);
+
+      .first {
+        display: inline-block;
+        overflow: hidden;
+        @include transition(all, 0.5s);
+      }
+      .last {
+        display: inline-block;
+        overflow: hidden;
+        @include transition(all, 0.5s);
+      }
     }
     .navTrigger {
       font-size: 2rem;
@@ -179,6 +191,10 @@ body {
       color: $yellow;
       padding: 1rem;
       cursor: pointer;
+    }
+    .navTrigger:hover {
+      color: white;
+      @include transition(all, 0.2s);
     }
   }
   .main {
@@ -292,6 +308,13 @@ body {
 @media (min-width: 769px) {
   body header .name {
     font-size: 2rem;
+
+    .first {
+        width: 5.5rem;
+      }
+      .last {
+        width: 9rem;
+      }
   }
   .spotlightItem {
     .header {
@@ -398,8 +421,19 @@ body {
 
 //Tablets and Phones
 @media (max-width: 768px) {
+  .landing .text {
+    top: 25%;
+  }
   body header .name {
-    font-size: 1.5rem;
+    display: none;
+    font-size: 2rem;
+
+    .first {
+      width: 1.6rem;
+    }
+    .last {
+      width: 1.6rem;
+    }
   }
 
   section.spotlight .spotlightItem {

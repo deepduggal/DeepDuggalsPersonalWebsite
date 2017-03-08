@@ -4,6 +4,7 @@
     %meta{:charset => "UTF-8"}/
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
     %meta{:content => "Deep Duggal is a Front-End Developer who specializes in creating modern, responsive websites and engaging user experiences", :name => "description"}/
     %meta{:content => "noodp", :name => "robots"}/
     %meta{:content => "software, developer, deep duggal, front-end developer, front-end development, web designer, front end web developer, web developer, ux designer, ui designer, user experience, websites, freelance, hire, angular.js, angular 2, bootstrap, css, html, javascript, mobile friendly", :name => "keywords"}/
@@ -29,12 +30,10 @@
   %body
     .loading
       %img{:src=>"res/img/loading.gif"}
-    %audio{:loop=>"loop"}
-      %source{:src=>"res/audio/yaverclap-the-sky.mp3", :type=>'audio/mp3'}
     %nav
-      %a{:href=>"http://deepduggal.me/about.html"} About
-      %a{:href=>"http://deepduggal.me/work.html"} Work
-      %a{:href=>"http://deepduggal.me/contact.html"} Contact
+      %a.navItem{:href=>"http://deepduggal.me/about.html"} About
+      %a.navItem{:href=>"http://deepduggal.me/work.html"} Work
+      %a.navItem{:href=>"http://deepduggal.me/contact.html"} Contact
     %header
       %a.social{:href=>"http://github.com/waxter013"}
         %svg#Capa_1{:space => "preserve", :version => "1.1", :viewbox => "0 0 438.549 438.549", :x => "0px", :y => "0px"}
@@ -51,8 +50,10 @@
             %path{:d => "m140.425,110.297l-8.516,23.367h11.81v-17.209c-2.84217e-14-2.52-1.269-4.81-3.294-6.158z"}
             %path{:d => "m97.594,116.455v17.209h11.81l-8.516-23.367c-2.025,1.348-3.294,3.638-3.294,6.158z"}
             %path{:d => "m249.375,0h-201.75c-5.799,0-10.5,4.701-10.5,10.5v276c0,5.799 4.701,10.5 10.5,10.5h201.75c5.799,0 10.5-4.701 10.5-10.5v-276c0-5.799-4.701-10.5-10.5-10.5zm-183,37.125c0-4.349 3.526-7.875 7.875-7.875h92.812c4.35,0 7.875,3.526 7.875,7.875v104.414c0,4.349-3.525,7.875-7.875,7.875h-92.812c-4.349,0-7.875-3.526-7.875-7.875v-104.414zm156.375,212.063h-148.5c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h148.5c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875zm0-55.688h-148.5c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h148.5c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875zm0-74.25h-18.563c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h18.563c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875zm0-37.125h-18.563c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h18.563c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875z"}
-      %a.name{:href=>"#"} DEEP DUGGAL
-      .navTrigger{:href=>"#"} ≡
+      %a.name{:href=>"#"} 
+        %span.first DEEP
+        %span.last DUGGAL
+      .navTrigger ≡
     .main
       %section.landing
         .background
@@ -79,7 +80,7 @@
           .spotlightItem{:onclick=>"window.location.href='http://sexycalc.com'"}
             %h4.subheader HAML, SCSS, JS
             %h1.header Sexy Calc
-            / %img{:src=>"http://deepduggal.me/res/img/project-screenshots/sexy-calc.png"}
+            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/sexy-calc.png"}
           .spotlightItem{:onclick=>"window.location.href='http://withlovebani.com'"}
             %h4.subheader jQuery
             %h1.header With Love, Bani
@@ -91,7 +92,7 @@
           .spotlightItem{:onclick=>"window.location.href='https://waxter013.github.io/Cat-Clicker/'"}
             %h4.subheader HTML, CSS, JS, GIPHY API
             %h1.header Cat Clicker
-            / %img{:src=>"http://deepduggal.me/res/img/project-screenshots/cat-clicker.png"}
+            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/cat-clicker.png"}
           .spotlightItem{:onclick=>"window.location.href='https://waxter013.github.io/Digital-Services-Website/'"}
             %h4.subheader Bootstrap
             %h1.header Digital Services Website

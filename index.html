@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <meta content="Deep Duggal is a Front-End Developer who specializes in creating modern, responsive websites and engaging user experiences" name="description">
     <meta content="noodp" name="robots">
     <meta content="software, developer, deep duggal, front-end developer, front-end development, web designer, front end web developer, web developer, ux designer, ui designer, user experience, websites, freelance, hire, angular.js, angular 2, bootstrap, css, html, javascript, mobile friendly" name="keywords">
@@ -33,13 +34,10 @@
     <div class="loading">
       <img src="res/img/loading.gif">
     </div>
-    <audio loop="loop">
-      <source src="res/audio/yaverclap-the-sky.mp3" type="audio/mp3">
-    </audio>
     <nav>
-      <a href="http://deepduggal.me/about.html">About</a>
-      <a href="http://deepduggal.me/work.html">Work</a>
-      <a href="http://deepduggal.me/contact.html">Contact</a>
+      <a class="navItem" href="http://deepduggal.me/about.html">About</a>
+      <a class="navItem" href="http://deepduggal.me/work.html">Work</a>
+      <a class="navItem" href="http://deepduggal.me/contact.html">Contact</a>
     </nav>
     <header>
       <a class="social" href="http://github.com/waxter013">
@@ -66,8 +64,11 @@
           </g>
         </svg>
       </a>
-      <a class="name" href="#">DEEP DUGGAL</a>
-      <div class="navTrigger" href="#">≡</div>
+      <a class="name" href="#">
+        <span class="first">DEEP</span>
+        <span class="last">DUGGAL</span>
+      </a>
+      <div class="navTrigger">≡</div>
     </header>
     <div class="main">
       <section class="landing">
@@ -104,7 +105,7 @@
           <div class="spotlightItem" onclick="window.location.href='http://sexycalc.com'">
             <h4 class="subheader">HAML, SCSS, JS</h4>
             <h1 class="header">Sexy Calc</h1>
-            <!-- %img{:src=>"http://deepduggal.me/res/img/project-screenshots/sexy-calc.png"} -->
+            <img src="http://deepduggal.me/res/img/project-screenshots/sexy-calc.png">
           </div>
           <div class="spotlightItem" onclick="window.location.href='http://withlovebani.com'">
             <h4 class="subheader">jQuery</h4>
@@ -119,7 +120,7 @@
           <div class="spotlightItem" onclick="window.location.href='https://waxter013.github.io/Cat-Clicker/'">
             <h4 class="subheader">HTML, CSS, JS, GIPHY API</h4>
             <h1 class="header">Cat Clicker</h1>
-            <!-- %img{:src=>"http://deepduggal.me/res/img/project-screenshots/cat-clicker.png"} -->
+            <img src="http://deepduggal.me/res/img/project-screenshots/cat-clicker.png">
           </div>
           <div class="spotlightItem" onclick="window.location.href='https://waxter013.github.io/Digital-Services-Website/'">
             <h4 class="subheader">Bootstrap</h4>
