@@ -22,10 +22,9 @@ navTrigger.onclick = function() {
 
 //on window load
 window.addEventListener('load', function() {
-  //fade out page loading animation
   TweenMax.to(loading, 0.25, {left: '-100%'});
-  TweenMax.from(header, 0.25, {delay: 0.25, top: '-100%'});
   TweenMax.from(main, 0.25, {left: '101%'});
+  TweenMax.from(header, 0.25, {delay: 0.2, top: '-100%'});
 }, false);
 
 //scroll Animations
@@ -72,4 +71,12 @@ TODO
    - Add About Page
    - Add Contact Page
    - Add new projects to .spotlight
+*/
+
+/*
+- John - Amazon Fire Stick vs. Chromecast
+- Post on Reddit: "How did you get your first Web Developer job?"
+- Perfect Website
+- Call Liz @ HQ Raleigh
+- Do Meetups
 */

@@ -234,6 +234,7 @@ body {
         font-size: 3rem;
         font-weight: bolder;
         font-style: italic;
+        color: white;
       }
       .addthis_inline_share_toolbox {
         position: fixed;
@@ -279,27 +280,6 @@ body {
           }
         }
       }
-    }
-  }
-}
-.text {
-  margin: 0;
-  position: relative;
-  height: 100%;
-  width: 100%;
-
-  svg {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    padding: 2rem;
-    text-transform: uppercase;
-
-    .img-layer {
-      fill: url(#p-img);
-    }
-    .gradient-layer {
-      fill: url(#gr-overlay);
     }
   }
 }
