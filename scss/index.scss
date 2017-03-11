@@ -62,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 //CSS
 body {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  background: #333;
 
   .loading {
     height: 100%;
@@ -224,18 +225,18 @@ body {
         position: absolute;
         z-index: -1;
         background: black;
+        background: -webkit-linear-gradient(top left, red, indigo, purple);
+        background: -o-linear-gradient(bottom left, red, indigo, purple);
+        background: -moz-linear-gradient(bottom left, red, indigo, purple);
+        background: linear-gradient(from top left, red, indigo, purple);
         opacity: 0.5;
       }
-      .text {
+      .content {
         position: absolute;
         overflow: hidden;
-        width: 80%;
-        margin: calc(10% - 1em) 10% 10% 10%;
-        font-size: 3rem;
         font-weight: bolder;
         font-style: italic;
         color: white;
-        text-align: center;
       }
       .addthis_inline_share_toolbox {
         position: fixed;
@@ -285,17 +286,122 @@ body {
   }
 }
 
+//Tablets and Phones
+@media (min-width: 320px) {
+  body header .name {
+    font-size: 2rem;
+
+    .first {
+      width: 1.6rem;
+    }
+    .last {
+      width: 1.6rem;
+    }
+  }
+  .landing .content {
+    position: absolute;
+    z-index: 1;
+    top: 3.95rem;
+    height: calc(100% - 3.95rem - 2rem);
+    width: calc(100% - 2rem);
+    padding: calc(1rem) 1rem 1rem 1rem;
+    overflow: hidden;
+
+    .header {margin-bottom: 0.5rem; font-size: 2.3rem;}
+    .subheader {margin-bottom: 1rem; font-size: 1.3rem;}
+    form.userInfo {
+      margin: 1rem 0 0 0;
+
+      input {
+        margin: 0.5rem 0 0 0;
+      }
+      input[type="text"] {
+        width: calc(100% - 1rem);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        outline: none;
+      }
+    }
+    p {
+      margin: 0;
+
+      a, a:visited {
+        color: white;
+      }
+    }
+  }
+  section.spotlight .spotlightItem {
+    width: calc(100% - 4rem);
+    
+    .subheader {
+      font-size: 1rem;
+    }
+    .header {
+      font-size: 2rem;
+    }
+    img {
+      max-height: calc(100% - 1rem - 2rem - 1rem);
+      width: 100%;
+    }
+  }
+  //Long, Center, Pink
+  .spotlightItem:nth-child(10n-9), .spotlightItem:nth-child(10n) {
+    background: #f04576;
+
+    .button {
+      margin-top: 25%;
+    }
+  }
+  //Square, Center, Blue
+  .spotlightItem:nth-child(10n-8), .spotlightItem:nth-child(10n-2) {
+    background: #53a2e3;
+    width: 50%;
+  }
+  //Wide, Right, Red
+  .spotlightItem:nth-child(10n-7), .spotlightItem:nth-child(10n-4) {
+    background: #ef4658;
+    width: 25%;
+  }
+  //Square, Center, Yellow
+  .spotlightItem:nth-child(10n-6), .spotlightItem:nth-child(10n-1) {
+    background: #f4ad49;
+    width: 25%;
+  }
+  //Wide, Left, Green
+  .spotlightItem:nth-child(10n-5), .spotlightItem:nth-child(10n-3) {
+      background: #69de92;
+      width: 50%;
+      
+      .header {
+        text-align: left;
+      }
+      .subheader {
+        text-align: left;
+      }
+      .img {
+        width: 100%;
+      }
+    }
+}
+
 //Desktop
 @media (min-width: 769px) {
   body header .name {
     font-size: 2rem;
 
     .first {
-        width: 5.5rem;
-      }
-      .last {
-        width: 9rem;
-      }
+      width: 5.5rem;
+    }
+    .last {
+      width: 9rem;
+    }
+  }
+  .landing .content {
+    width: calc(100% - 4rem);
+    padding: 2rem 2rem 2rem 2rem;
+
+    .header {font-size: 3rem;}
+    .subheader {font-size: 1.75rem;}
   }
   .spotlightItem {
     .header {
@@ -398,77 +504,6 @@ body {
     @include size(calc(50% - 4rem), calc(25% - 4rem));
     text-align: center;
   }
-}
-
-//Tablets and Phones
-@media (max-width: 768px) {
-  .landing .text {
-    top: 25%;
-  }
-  body header .name {
-    display: none;
-    font-size: 2rem;
-
-    .first {
-      width: 1.6rem;
-    }
-    .last {
-      width: 1.6rem;
-    }
-  }
-
-  section.spotlight .spotlightItem {
-    width: calc(100% - 4rem);
-    
-    .subheader {
-      font-size: 1rem;
-    }
-    .header {
-      font-size: 2rem;
-    }
-    img {
-      max-height: calc(100% - 1rem - 2rem - 1rem);
-      width: 100%;
-    }
-  }
-  //Long, Center, Pink
-  .spotlightItem:nth-child(10n-9), .spotlightItem:nth-child(10n) {
-    background: #f04576;
-
-    .button {
-      margin-top: 25%;
-    }
-  }
-  //Square, Center, Blue
-  .spotlightItem:nth-child(10n-8), .spotlightItem:nth-child(10n-2) {
-    background: #53a2e3;
-    width: 50%;
-  }
-  //Wide, Right, Red
-  .spotlightItem:nth-child(10n-7), .spotlightItem:nth-child(10n-4) {
-    background: #ef4658;
-    width: 25%;
-  }
-  //Square, Center, Yellow
-  .spotlightItem:nth-child(10n-6), .spotlightItem:nth-child(10n-1) {
-    background: #f4ad49;
-    width: 25%;
-  }
-  //Wide, Left, Green
-  .spotlightItem:nth-child(10n-5), .spotlightItem:nth-child(10n-3) {
-      background: #69de92;
-      width: 50%;
-      
-      .header {
-        text-align: left;
-      }
-      .subheader {
-        text-align: left;
-      }
-      .img {
-        width: 100%;
-      }
-    }
 }
 
 // Animations

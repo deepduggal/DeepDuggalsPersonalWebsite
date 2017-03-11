@@ -28,11 +28,33 @@
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css", :rel => "stylesheet"}/
     %link{:href => "css/index.css", :rel => "stylesheet"}/
   %body
+    :javascript
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=waving", true);
+      xhr.onload = function (e) {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            document.querySelector('.behindEverything img').src = JSON.parse(xhr.responseText)['data']['image_url'];
+          } else {
+            console.error(xhr.statusText);
+          }
+        }
+      };
+      xhr.onerror = function (e) {
+        console.error(xhr.statusText);
+      };
+      xhr.send(null);
+    :css
+      .behindEverything {color: white;text-align:center;width:25%;}
+      .behindEverything h1, img {max-width: 400%;max-height:400%;margin:0 auto;}
+    .behindEverything
+      %h1 Welcome!
+      %img{:src=>""}
     .loading
       %img{:src=>"res/img/loading.gif"}
     %nav
       %a.navItem{:href=>"http://deepduggal.me/about.html"} About
-      %a.navItem{:href=>"http://deepduggal.me/work.html"} Work
+      %a.navItem{:onclick=>"scrollTo(document.querySelector('.spotlight')); navTrigger.onclick();"} Portfolio
       %a.navItem{:href=>"http://deepduggal.me/contact.html"} Contact
     %header
       %a.social{:href=>"http://github.com/waxter013"}
@@ -58,16 +80,27 @@
       %section.landing
         .background
         .dim
-        .text
-          %h1 Coming Soon!
+        .content
+          %h1.header Hi! I'm Deep Duggal. 
+          %h4.subheader
+            I'm a Front End Developer
+            and a UI/UX Designer.
+          / %form.userInfo{}
+          /   %h1 What's up?
+          /   %input{:type=>"text", :placeholder=>"Describe your project or role"}
+          %p
+            Learn 
+            %a{:href=>"http://deepduggal.me/about.html"} about me. 
+            Or
+            %a{:href=>"#", :onclick=>"scrollTo(document.querySelector('.spotlight'));"} see my work. 
         .addthis_inline_share_toolbox
-      %section.spotlight
+      %section.spotlight#spotlight
         .spotlightBlock
           .spotlightItem{:onclick=>"window.location.href='http://sexycalc.com'"}
             %h4.subheader HAML, SCSS, JS
             %h1.header Sexy Calc
             %img{:src=>"http://deepduggal.me/res/img/project-screenshots/sexy-calc.png"}
-          .spotlightItem{:onclick=>"window.location.href='http://withlovebani.com'"}
+          .spotlightItem{:onclick=>"window.location.href='http://preview.withlovebani.com'"}
             %h4.subheader jQuery
             %h1.header With Love, Bani
             / %img{:src=>"http://deepduggal.me/res/img/project-screenshots/with-love-bani.gif"}

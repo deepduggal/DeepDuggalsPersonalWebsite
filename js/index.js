@@ -3,8 +3,12 @@ var navTrigger = document.querySelector('.navTrigger'),
     header = document.querySelector('header'),
     loading = document.querySelector('.loading'),
     main = document.querySelector('.main'),
-    spotlightItems = document.querySelectorAll('.spotlightItem'),
-    audio = document.querySelector('audio');
+    spotlightItems = document.querySelectorAll('.spotlightItem');
+
+function scrollTo(elem) {
+  console.log(elem.getBoundingClientRect().top);
+  TweenMax.to(main, 0.3, {scrollTop: elem.getBoundingClientRect().top});
+}
 
 navTrigger.onclick = function() {
   //hide
@@ -20,8 +24,8 @@ navTrigger.onclick = function() {
   }
 };
 
-//on window load
-window.addEventListener('load', function() {
+//Animate the page in, when it loads
+window.addEventListener('DOMContentLoaded', function() {
   TweenMax.to(loading, 0.25, {left: '-100%'});
   TweenMax.from(main, 0.25, {left: '101%'});
   TweenMax.from(header, 0.25, {delay: 0.2, top: '-100%'});
