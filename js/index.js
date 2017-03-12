@@ -5,22 +5,20 @@ var navTrigger = document.querySelector('.navTrigger'),
     main = document.querySelector('.main'),
     spotlightItems = document.querySelectorAll('.spotlightItem');
 
-function scrollTo(elem) {
-  console.log(elem.getBoundingClientRect().top);
-  TweenMax.to(main, 0.3, {scrollTop: elem.getBoundingClientRect().top});
-}
+var oldScrollY = 0;
 
 navTrigger.onclick = function() {
   //hide
   if(nav.style.display === 'block') {
     // TweenMax.to(header, 0.3, {background: 'black'});
-    TweenMax.to(nav, 0.3, {height: 0, paddingTop: 0, display: 'none'});
+    TweenMax.to(nav, 0.3, {left: '-100%', display: 'none'});
+    // TweenMax.staggerTo('.navItem', 0.3, {left: '-100%', display: 'none'}, 0.2);
   }
   //show
   else {
-    // TweenMax.to(header, 0.3, {background: 'black'});
-    TweenMax.to(nav, 0.3, {display: 'block', height: '100%', paddingTop: '4rem'});
-    TweenMax.from('.navItem', 0.3, {right: 0, delay: 0.3});
+    TweenMax.to(nav, 0, {left: '101%'});
+    TweenMax.to(nav, 0.2, {display: 'block', left: '0%'});
+    TweenMax.staggerTo('.navItem', 0.2, {opacity: 1}, 0.2);
   }
 };
 
@@ -33,8 +31,21 @@ window.addEventListener('DOMContentLoaded', function() {
 
 //scroll Animations
 main.addEventListener('scroll', function() {
+  console.log(oldScrollY + ' || ' + main.scrollTop);
+  //Hide nav on scrollDown
+  if(oldScrollY < main.scrollTop) {
+    TweenMax.to(header, 0.2, {top: '-3.95rem'});
+  }
+  //Show nav on scrollUp
+  else if(oldScrollY > main.scrollTop) {
+    TweenMax.to(header, 0.2, {top: '0'});
+  }
+
   //.spotlightItems
   // TweenMax.staggerFrom(['.spotlightItem .header', '.spotlightItem .subheader'], 0.3, {x: '100%'}, 0.3);
+
+  //reset oldScrollY
+  oldScrollY = main.scrollTop;
 }, false);
 
 /**
@@ -50,6 +61,11 @@ function isVisible(elem) {
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
+}
+function scrollTo(elem) {
+  var scrollPos = elem.getBoundingClientRect().top - main.getBoundingClientRect().top;
+  console.log(scrollPos);
+  // TweenMax.to(main, 0.3, {scrollTop: });
 }
 
 /*

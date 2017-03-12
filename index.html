@@ -31,38 +31,13 @@
     <link href="css/index.css" rel="stylesheet">
   </head>
   <body>
-    <script>
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=waving", true);
-      xhr.onload = function (e) {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            document.querySelector('.behindEverything img').src = JSON.parse(xhr.responseText)['data']['image_url'];
-          } else {
-            console.error(xhr.statusText);
-          }
-        }
-      };
-      xhr.onerror = function (e) {
-        console.error(xhr.statusText);
-      };
-      xhr.send(null);
-    </script>
-    <style>
-      .behindEverything {color: white;text-align:center;width:25%;}
-      .behindEverything h1, img {max-width: 400%;max-height:400%;margin:0 auto;}
-    </style>
-    <div class="behindEverything">
-      <h1>Welcome!</h1>
-      <img src="">
-    </div>
     <div class="loading">
       <img src="res/img/loading.gif">
     </div>
     <nav>
-      <a class="navItem" href="http://deepduggal.me/about.html">About</a>
+      <!-- %a.navItem{:href=>"http://deepduggal.me/about.html"} About -->
       <a class="navItem" onclick="scrollTo(document.querySelector('.spotlight')); navTrigger.onclick();">Portfolio</a>
-      <a class="navItem" href="http://deepduggal.me/contact.html">Contact</a>
+      <!-- %a.navItem{:href=>"http://deepduggal.me/contact.html"} Contact -->
     </nav>
     <header>
       <a class="social" href="http://github.com/waxter013">
@@ -79,7 +54,7 @@
           </g>
         </svg>
       </a>
-      <a class="social" href="https://docs.google.com/document/d/1cWUb3bTbIuPPrRO7IgZDMmMRI0ysfrTdT46PnuLFVt8/pub">
+      <a class="social" href="res/docs/Resume_Deep_Duggal_2017.pdf">
         <svg enable-background="new 0 0 297 297" viewbox="0 0 297 297">
           <g>
             <path d="m97.674,94.493c0.059-0.02 5.637-1.733 5.637-1.733 4.007-1.23 8.275,0.894 9.71,4.832l7.635,20.95 7.635-20.951c1.437-3.938 5.712-6.06 9.71-4.831 0,0 5.578,1.713 5.637,1.733 8.314,2.77 14.229,9.913 15.549,18.37v-62.103c0-3.181-2.579-5.76-5.76-5.76h-65.542c-3.181,0-5.76,2.579-5.76,5.76v62.103c1.32-8.457 7.235-15.599 15.549-18.37zm22.982-41.126c10.235,0 18.563,8.327 18.563,18.563 0,10.235-8.327,18.563-18.563,18.563s-18.563-8.327-18.563-18.563c0.001-10.236 8.328-18.563 18.563-18.563z"></path>
@@ -100,6 +75,7 @@
         <div class="background"></div>
         <div class="dim"></div>
         <div class="content">
+          <div class="popup"></div>
           <h1 class="header">Hi! I'm Deep Duggal.</h1>
           <h4 class="subheader">
             I'm a Front End Developer
@@ -109,10 +85,10 @@
           <!-- %h1 What's up? -->
           <!-- %input{:type=>"text", :placeholder=>"Describe your project or role"} -->
           <p>
-            Learn
-            <a href="http://deepduggal.me/about.html">about me.</a>
-            Or
-            <a href="#" onclick="scrollTo(document.querySelector('.spotlight'));">see my work.</a>
+            <!-- Learn -->
+            <!-- %a{:href=>"http://deepduggal.me/about.html"} about me. -->
+            <!-- Or -->
+            <a href="#" onclick="scrollTo(document.querySelector('.spotlight'));">See my work.</a>
           </p>
         </div>
         <div class="addthis_inline_share_toolbox"></div>
