@@ -7,6 +7,14 @@ var navTrigger = document.querySelector('.navTrigger'),
 
 var oldScrollY = 0;
 
+// //Async load images
+// var image = document.images[0];
+// var downloadingImage = new Image();
+// downloadingImage.onload = function(){
+//     image.src = this.src;   
+// };
+// downloadingImage.src = "http://an.image/to/aynchrounously/download.jpg";
+
 navTrigger.onclick = function() {
   //hide
   if(nav.style.display === 'block') {
@@ -27,11 +35,11 @@ window.addEventListener('DOMContentLoaded', function() {
   TweenMax.to(loading, 0.25, {left: '-100%'});
   TweenMax.from(main, 0.25, {left: '101%'});
   TweenMax.from(header, 0.25, {delay: 0.2, top: '-100%'});
+  TweenMax.from('.popup', 0.2, {delay: 1,  opacity: 0, left: '-100%'});
 }, false);
 
 //scroll Animations
 main.addEventListener('scroll', function() {
-  console.log(oldScrollY + ' || ' + main.scrollTop);
   //Hide nav on scrollDown
   if(oldScrollY < main.scrollTop) {
     TweenMax.to(header, 0.2, {top: '-3.95rem'});
@@ -64,8 +72,8 @@ function isVisible(elem) {
 }
 function scrollTo(elem) {
   var scrollPos = elem.getBoundingClientRect().top - main.getBoundingClientRect().top;
-  console.log(scrollPos);
-  // TweenMax.to(main, 0.3, {scrollTop: });
+  console.log(elem.getBoundingClientRect().top + ' || '  + main.getBoundingClientRect().top);
+  TweenMax.to(main, 0.3, {scrollTop: window.innerHeight});
 }
 
 /*
@@ -83,9 +91,6 @@ TODO
   Add
    - On 1st click of .socialBttn, show description. Open on 2nd click. 
    - For resume .socialBttn, onclick show popup with file type options. 
-   - Add cool, quick animations, for when the page loads. 
-   - Logo to %header
-   - Remove Music
    - Make .landing interactive and fun. Something that works on mobile too. (Valid Events: onSwipe)
    - Add transition between pages. Using push state AJAX. 
    - Add About Page

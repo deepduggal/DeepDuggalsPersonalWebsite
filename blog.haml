@@ -5,18 +5,18 @@
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
-    %meta{:content => "Deep Duggal is a Front-End Developer who specializes in creating modern, responsive websites and engaging user experiences", :name => "description"}/
     %meta{:content => "noodp", :name => "robots"}/
-    %meta{:content => "software, developer, deep duggal, front-end developer, front-end development, web designer, front end web developer, web developer, ux designer, ui designer, user experience, websites, freelance, hire, angular.js, angular 2, bootstrap, css, html, javascript, mobile friendly", :name => "keywords"}/
+    %meta{:content => "Deep Duggal is a Front-End Developer who specializes in creating modern, responsive websites and engaging user experiences", :name => "description"}/
     %link{:href => "http://deepduggal.me", :rel => "canonical"}/
     %meta{:content => "en_US", :property => "og:locale"}/
     %meta{:content => "website", :property => "og:type"}/
-    %meta{:content => "Modern, Responsive Websites by Deep Duggal", :property => "og:title"}/
+    %meta{:content => "Modern, Responsive Websites by Deep Duggal | About Deep Duggal", :property => "og:title"}/
+    %meta{:content => "Modern, Responsive Websites by Deep Duggal", :property => "og:site_name"}/
     %meta{:content => "Deep Duggal is a Front-End Developer who specializes in creating modern, responsive websites and engaging user experiences", :property => "og:description"}/
     %meta{:content => "http://deepduggal.me", :property => "og:url"}/
-    %meta{:content => "Modern, Responsive Websites by Deep Duggal", :property => "og:site_name"}/
+    %meta{:content => "software, developer, deep duggal, front-end developer, front-end development, web designer, front end web developer, web developer, ux designer, ui designer, user experience, websites, freelance, hire, angular.js, angular 2, bootstrap, css, html, javascript, mobile friendly", :name => "keywords"}/
     %title
-      Modern, Responsive Websites by Deep Duggal
+      Modern, Responsive Websites by Deep Duggal | About Deep Duggal
     %script{:async => "", :src => "https://www.google-analytics.com/analytics.js"}
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -25,8 +25,11 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-89293172-1', 'auto');
       ga('send', 'pageview');
+    %link{:href => "//cdn-images.mailchimp.com/embedcode/classic-10_7.css", :rel => "stylesheet", :type => "text/css"}
+    :css
+      #mc_embed_signup{:background=>"#fff", :clear=>"left", :font=>"14px Helvetica,Arial,sans-serif"}
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css", :rel => "stylesheet"}/
-    %link{:href => "css/index.css", :rel => "stylesheet"}/
+    %link{:href => "css/about.css", :rel => "stylesheet"}/
   %body
     .loading
       %img{:src=>"res/img/loading.gif"}
@@ -50,7 +53,7 @@
             %path{:d => "m140.425,110.297l-8.516,23.367h11.81v-17.209c-2.84217e-14-2.52-1.269-4.81-3.294-6.158z"}
             %path{:d => "m97.594,116.455v17.209h11.81l-8.516-23.367c-2.025,1.348-3.294,3.638-3.294,6.158z"}
             %path{:d => "m249.375,0h-201.75c-5.799,0-10.5,4.701-10.5,10.5v276c0,5.799 4.701,10.5 10.5,10.5h201.75c5.799,0 10.5-4.701 10.5-10.5v-276c0-5.799-4.701-10.5-10.5-10.5zm-183,37.125c0-4.349 3.526-7.875 7.875-7.875h92.812c4.35,0 7.875,3.526 7.875,7.875v104.414c0,4.349-3.525,7.875-7.875,7.875h-92.812c-4.349,0-7.875-3.526-7.875-7.875v-104.414zm156.375,212.063h-148.5c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h148.5c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875zm0-55.688h-148.5c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h148.5c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875zm0-74.25h-18.563c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h18.563c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875zm0-37.125h-18.563c-4.349,0-7.875-3.526-7.875-7.875s3.526-7.875 7.875-7.875h18.563c4.349,0 7.875,3.526 7.875,7.875s-3.526,7.875-7.875,7.875z"}
-      %a.name{:href=>"#"} 
+      %a.name{:href=>"http://deepduggal.me"} 
         %span.first DEEP
         %span.last DUGGAL
       .navTrigger ≡
@@ -59,52 +62,22 @@
         .background
         .dim
         .content
-          .popup
-            %h4.title Head's up!
-            .text This website is currently undergoing major updates.
-            %div Thanks for your patience. 
-            .signature - Deep D. (The Developer)
-            :javascript
-              var popup = document.querySelector('.popup');
-              popup.onclick = function() {
-                TweenMax.to(popup, 0.2, {opacity: 0, left: '-100%'});
-              }
-            .close{} Got it!
-          %h1.header Hi! I'm Deep Duggal. 
-          %h4.subheader
-            I'm a Front End Developer
-            and a UI/UX Developer.
-          / %form.userInfo{}
-          /   %h1 What's up?
-          /   %input{:type=>"text", :placeholder=>"Describe your project or role"}
-          %p
-            / Learn 
-            / %a{:href=>"http://deepduggal.me/about.html"} about me. 
-            / Or
-            %a{:href=>"#", :onclick=>"scrollTo(document.querySelector('.spotlight'));"} See my work. 
-        .addthis_inline_share_toolbox
-      %section.spotlight#spotlight
-        .spotlightBlock
-          .spotlightItem{:onclick=>"window.location.href='http://sexycalc.com'"}
-            %h4.subheader HAML, SCSS, JS
-            %h1.header Sexy Calc
-            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/sexy-calc.png"}
-          .spotlightItem{:onclick=>"window.location.href='http://preview.withlovebani.com'"}
-            %h4.subheader jQuery
-            %h1.header With Love, Bani
-            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/with-love-bani.gif"}
-          .spotlightItem{:onclick=>"window.location.href=''#"}
-            %h4.subheader Angular 2
-            %h1.header IF Game
-            %h3 Coming Soon
-          .spotlightItem{:onclick=>"window.location.href='https://waxter013.github.io/Cat-Clicker/'"}
-            %h4.subheader HTML, CSS, JS, GIPHY API
-            %h1.header Cat Clicker
-            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/cat-clicker.png"}
-          .spotlightItem{:onclick=>"window.location.href='https://waxter013.github.io/Digital-Services-Website/'"}
-            %h4.subheader Bootstrap
-            %h1.header Digital Services Website
-            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/digital-services-website.gif"}
+          %h1 Da Blog
+          #mc_embed_signup
+            %form#mc-embedded-subscribe-form.validate{:action => "//deepduggal.us15.list-manage.com/subscribe/post?u=c4a80733de711481e0ea2bab7&id=0d16bf8a66", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+              #mc_embed_signup_scroll
+                %h2 Get notified about codetastic new content! (Only occasionally. No spam.)
+                .mc-field-group
+                  %label{:for => "mce-EMAIL"} Email Address
+                  %input#mce-EMAIL.required.email{:name => "EMAIL", :type => "email", :value => ""}/
+                #mce-responses.clear
+                  #mce-error-response.response{:style => "display:none"}
+                  #mce-success-response.response{:style => "display:none"}
+                %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+                  %input{:name => "b_c4a80733de711481e0ea2bab7_0d16bf8a66", :tabindex => "-1", :type => "text", :value => ""}/
+                .clear
+                  %input#mc-embedded-subscribe.button{:name => "subscribe", :type => "submit", :value => "Subscribe"}
+      %section.about
   %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"}
-  %script{:src=>"js/index-dist.js"}
+  %script{:src=>"js/about-dist.js"}
   %script{:src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58bde355b505572b", :type => "text/javascript"}

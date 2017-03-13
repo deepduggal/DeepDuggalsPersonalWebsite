@@ -252,39 +252,19 @@ body {
         overflow: hidden;
         color: white;
 
-        .popup {
-          max-width: calc(100% - 4rem);
-          max-height: 50%;
-          position: absolute;
-          left: 1rem; 
-          bottom: 1rem;
-          @include size(auto, auto);
-          padding: 1rem;
-          background: $red;
-          -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-          -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-          box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-
-          .title {
-            margin: 0 0 1rem 0;
-            text-align: center;
-            text-transform: uppercase;
-          }
-          .text {
-            line-height: 125%;
-          }
-          .signature {
-            text-align: right;
-            padding: 0.75rem;
-          }
-          .close {
-            padding: 0.5rem;
-            border-radius: 0.25rem;
-            margin: 1rem calc(50% - 2rem) 0 calc(50% - 2rem);
-            background: $yellow;
-            color: black;
-            cursor: pointer;
-          }
+        .quote {
+        }
+        .quote:before {
+          content: '"';
+        }
+        .quote:after {
+          content: '"';
+        }
+        .name {
+          text-align: right;
+        }
+        .name:before {
+          content: '- ';
         }
       }
       .addthis_inline_share_toolbox {
@@ -292,46 +272,6 @@ body {
         bottom: 0;
         right: 1rem;
         z-index: 2;
-      }
-    }
-    section.spotlight {
-      @include size();
-      color: black;
-      
-      .spotlightBlock {
-        @include size();
-
-        .spotlightItem {
-          display: block;
-          float: left;
-          overflow: hidden;
-          padding: 2rem;
-          @include transition(all, 1s);
-          
-          .header {
-            width: 100%;
-            font-weight: bold;
-            text-transform: uppercase;
-          }
-          .subheader {
-            width: 100%;
-            text-transform: uppercase;
-          }
-          img {
-            margin-top: 1rem;
-            object-fit: cover;
-            background: url(http://deepduggal.me/res/img/loading.gif);
-          }
-        }
-        .spotlightItem:hover {
-          cursor: pointer;
-          
-          .header, .subheader {
-            text-decoration: underline;
-            color: white;
-            @include transition(color, 0.25s);
-          }
-        }
       }
     }
   }
@@ -358,81 +298,13 @@ body {
     padding: calc(1rem) 1rem 1rem 1rem;
     overflow: hidden;
 
-    .header {margin-bottom: 0.5rem; font-size: 2.3rem;}
-    .subheader {margin-bottom: 1rem; font-size: 1.3rem;}
-    form.userInfo {
-      margin: 1rem 0 0 0;
-
-      input {
-        margin: 0.5rem 0 0 0;
-      }
-      input[type="text"] {
-        width: calc(100% - 1rem);
-        border-radius: 0.5rem;
-        padding: 0.5rem;
-        outline: none;
-      }
-    }
-    p {
-      margin: 0;
-
-      a, a:visited {
-        color: white;
-      }
-    }
-  }
-  section.spotlight .spotlightItem {
-    width: calc(100% - 4rem);
-    
-    .subheader {
-      font-size: 1rem;
-    }
-    .header {
+    .quote {
       font-size: 2rem;
     }
-    img {
-      max-height: calc(100% - 1rem - 2rem - 1rem);
-      width: 100%;
+    .name {
+      font-size: 2.3rem;
     }
   }
-  //Long, Center, Pink
-  .spotlightItem:nth-child(10n-9), .spotlightItem:nth-child(10n) {
-    background: #f04576;
-
-    .button {
-      margin-top: 25%;
-    }
-  }
-  //Square, Center, Blue
-  .spotlightItem:nth-child(10n-8), .spotlightItem:nth-child(10n-2) {
-    background: #53a2e3;
-    width: 50%;
-  }
-  //Wide, Right, Red
-  .spotlightItem:nth-child(10n-7), .spotlightItem:nth-child(10n-4) {
-    background: #ef4658;
-    width: 25%;
-  }
-  //Square, Center, Yellow
-  .spotlightItem:nth-child(10n-6), .spotlightItem:nth-child(10n-1) {
-    background: #f4ad49;
-    width: 25%;
-  }
-  //Wide, Left, Green
-  .spotlightItem:nth-child(10n-5), .spotlightItem:nth-child(10n-3) {
-      background: #69de92;
-      width: 50%;
-      
-      .header {
-        text-align: left;
-      }
-      .subheader {
-        text-align: left;
-      }
-      .img {
-        width: 100%;
-      }
-    }
 }
 
 //Desktop
@@ -452,108 +324,11 @@ body {
     width: calc(100% - 4rem);
     padding: 2rem 2rem 2rem 2rem;
 
-    .header {font-size: 3rem;}
-    .subheader {font-size: 1.75rem;}
-  }
-  .spotlightItem {
-    .header {
+    .quote {
       font-size: 2.5rem;
     }
-    .subheader {
-      font-size: 1.5rem;
+    .name {
+      font-size: 2.3rem;
     }
-    img {
-      max-height: calc(100% - 1rem - 2.5rem - 1.5rem);
-      width: 100%;
-    }
-  }
-  .spotlightBlock {
-    .spotlightItem:nth-child(1) {
-      @extend .tall;
-      background: $pink;
-    }
-    .spotlightItem:nth-child(2) {
-      @extend .square;
-      background: $blue;
-
-      img {
-        max-height: 65%;
-        width: 100%;
-      }
-    }
-    .spotlightItem:nth-child(3) {
-      @extend .wide;
-      background: $red;
-    }
-    .spotlightItem:nth-child(4) {
-      @extend .wide;
-      background: $orange;
-    }
-    .spotlightItem:nth-child(5) {
-      @extend .square;
-      background: $green;
-
-      .header {
-        text-align: left;
-      }
-      .subheader {
-        text-align: left;
-      }
-      .img {
-        width: 100%;
-      }
-    }
-  }
-  .spotlightBlock:nth-child(2n) {
-    .spotlightItem:nth-child(1) {
-      @extend .square;
-      background: $blue;
-    }
-    .spotlightItem:nth-child(2) {
-      @extend .wide;
-      background: $red;
-
-      .header {
-        text-align: left;
-      }
-      .subheader {
-        text-align: left;
-      }
-      .img {
-        width: 100%;
-      }
-    }
-    .spotlightItem:nth-child(3) {
-      @extend .wide;
-      background: $orange;
-
-      img {
-        max-height: 65%;
-        width: 100%;
-      }
-    }
-    .spotlightItem:nth-child(4) {
-      @extend .square;
-      background: $green;
-    }
-    .spotlightItem:nth-child(5) {
-      @extend .tall;
-      background: $pink;
-      position: absolute;
-      right: 0;
-    }
-  }
-
-  // For SCSS inheritance (@extend)
-  .tall {
-    @include size(calc(100% - 4rem), calc(25% - 4rem));
-    text-align: center;
-  }
-  .wide {
-    @include size(calc(50% - 4rem), calc(50% - 4rem));
-  }
-  .square {
-    @include size(calc(50% - 4rem), calc(25% - 4rem));
-    text-align: center;
   }
 }
