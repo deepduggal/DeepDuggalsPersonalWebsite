@@ -13,13 +13,15 @@ var quotes = ['First learn computer science and all the theory. Next develop a p
 navTrigger.onclick = function() {
   //hide
   if(nav.style.display === 'block') {
-    TweenMax.to(nav, 0.3, {left: '-100%', display: 'none'});
+    TweenMax.to(nav, 0.3, {ease: Expo.easeInOut, left: '-100%', display: 'none'});
+    TweenMax.to(main, 0, {left: '101%'});
+    TweenMax.to(main, 0.3, {ease: Expo.easeInOut, left: '0%'});
   }
   //show
   else {
+    TweenMax.to(main, 0.3, {ease: Expo.easeInOut, left: '-100%'});
     TweenMax.to(nav, 0, {left: '101%'});
-    TweenMax.to(nav, 0.2, {display: 'block', left: '0%'});
-    TweenMax.staggerTo('.navItem', 0.2, {opacity: 1}, 0.2);
+    TweenMax.to(nav, 0.3, {ease: Expo.easeInOut, display: 'block', left: '0%'});
   }
 };
 

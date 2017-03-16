@@ -20,28 +20,33 @@ document.cookie = 'popupClosed=false';
 
 //Close popup button
 popup.onclick = function() {
-  TweenMax.to(popup, 0.2, {opacity: 0, left: '-100%'});
+  TweenMax.to(popup, 0.25, {opacity: 0, left: '-100%'});
 }
 
 navTrigger.onclick = function() {
   //hide
   if(nav.style.display === 'block') {
-    TweenMax.to(nav, 0.3, {left: '-100%', display: 'none'});
+    TweenMax.to(nav, 0.3, {ease: Expo.easeInOut, left: '-100%', display: 'none'});
+    TweenMax.to(main, 0, {left: '101%'});
+    TweenMax.to(main, 0.3, {ease: Expo.easeInOut, left: '0%'});
   }
   //show
   else {
+    TweenMax.to(main, 0.3, {ease: Expo.easeInOut, left: '-100%'});
     TweenMax.to(nav, 0, {left: '101%'});
-    TweenMax.to(nav, 0.2, {display: 'block', left: '0%'});
-    TweenMax.staggerTo('.navItem', 0.2, {opacity: 1}, 0.2);
+    TweenMax.to(nav, 0.3, {ease: Expo.easeInOut, display: 'block', left: '0%'});
   }
 };
 
 //Animate the page in, when it loads
 window.addEventListener('DOMContentLoaded', function() {
-  TweenMax.to(loading, 0.25, {left: '-100%'});
-  TweenMax.from(main, 0.25, {left: '101%'});
-  TweenMax.from(header, 0.25, {delay: 0.2, top: '-100%'});
-  TweenMax.from('.popup', 0.2, {delay: 1,  opacity: 0, left: '-100%'});
+  TweenMax.to(loading, 0.25, {ease: Expo.easeInOut, left: '-100%'});
+  TweenMax.from(main, 0.25, {ease: Expo.easeInOut, left: '101%'});
+  TweenMax.from(header, 0.25, {ease: Expo.easeInOut, delay: 0.2, top: '-100%'});
+  TweenMax.from('.main .content .header', 0.25, {ease: Expo.easeInOut, delay: 0.4, x: '101%'});
+  TweenMax.from('.main .content .subheader', 0.25, {ease: Expo.easeInOut, delay: 0.5, x: '-101%'});
+  TweenMax.from('.main .content p', 0.5, {ease: Expo.easeInOut, delay: 0.8, opacity: 0});
+  TweenMax.from('.popup', 0.25, {ease: Expo.easeInOut, delay: 1.25,  opacity: 0, left: '-100%'});
 }, false);
 
 //scroll Animations
