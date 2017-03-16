@@ -3,6 +3,7 @@ var navTrigger = document.querySelector('.navTrigger'),
     header = document.querySelector('header'),
     loading = document.querySelector('.loading'),
     main = document.querySelector('.main'),
+    popup = document.querySelector('.popup'),
     spotlightItems = document.querySelectorAll('.spotlightItem');
 
 var oldScrollY = 0;
@@ -15,12 +16,17 @@ var oldScrollY = 0;
 // };
 // downloadingImage.src = "http://an.image/to/aynchrounously/download.jpg";
 
+document.cookie = 'popupClosed=false';
+
+//Close popup button
+popup.onclick = function() {
+  TweenMax.to(popup, 0.2, {opacity: 0, left: '-100%'});
+}
+
 navTrigger.onclick = function() {
   //hide
   if(nav.style.display === 'block') {
-    // TweenMax.to(header, 0.3, {background: 'black'});
     TweenMax.to(nav, 0.3, {left: '-100%', display: 'none'});
-    // TweenMax.staggerTo('.navItem', 0.3, {left: '-100%', display: 'none'}, 0.2);
   }
   //show
   else {

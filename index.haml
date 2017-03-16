@@ -53,7 +53,7 @@
       %a.name{:href=>"#"} 
         %span.first DEEP
         %span.last DUGGAL
-      .navTrigger ≡
+      / .navTrigger ≡
     .main
       %section.landing
         .background
@@ -64,19 +64,11 @@
             .text This website is currently undergoing major updates.
             %div Thanks for your patience. 
             .signature - Deep D. (The Developer)
-            :javascript
-              var popup = document.querySelector('.popup');
-              popup.onclick = function() {
-                TweenMax.to(popup, 0.2, {opacity: 0, left: '-100%'});
-              }
             .close{} Got it!
           %h1.header Hi! I'm Deep Duggal. 
           %h4.subheader
             I'm a Front End Developer
             and a UI/UX Developer.
-          / %form.userInfo{}
-          /   %h1 What's up?
-          /   %input{:type=>"text", :placeholder=>"Describe your project or role"}
           %p
             / Learn 
             / %a{:href=>"http://deepduggal.me/about.html"} about me. 
@@ -92,7 +84,7 @@
           .spotlightItem{:onclick=>"window.location.href='http://preview.withlovebani.com'"}
             %h4.subheader jQuery
             %h1.header With Love, Bani
-            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/with-love-bani.gif"}
+            %img{:src=>"http://deepduggal.me/res/img/project-screenshots/withlovebani.png"}
           .spotlightItem{:onclick=>"window.location.href=''#"}
             %h4.subheader Angular 2
             %h1.header IF Game
