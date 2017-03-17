@@ -1,0 +1,88 @@
+@import 'helpers';
+
+body header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    height: 3.95rem;
+    width: 100%;
+    background: black;
+    background: -webkit-linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    background: -moz-linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    background: -o-linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    overflow: hidden;
+    @extend .nohighlight;
+
+    a {
+      height: 2rem;
+      width: 2rem;
+      padding: 1rem 1rem 1rem 0;
+      display: block;
+      float: left;
+      cursor: pointer;
+      text-align: center;
+      color: $yellow;
+      text-decoration: none;
+      
+      svg {
+        g {
+          path {
+            fill: $yellow;
+          }
+        }
+      }
+    }
+    a:hover {
+      @include transition(color, 0.2s);
+      color: white;
+      
+      svg {
+        g {
+          path {
+            @include transition(fill, 0.2s);
+            fill: white;
+          }
+        }
+      }
+    }
+    .social {
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .social:first-child {
+      padding: 1rem;
+    }
+    .name {
+      height: 2rem;
+      width: calc(100% - 13rem - 3.25rem - 1.25rem);
+      font-size: 2rem;
+      font-weight: bold;
+      @include transition(all, 0.2s);
+
+      .first {
+        display: inline-block;
+        overflow: hidden;
+        @include transition(all, 0.5s);
+      }
+      .last {
+        display: inline-block;
+        overflow: hidden;
+        @include transition(all, 0.5s);
+      }
+    }
+    .navTrigger {
+      font-size: 2rem;
+      font-weight: bold;
+      float: right;
+      color: $yellow;
+      padding: 1rem;
+      cursor: pointer;
+    }
+    .navTrigger:hover {
+      color: white;
+      @include transition(all, 0.2s);
+    }
+  }

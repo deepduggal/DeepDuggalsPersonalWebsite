@@ -1,0 +1,36 @@
+@import 'helpers';
+
+body nav {
+    display: none;
+    height: calc(100% - 4rem);
+    padding-top: 8rem; 
+    width: calc(100%);
+    position: fixed;
+    z-index: 1;
+    background: black;
+    background: -webkit-linear-gradient(top left, red, indigo, purple);
+    background: -o-linear-gradient(bottom left, red, indigo, purple);
+    background: -moz-linear-gradient(bottom left, red, indigo, purple);
+    background: linear-gradient(from top left, red, indigo, purple);
+    overflow: auto;
+
+    .navItem {
+      height: calc(33.333%);
+      width: 100%;
+      display: block;
+      float: left;
+      font-weight: bold;
+      font-size: 3rem;
+      font-style: italic;
+      color: $yellow;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      @include transition();
+      @extend .nohighlight;
+    }
+    .navItem:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }

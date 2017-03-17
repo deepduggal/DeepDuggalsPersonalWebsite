@@ -1,0 +1,14 @@
+// The Scrollbar
+::-webkit-scrollbar {
+  width: 0.75rem;
+  background: $grayLight;
+}
+::-webkit-scrollbar-track {
+  background: $grayLight;
+}
+::-webkit-scrollbar-track-piece {
+  background: $grayLight;
+}
+::-webkit-scrollbar-thumb {
+  background: #888888;
+}

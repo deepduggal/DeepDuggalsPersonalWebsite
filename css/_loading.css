@@ -1,0 +1,14 @@
+.loading {
+  height: 100%;
+  width: 100%;
+  background: white;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0; }
+  .loading img {
+    height: 128px;
+    width: 128px;
+    position: absolute;
+    top: calc(50% - 56px);
+    left: calc(50% - 56px); }

@@ -1,0 +1,147 @@
+@import 'helpers', 'scrollbar', 'montserrat', 'loading', 'header', 'navbar';
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+body {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  background: #333;
+
+  .main {
+    @include size(100%, 100%);
+    position: fixed;
+    top: 0;
+    overflow: auto;
+
+    .landing {
+      @include size();
+      @extend .nohighlight;
+      cursor: default;
+      
+      .background {
+        @include size();
+        position: absolute;
+        z-index: -2;
+        background: url(http://deepduggal.me/res/img/planning.jpeg);
+        background-size: cover;
+        overflow: hidden;
+      }
+      .dim {
+        @include size();
+        position: absolute;
+        z-index: -1;
+        background: black;
+        background: -webkit-linear-gradient(top left, red, indigo, purple);
+        background: -o-linear-gradient(bottom left, red, indigo, purple);
+        background: -moz-linear-gradient(bottom left, red, indigo, purple);
+        background: linear-gradient(from top left, red, indigo, purple);
+        opacity: 0.5;
+      }
+      .content {
+        position: absolute;
+        overflow: hidden;
+        color: white;
+
+        .popup {
+          max-width: calc(100% - 4rem);
+          max-height: 50%;
+          position: absolute;
+          left: 1rem; 
+          bottom: 1rem;
+          @include size(auto, auto);
+          padding: 1rem;
+          background: $red;
+          -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+          -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+          box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+
+          .title {
+            margin: 0 0 1rem 0;
+            text-align: center;
+            text-transform: uppercase;
+          }
+          .text {
+            line-height: 125%;
+          }
+          .signature {
+            text-align: right;
+            padding: 0.75rem;
+          }
+          .close {
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin: 1rem calc(50% - 2rem) 0 calc(50% - 2rem);
+            background: $yellow;
+            color: black;
+            cursor: pointer;
+          }
+        }
+      }
+      .addthis_inline_share_toolbox {
+        position: fixed;
+        bottom: 0;
+        right: 1rem;
+        z-index: 2;
+      }
+    }
+  }
+}
+//Tablets and Phones
+@media (min-width: 320px) {
+  body header .name {
+    font-size: 2rem;
+
+    .first {
+      width: 1.6rem;
+    }
+    .last {
+      width: 1.6rem;
+    }
+  }
+  .landing .content {
+    position: absolute;
+    z-index: 1;
+    top: 3.95rem;
+    height: calc(100% - 3.95rem - 2rem);
+    width: calc(100% - 2rem);
+    padding: calc(1rem) 1rem 1rem 1rem;
+    overflow: hidden;
+
+    .header {margin-bottom: 0.5rem; font-size: 2.3rem;}
+    .subheader {margin-bottom: 1rem; font-size: 1.3rem;}
+    
+    p {
+      margin: 0;
+
+      a, a:visited {
+        color: white;
+      }
+    }
+  }
+}
+//Desktop
+@media (min-width: 769px) {
+  body header .name {
+    font-size: 2rem;
+
+    .first {
+      width: 5.5rem;
+    }
+    .last {
+      width: 9rem;
+    }
+  }
+  .landing .content {
+    height: calc(100% - 4rem - 3.95rem);
+    width: calc(100% - 4rem);
+    padding: 2rem 2rem 2rem 2rem;
+
+    .header {font-size: 3rem;}
+    .subheader {font-size: 1.75rem;}
+  }
+}
