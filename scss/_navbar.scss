@@ -7,11 +7,11 @@ body nav {
     width: calc(100%);
     position: fixed;
     z-index: 1;
-    background: black;
-    background: -webkit-linear-gradient(top left, red, indigo, purple);
-    background: -o-linear-gradient(bottom left, red, indigo, purple);
-    background: -moz-linear-gradient(bottom left, red, indigo, purple);
-    background: linear-gradient(from top left, red, indigo, purple);
+    background: $gray;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    background: linear-gradient(from top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
     overflow: auto;
 
     .navItem {

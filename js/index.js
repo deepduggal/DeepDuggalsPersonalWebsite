@@ -3,25 +3,9 @@ var navTrigger = document.querySelector('.navTrigger'),
     header = document.querySelector('header'),
     loading = document.querySelector('.loading'),
     main = document.querySelector('.main'),
-    popup = document.querySelector('.popup'),
     spotlightItems = document.querySelectorAll('.spotlightItem');
 
 var oldScrollY = 0;
-
-// //Async load images
-// var image = document.images[0];
-// var downloadingImage = new Image();
-// downloadingImage.onload = function(){
-//     image.src = this.src;   
-// };
-// downloadingImage.src = "http://an.image/to/aynchrounously/download.jpg";
-
-document.cookie = 'popupClosed=false';
-
-//Close popup button
-popup.onclick = function() {
-  TweenMax.to(popup, 0.25, {opacity: 0, left: '-100%'});
-}
 
 navTrigger.onclick = function() {
   //hide
@@ -40,13 +24,13 @@ navTrigger.onclick = function() {
 
 //Animate the page in, when it loads
 window.addEventListener('DOMContentLoaded', function() {
+  aload();
   TweenMax.to(loading, 0.25, {ease: Expo.easeInOut, left: '-100%'});
   TweenMax.from(main, 0.25, {ease: Expo.easeInOut, left: '101%'});
   TweenMax.from(header, 0.25, {ease: Expo.easeInOut, delay: 0.2, top: '-100%'});
   TweenMax.from('.main .content .header', 0.25, {ease: Expo.easeInOut, delay: 0.4, x: '101%'});
   TweenMax.from('.main .content .subheader', 0.25, {ease: Expo.easeInOut, delay: 0.5, x: '-101%'});
   TweenMax.from('.main .content p', 0.5, {ease: Expo.easeInOut, delay: 0.8, opacity: 0});
-  TweenMax.from('.popup', 0.25, {ease: Expo.easeInOut, delay: 1.25,  opacity: 0, left: '-100%'});
 }, false);
 
 //scroll Animations

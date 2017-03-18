@@ -14,7 +14,8 @@ body {
           float: left;
           overflow: hidden;
           padding: 2rem;
-          @include transition(all, 1s);
+          color: black;
+          text-decoration: none;
           
           .header {
             width: 100%;
@@ -63,10 +64,6 @@ body {
   //Long, Center, Pink
   .spotlightItem:nth-child(10n-9), .spotlightItem:nth-child(10n) {
     background: #f04576;
-
-    .button {
-      margin-top: 25%;
-    }
   }
   //Square, Center, Blue
   .spotlightItem:nth-child(10n-8), .spotlightItem:nth-child(10n-2) {
