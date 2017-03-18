@@ -25,6 +25,8 @@ navTrigger.onclick = function() {
 //Animate the page in, when it loads
 window.addEventListener('DOMContentLoaded', function() {
   aload();
+  TweenMax.to(loading, 0.25, {ease: Expo.easeInOut, left: '-100%'});
+  TweenMax.from(main, 0.25, {ease: Expo.easeInOut, left: '101%'});
   TweenMax.from(header, 0.25, {ease: Expo.easeInOut, delay: 0.2, top: '-100%'});
   TweenMax.from('.main .content .header', 0.25, {ease: Expo.easeInOut, delay: 0.4, x: '101%'});
   TweenMax.from('.main .content .subheader', 0.25, {ease: Expo.easeInOut, delay: 0.5, x: '-101%'});
@@ -73,13 +75,7 @@ function scrollTo(elem) {
 TODO
 =============================
   Fix
-    - Landing Page text: sucks, doesn't fit on page, etc.
-    - Implement isVisible as an Event Listener (http://stackoverflow.com/a/7557433/5628);
-    - Hide "Deep Duggal" from %header on mobile (or remove completely?)
-    - Improve page loading screen
-    - .spotlightItem Animations. Do them one at a time. Only when visible. 
-    - Navbar transition
-    - Change resume link
+    - Landing Page text size
 
   Add
    - On 1st click of .socialBttn, show description. Open on 2nd click. 
