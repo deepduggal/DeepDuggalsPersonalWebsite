@@ -78,16 +78,18 @@ function minAjax(url, opts) {
             if (opts.success) {
                 opts.success(xmlhttp.responseText, xmlhttp.readyState);
             }
-            
+
+            //Log success data
             if (opts.debugLog === true)
                 console.log("SuccessResponse");
             if (opts.debugLog === true)
                 console.log("Response Data:" + xmlhttp.responseText);
 
         }
+        //TODO: Fix this. Will give error for any readyState !== 4
         //If Error
         else {
-            //Do this upon failure
+            //Do this upon request failure
             if (opts.debugLog == true)
                 console.log("FailureResponse --> State:" + xmlhttp.readyState + "Status:" + xmlhttp.status);
         }
@@ -96,15 +98,19 @@ function minAjax(url, opts) {
     var sendString = [],
         sendData = opts.data;
 
-    if( typeof sendData === "string" ){
+    //If given send data is a string...
+    if(typeof sendData === "string"){
+        //TODO: Error? Is this storing the function or just calling it with different scope?
         var tmpArr = String.prototype.split.call(sendData,'&');
 
+        //*Convert data to one string
         for(var i = 0, j = tmpArr.length; i < j; i++){
             var datum = tmpArr[i].split('=');
             sendString.push(encodeURIComponent(datum[0]) + "=" + encodeURIComponent(datum[1]));
         }
 
     }
+    //If given send data is an object...
     else if( typeof sendData === 'object' && !( sendData instanceof String || (FormData && sendData instanceof FormData) ) ){
         
         for (var k in sendData) {
