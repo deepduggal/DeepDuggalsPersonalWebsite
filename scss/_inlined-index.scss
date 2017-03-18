@@ -4,16 +4,12 @@ html, body {
   width: 100%;
   margin: 0;
 }
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
 body {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   background: #333;
-
-  [data-aload] {
-    background-image: none !important;
-    animation: appear 0.2s;
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
   }
 
   .main {
@@ -32,7 +28,7 @@ body {
         @include size();
         position: absolute;
         z-index: -2;
-        background: url(res/img/devices.jpeg);
+        background: url(res/img/devices.jpeg) center center no-repeat;
         background-size: cover;
         overflow: hidden;
         @include transition(all, 1s);
@@ -84,9 +80,10 @@ body {
     position: absolute;
     z-index: 1;
     top: 3.95rem;
-    height: calc(100% - 3.95rem - 2rem);
-    width: calc(100% - 2rem);
-    padding: calc(1rem) 1rem 1rem 1rem;
+    height: calc(100% - 3.95rem);
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
     overflow: hidden;
 
     .header {margin-bottom: 0.5rem; font-size: 2.3rem;}
@@ -114,9 +111,10 @@ body {
     }
   }
   .landing .content {
-    height: calc(100% - 4rem - 3.95rem);
-    width: calc(100% - 4rem);
-    padding: 2rem 2rem 2rem 2rem;
+    height: calc(100% - 3.95rem);
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
 
     .header {font-size: 3rem;}
     .subheader {font-size: 1.75rem;}

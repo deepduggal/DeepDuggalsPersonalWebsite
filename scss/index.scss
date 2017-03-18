@@ -13,7 +13,6 @@ body {
           display: block;
           float: left;
           overflow: hidden;
-          padding: 2rem;
           color: black;
           text-decoration: none;
           
@@ -28,8 +27,8 @@ body {
           }
           img {
             margin-top: 1rem;
+            background: url(http://deepduggal.me/res/img/loading.gif) center center no-repeat;
             object-fit: cover;
-            background: url(http://deepduggal.me/res/img/loading.gif);
           }
         }
         .spotlightItem:hover {
@@ -46,55 +45,45 @@ body {
   }
 }
 //Tablets and Phones
-@media (min-width: 320px) {
+@media (min-width: 0px) {
   section.spotlight .spotlightItem {
-    width: calc(100% - 4rem);
+    box-sizing: border-box;
+    padding: 1.5rem;
+    width: 100%;
     
     .subheader {
       font-size: 1rem;
+      // font-size: 1.1vw;
     }
     .header {
-      font-size: 2rem;
+      font-size: 1.71rem;
+      // font-size: 2vw;
     }
     img {
-      max-height: calc(100% - 1rem - 2rem - 1rem);
+      max-height: calc(100% - 1rem - 1.71rem - 1rem);
       width: 100%;
     }
   }
   //Long, Center, Pink
-  .spotlightItem:nth-child(10n-9), .spotlightItem:nth-child(10n) {
-    background: #f04576;
+  .spotlightItem:nth-child(1), {
+    background: $pink;
   }
   //Square, Center, Blue
-  .spotlightItem:nth-child(10n-8), .spotlightItem:nth-child(10n-2) {
-    background: #53a2e3;
-    width: 50%;
+  .spotlightItem:nth-child(2), {
+    background: $blue;
   }
   //Wide, Right, Red
-  .spotlightItem:nth-child(10n-7), .spotlightItem:nth-child(10n-4) {
-    background: #ef4658;
-    width: 25%;
+  .spotlightItem:nth-child(3), {
+    background: $red;
   }
   //Square, Center, Yellow
-  .spotlightItem:nth-child(10n-6), .spotlightItem:nth-child(10n-1) {
-    background: #f4ad49;
-    width: 25%;
+  .spotlightItem:nth-child(4), {
+    background: $orange;
   }
   //Wide, Left, Green
-  .spotlightItem:nth-child(10n-5), .spotlightItem:nth-child(10n-3) {
-      background: #69de92;
-      width: 50%;
-      
-      .header {
-        text-align: left;
-      }
-      .subheader {
-        text-align: left;
-      }
-      .img {
-        width: 100%;
-      }
-    }
+  .spotlightItem:nth-child(5), {
+    background: $green;
+  }
 }
 //Desktop
 @media (min-width: 769px) {
@@ -113,28 +102,18 @@ body {
   .spotlightBlock {
     .spotlightItem:nth-child(1) {
       @extend .tall;
-      background: $pink;
     }
     .spotlightItem:nth-child(2) {
       @extend .square;
-      background: $blue;
-
-      img {
-        max-height: 65%;
-        width: 100%;
-      }
     }
     .spotlightItem:nth-child(3) {
       @extend .wide;
-      background: $red;
     }
     .spotlightItem:nth-child(4) {
       @extend .wide;
-      background: $orange;
     }
     .spotlightItem:nth-child(5) {
       @extend .square;
-      background: $green;
 
       .header {
         text-align: left;
@@ -145,58 +124,19 @@ body {
       .img {
         width: 100%;
       }
-    }
-  }
-  .spotlightBlock:nth-child(2n) {
-    .spotlightItem:nth-child(1) {
-      @extend .square;
-      background: $blue;
-    }
-    .spotlightItem:nth-child(2) {
-      @extend .wide;
-      background: $red;
-
-      .header {
-        text-align: left;
-      }
-      .subheader {
-        text-align: left;
-      }
-      .img {
-        width: 100%;
-      }
-    }
-    .spotlightItem:nth-child(3) {
-      @extend .wide;
-      background: $orange;
-
-      img {
-        max-height: 65%;
-        width: 100%;
-      }
-    }
-    .spotlightItem:nth-child(4) {
-      @extend .square;
-      background: $green;
-    }
-    .spotlightItem:nth-child(5) {
-      @extend .tall;
-      background: $pink;
-      position: absolute;
-      right: 0;
     }
   }
 
   // For SCSS inheritance (@extend)
   .tall {
-    @include size(calc(100% - 4rem), calc(25% - 4rem));
+    @include size(100%, 25%);
     text-align: center;
   }
   .wide {
-    @include size(calc(50% - 4rem), calc(50% - 4rem));
+    @include size(50%, 50%);
   }
   .square {
-    @include size(calc(50% - 4rem), calc(25% - 4rem));
+    @include size(50%, 25%);
     text-align: center;
   }
 }
