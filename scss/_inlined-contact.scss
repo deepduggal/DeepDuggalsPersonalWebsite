@@ -5,13 +5,14 @@ html, body {
   width: 100%;
   margin: 0;
 }
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
 body {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   background: #333;
 
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  
   .main {
     @include size(100%, 100%);
     position: fixed;

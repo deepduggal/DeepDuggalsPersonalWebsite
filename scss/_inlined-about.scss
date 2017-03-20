@@ -5,12 +5,13 @@ html, body {
   width: 100%;
   margin: 0;
 }
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
 body {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   background: #333;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
 
   .main {
     @include size(100%, 100%);
@@ -27,7 +28,7 @@ body {
         @include size();
         position: absolute;
         z-index: -2;
-        background: url(http://deepduggal.me/res/img/planning.jpeg);
+        background: url(http://deepduggal.me/res/img/deep-headshot.jpg) center center no-repeat;
         background-size: cover;
         overflow: hidden;
       }
@@ -36,11 +37,8 @@ body {
         position: absolute;
         z-index: -1;
         background: black;
-        background: -webkit-linear-gradient(top left, red, indigo, purple);
-        background: -o-linear-gradient(bottom left, red, indigo, purple);
-        background: -moz-linear-gradient(bottom left, red, indigo, purple);
-        background: linear-gradient(from top left, red, indigo, purple);
-        opacity: 0.5;
+        background-size: cover;
+        opacity: 0.2;
       }
       .content {
         position: absolute;
@@ -89,14 +87,14 @@ body {
     top: 3.95rem;
     height: calc(100% - 3.95rem - 2rem);
     width: calc(100% - 2rem);
-    padding: calc(1rem) 1rem 1rem 1rem;
+    padding: 1rem;
     overflow: hidden;
 
     .quote {
       font-size: 2rem;
     }
     .name {
-      font-size: 2.3rem;
+      font-size: 1.71rem;
     }
   }
 }
@@ -115,13 +113,13 @@ body {
   .landing .content {
     height: calc(100% - 4rem - 3.95rem);
     width: calc(100% - 4rem);
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 2rem;
 
     .quote {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     .name {
-      font-size: 2.3rem;
+      font-size: 1.71rem;
     }
   }
 }
