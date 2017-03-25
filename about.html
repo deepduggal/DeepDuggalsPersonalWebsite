@@ -53,7 +53,7 @@
     </div>
     <nav>
       <a class="navItem" href="http://deepduggal.me/about.html">About</a>
-      <a class="navItem" onclick="scrollTo(document.querySelector('.spotlight')); navTrigger.onclick();">Portfolio</a>
+      <a class="navItem" href="http://deepduggal.me/#portfolio">Portfolio</a>
       <a class="navItem" href="http://deepduggal.me/contact.html">Contact</a>
     </nav>
     <header>
@@ -87,24 +87,27 @@
       </a>
       <div class="navTrigger">≡</div>
     </header>
-    <div class="main">
-      <section class="landing">
-        <div class="background"></div>
-        <div class="dim"></div>
-        <div class="content">
-          <div class="quote">
-            First learn computer science and all the theory. Next develop a programming style. Then forget all that and just hack.
+    <div id="barba-wrapper">
+      <div class="main barba-container">
+        <section class="landing">
+          <div class="background"></div>
+          <div class="dim"></div>
+          <div class="content">
+            <div class="quote">
+              First learn computer science and all the theory. Next develop a programming style. Then forget all that and just hack.
+            </div>
+            <div class="name">
+              George Carrette
+            </div>
           </div>
-          <div class="name">
-            George Carrette
-          </div>
-        </div>
-        <div class="addthis_inline_share_toolbox"></div>
-      </section>
-      <section class="about"></section>
+          <div class="addthis_inline_share_toolbox"></div>
+        </section>
+        <section class="about"></section>
+      </div>
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
   <script src="js/about-dist.js"></script>
   <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58bde355b505572b" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
 </html>

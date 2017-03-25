@@ -47,7 +47,7 @@
     </div>
     <nav>
       <a class="navItem" href="http://deepduggal.me/about.html">About</a>
-      <a class="navItem" onclick="scrollTo(document.querySelector('.spotlight')); navTrigger.onclick();">Portfolio</a>
+      <a class="navItem" onclick="TweenMax.to(main, 0.2, {delay: 0.3, scrollTop: window.innerHeight});TweenMax.to(nav, 0.3, {ease: Expo.easeInOut, left: '-100%', display: 'none'});TweenMax.to(main, 0, {left: '101%'});TweenMax.to(main, 0.3, {ease: Expo.easeInOut, left: '0%'});">Portfolio</a>
       <a class="navItem" href="http://deepduggal.me/contact.html">Contact</a>
     </nav>
     <header>
@@ -96,7 +96,7 @@
         </div>
         <div class="addthis_inline_share_toolbox"></div>
       </section>
-      <section class="spotlight">
+      <section class="spotlight" id="portfolio">
         <div class="spotlightBlock">
           <a class="spotlightItem" href="http://sexycalc.com" target="_blank">
             <h4 class="subheader">HAML, SCSS, JS</h4>

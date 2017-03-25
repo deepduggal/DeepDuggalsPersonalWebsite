@@ -45,7 +45,7 @@
       %img{:src=>"res/img/loading.gif"}
     %nav
       %a.navItem{:href=>"http://deepduggal.me/about.html"} About
-      %a.navItem{:onclick=>"scrollTo(document.querySelector('.spotlight')); navTrigger.onclick();"} Portfolio
+      %a.navItem{:href=>"http://deepduggal.me/#portfolio"} Portfolio
       %a.navItem{:href=>"http://deepduggal.me/contact.html"} Contact
     %header
       %a.social{:href=>"http://github.com/waxter013"}
@@ -67,17 +67,19 @@
         %span.first DEEP
         %span.last DUGGAL
       .navTrigger ≡
-    .main
-      %section.landing
-        .background
-        .dim
-        .content
-          .quote
-            First learn computer science and all the theory. Next develop a programming style. Then forget all that and just hack.
-          .name
-            George Carrette
-        .addthis_inline_share_toolbox
-      %section.about
+    #barba-wrapper
+      .main.barba-container
+        %section.landing
+          .background
+          .dim
+          .content
+            .quote
+              First learn computer science and all the theory. Next develop a programming style. Then forget all that and just hack.
+            .name
+              George Carrette
+          .addthis_inline_share_toolbox
+        %section.about
   %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"}
   %script{:src=>"js/about-dist.js"}
   %script{:src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58bde355b505572b", :type => "text/javascript"}
+  %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"}

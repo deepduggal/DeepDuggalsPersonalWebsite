@@ -65,18 +65,10 @@ function isVisible(elem) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
-function scrollTo(elem) {
-  var scrollPos = elem.getBoundingClientRect().top - main.getBoundingClientRect().top;
-  console.log(elem.getBoundingClientRect().top + ' || '  + main.getBoundingClientRect().top);
-  TweenMax.to(main, 0.3, {scrollTop: window.innerHeight});
-}
 
 /*
 TODO
 =============================
-  Fix
-    - Landing Page text size
-
   Add
    - On 1st click of .socialBttn, show description. Open on 2nd click. 
    - For resume .socialBttn, onclick show popup with file type options. 
@@ -85,12 +77,4 @@ TODO
    - Add About Page
    - Add Contact Page
    - Add new projects to .spotlight
-*/
-
-/*
-- John - Amazon Fire Stick vs. Chromecast
-- Post on Reddit: "How did you get your first Web Developer job?"
-- Perfect Website
-- Call Liz @ HQ Raleigh
-- Do Meetups
 */

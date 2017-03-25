@@ -40,7 +40,7 @@
       %img{:src=>"res/img/loading.gif", :alt=>"Loading"}
     %nav
       %a.navItem{:href=>"http://deepduggal.me/about.html"} About
-      %a.navItem{:onclick=>"scrollTo(document.querySelector('.spotlight')); navTrigger.onclick();"} Portfolio
+      %a.navItem{:onclick=>"TweenMax.to(main, 0.2, {delay: 0.3, scrollTop: window.innerHeight});TweenMax.to(nav, 0.3, {ease: Expo.easeInOut, left: '-100%', display: 'none'});TweenMax.to(main, 0, {left: '101%'});TweenMax.to(main, 0.3, {ease: Expo.easeInOut, left: '0%'});"} Portfolio
       %a.navItem{:href=>"http://deepduggal.me/contact.html"} Contact
     %header
       %a.social{:href=>"http://github.com/waxter013", :title=>"Github", :target=>"_blank"}
@@ -74,7 +74,7 @@
             / Or
             %a{:href=>"#", :onclick=>"scrollTo(document.querySelector('.spotlight'));"} See my work. 
         .addthis_inline_share_toolbox
-      %section.spotlight
+      %section.spotlight#portfolio
         .spotlightBlock
           %a.spotlightItem{:href=>"http://sexycalc.com", :target=>"_blank"}
             %h4.subheader HAML, SCSS, JS
