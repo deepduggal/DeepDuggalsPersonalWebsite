@@ -12,7 +12,7 @@
   height: $height;
   width: $width;
 }
-@mixin transition($attr: all, $time: 0.1s) {
+@mixin transition($attr: all, $time: 0.2s) {
   -webkit-transition: $attr $time;
   -moz-transition: $attr $time;
   -o-transition: $attr $time;
