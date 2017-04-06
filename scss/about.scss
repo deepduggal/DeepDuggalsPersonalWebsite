@@ -1,8 +1,72 @@
-@import 'helpers';
+@import 'helpers', 'roboto';
 
+* {
+  box-sizing: border-box;
+}
 //CSS
 body {
   .main {
-    
+    font-family: 'Roboto', 'Montserrat', Helvetica, sans-serif;
+
+    section.quote {
+      // @include size();
+      padding: 12.5%;
+
+      h2 {
+        overflow: hidden;
+        font-weight: 300;
+        text-align: center;
+      }
+    }
+    section.purpose {
+      @include size();
+      overflow: hidden;
+
+      h1 {
+        padding: 1rem;
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .half {
+        @include size(100%, 50%);
+        float: left;
+
+      }
+      .half:nth-child(2) {
+        background: url(../res/img/space.jpeg) center 0 no-repeat;
+        background-size: cover;
+      }
+    }
+    section.process {
+      @include size();
+      overflow: hidden;
+
+      h1 {
+        padding: 1rem;
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .half {
+        @include size(100%, 50%);
+        float: left;
+      }
+    }
+    section.interests {
+      @include size();
+      overflow: hidden;
+
+      h1 {
+        padding: 1rem;
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .half {
+        @include size(100%, 50%);
+        float: left;
+      }
+    }
   }
 }

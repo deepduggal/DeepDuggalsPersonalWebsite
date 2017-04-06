@@ -1,142 +1,213 @@
 @import 'helpers';
 
-body {
-  .main {
-    section.spotlight {
+//Tablets and Phones
+@media (min-width: 0px) {
+  section.projects {
+    @include size(75%, 100%);
+    // padding: 1rem;
+    box-sizing: border-box;
+    
+    .project {
       @include size();
-      color: black;
-      
-      .spotlightBlock {
-        @include size();
+      float: left;
+      color: $eggshell;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
 
-        .spotlightItem {
-          display: block;
-          float: left;
-          overflow: hidden;
-          color: black;
-          text-decoration: none;
-          
-          .header {
-            width: 100%;
-            font-weight: bold;
-            text-transform: uppercase;
-          }
-          .subheader {
-            width: 100%;
-            text-transform: uppercase;
-          }
-          img {
-            margin-top: 1rem;
-            background: url(http://deepduggal.me/res/img/loading.gif) center center no-repeat;
-            object-fit: cover;
-          }
-        }
-        .spotlightItem:hover {
-          cursor: pointer;
-          
-          .header, .subheader {
-            text-decoration: underline;
-            color: white;
-            @include transition(color, 0.25s);
-          }
+      .background {
+        position: absolute;
+        height: 100%;
+        max-width: 100%;
+        z-index: -3;
+      }
+      img.background {object-fit: cover; object-position: 50% 50%; @include transition(all, 0.25s); align: left; background: url(/res/img/loading.gif) center center no-repeat;}
+      video.background {}
+      
+      .dim {
+        position: absolute;
+        z-index: -2;
+        @include size();
+        background: black;
+        opacity: 0.3;
+        @include transition(all, 0.25s);
+      }
+
+      .header {
+        @include size();
+        padding: 1rem;
+        position: absolute;
+        z-index: -1;
+        font: bold 2.5rem/100% 'Roboto', Helvetica, sans-serif;
+        word-spacing: 9999999px;
+        text-transform: uppercase;
+        @include transition(all, 0.3s);
+
+        span {
+          position: absolute;
+          left: 1rem;
+          bottom: 2.5rem;
         }
       }
     }
+    .project:hover {
+      .dim {
+        opacity: 0; 
+      }
+      .header {
+        -webkit-transform: translateY(200%);
+        transform: translateY(200%);
+      }
+      img.background {
+        -webkit-filter: saturate(120%) brightness(110%);
+        filter: saturate(120%) brightness(110%);
+      }
+    }
   }
-}
-//Tablets and Phones
-@media (min-width: 0px) {
-  section.spotlight .spotlightItem {
-    box-sizing: border-box;
-    padding: 1.5rem;
+  form.contact {
     width: 100%;
-    
-    .subheader {
-      font-size: 1rem;
-      // font-size: 1.1vw;
-    }
-    .header {
-      font-size: 1.71rem;
-      // font-size: 2vw;
-    }
-    img {
-      max-height: calc(100% - 1rem - 1.71rem - 1rem);
-      width: 100%;
-    }
-  }
-  //Long, Center, Pink
-  .spotlightItem:nth-child(1), {
-    background: $pink;
-  }
-  //Square, Center, Blue
-  .spotlightItem:nth-child(2), {
-    background: $blue;
-  }
-  //Wide, Right, Red
-  .spotlightItem:nth-child(3), {
+    min-height: 100%;
+    padding: 3.5rem;
+    box-sizing: border-box; 
     background: $red;
+    overflow: hidden;
+    
+    ::-webkit-input-placeholder {
+      font-weight: 300;
+      color: $grayLighter;
+    }
+    ::-moz-placeholder {
+      font-weight: 300;
+      color: $grayLighter;
+    }
+    :-ms-input-placeholder {
+      font-weight: 300;
+      color: $grayLighter;
+    }
+    :-moz-placeholder {
+      font-weight: 300;
+      color: $grayLighter;
+    }
+    
+    .header {
+      color: $eggshell;
+      margin-bottom: 0.25rem;
+      font-size: 1.65rem;
+    }
+    .subheader {
+      color: #CCCCCC;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+    .formItem {
+      width: calc(100% - 1rem);
+      margin: 1rem 1rem 1rem 0rem;
+      float: left;
+      
+      input[type="text"], input[type="email"] {
+        font-family: inherit;
+        width: 100%;
+        border: none;
+        border-bottom: solid $grayLighter 0.125rem;
+        float: left;
+        background: inherit;
+        color: $yellowLight;
+        outline: none;
+        @include transition (border, 0.2s);
+      }
+      input[type="text"]:hover, input[type="email"]:hover {
+        border-color: white;
+      } 
+      input[type="text"]:focus, input[type="email"]:focus,
+      input[type="text"]:active, input[type="email"]:active {
+        border-bottom: solid $yellowLight 0.125rem;
+      }
+      label {
+        width: 100%;
+        margin-top: 0.25rem;
+        float: left;
+        font-weight: 300;
+        color: white;
+      }
+      input[type="submit"] {
+        padding: 0.5rem;
+        border: solid $grayLighter 0.125rem;
+        border-radius: 0.25rem;
+        background: inherit;
+        color: white;
+        @include transition (border, 0.2s);
+        font-weight: bold;
+        min-width: 4rem;
+        outline: none;
+      }
+      input[type="submit"]:hover {
+        border-color: white;
+        cursor: pointer;
+        border-color: white;
+        cursor: pointer;
+      }
+      input[type="submit"]:focus, input[type="submit"]:active {
+        border: solid $yellowLight 0.125rem;
+      }
+    }
   }
-  //Square, Center, Yellow
-  .spotlightItem:nth-child(4), {
-    background: $orange;
-  }
-  //Wide, Left, Green
-  .spotlightItem:nth-child(5), {
-    background: $green;
+  footer {
+    // width: 100%;
+    background: $blue;
+    text-align: center;
+    padding: 4rem 2rem;  
   }
 }
-//Desktop
-@media (min-width: 769px) {
-  .spotlightItem {
+//Tablets
+@media (min-width: 641px) {
+  section.projects {
+    @include size(75%, 100%);
+
+    .project {
+      display: inline-block;
+      @include size(100%, 50%);
+    }
+  }
+  form.contact {
+    padding: 5rem 12.5%;
+
     .header {
       font-size: 2.5rem;
     }
     .subheader {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
-    img {
-      max-height: calc(100% - 1rem - 2.5rem - 1.5rem);
-      width: 100%;
+    .formItem {
+      width: calc(50% - 1rem);
     }
   }
-  .spotlightBlock {
-    .spotlightItem:nth-child(1) {
-      @extend .tall;
-    }
-    .spotlightItem:nth-child(2) {
-      @extend .square;
-    }
-    .spotlightItem:nth-child(3) {
-      @extend .wide;
-    }
-    .spotlightItem:nth-child(4) {
-      @extend .wide;
-    }
-    .spotlightItem:nth-child(5) {
-      @extend .square;
+}
+//Low Res PCs
+@media (min-width: 833px) {
+  form.contact {
+    padding: 5rem 12.5%;
+  }
+}
+//PCs
+@media (min-width: 1025px) {
+  form.contact {
+    padding: 5rem 12.5%;
 
-      .header {
-        text-align: left;
-      }
-      .subheader {
-        text-align: left;
-      }
-      .img {
-        width: 100%;
-      }
+    .formItem {
+      font-size: 1.3rem;
     }
   }
+}
+// High Res PCs
+@media (min-width: 1281px) {
+  form.contact {
 
-  // For SCSS inheritance (@extend)
-  .tall {
-    @include size(100%, 25%);
-    text-align: center;
-  }
-  .wide {
-    @include size(50%, 50%);
-  }
-  .square {
-    @include size(50%, 25%);
-    text-align: center;
+    .header {
+      font-size: 2.6rem;
+    }
+    .subheader {
+      font-size: 1.3rem;
+    }
   }
 }

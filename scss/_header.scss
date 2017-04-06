@@ -55,13 +55,6 @@ body header {
     .social:first-child {
       padding: 1rem;
     }
-    .name {
-      height: 2rem;
-      width: calc(100% - 13rem - 3.25rem - 1.25rem);
-      font-size: 2rem;
-      font-weight: bold;
-      @include transition(all, 0.2s);
-    }
     .navTrigger {
       font-size: 2rem;
       font-weight: bold;

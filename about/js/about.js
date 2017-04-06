@@ -30,9 +30,6 @@ window.addEventListener('DOMContentLoaded', function() {
   TweenMax.to(loading, 0.25, {ease: Expo.easeInOut, left: '-100%'});
   TweenMax.from(main, 0.25, {ease: Expo.easeInOut, left: '101%'});
   TweenMax.from(header, 0.25, {ease: Expo.easeInOut, delay: 0.2, top: '-100%'});
-  // Barba.Pjax.start();
-  // Barba.Pjax.init();
-  // Barba.Prefetch.init();
 }, false);
 
 //scroll Animations

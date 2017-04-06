@@ -1,4 +1,4 @@
-@import 'helpers', 'scrollbar', 'montserrat', 'loading', 'header', 'navbar';
+@import 'helpers', 'scrollbar', 'roboto', 'loading', 'header', 'navbar';
 
 html, body {
   height: 100%;
@@ -6,8 +6,8 @@ html, body {
   margin: 0;
 }
 body {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  background: #333;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  background: $eggshell;
   
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -24,6 +24,7 @@ body {
       @include size();
       @extend .nohighlight;
       cursor: default;
+      overflow: hidden;
       
       .background {
         @include size();
@@ -91,7 +92,7 @@ body {
     .subheader {margin-bottom: 1rem; font-size: 1.3rem;}
     
     p {
-      margin: 0;
+      // margin: 0;
 
       a, a:visited {
         color: white;

@@ -1,0 +1,37 @@
+{
+  "name": "deepduggal",
+  "version": "1.0.0",
+  "description": "Deep Duggal's personal website. Link: http://deepduggal.me",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waxter013/DeepDuggalsPersonalWebsite.git"
+  },
+  "keywords": [
+    "MEAN",
+    "stack",
+    "portfolio",
+    "website",
+    "personal",
+    "deep",
+    "duggal",
+    "angular",
+    "2",
+    "mongodb",
+    "javascript",
+    "node.js",
+    "express.js"
+  ],
+  "author": "Deep Duggal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waxter013/DeepDuggalsPersonalWebsite/issues"
+  },
+  "homepage": "https://github.com/waxter013/DeepDuggalsPersonalWebsite#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
