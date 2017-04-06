@@ -1,1 +1,12 @@
 prepros-6.config
+logs
+*.log
+npm-debug.log*
+.grunt
+bower_components/
+node_modules/
+jspm_packages/
+.npm
+*.tgz
+.env
+*.config
