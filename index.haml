@@ -37,40 +37,6 @@
       !function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(a){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this),function(a){"use strict";var b=function(b,c,d){function j(a){return e.body?a():void setTimeout(function(){j(a)})}function l(){f.addEventListener&&f.removeEventListener("load",l),f.media=d||"all"}var g,e=a.document,f=e.createElement("link");if(c)g=c;else{var h=(e.body||e.getElementsByTagName("head")[0]).childNodes;g=h[h.length-1]}var i=e.styleSheets;f.rel="stylesheet",f.href=b,f.media="only x",j(function(){g.parentNode.insertBefore(f,c?g:g.nextSibling)});var k=function(a){for(var b=f.href,c=i.length;c--;)if(i[c].href===b)return a();setTimeout(function(){k(a)})};return f.addEventListener&&f.addEventListener("load",l),f.onloadcssdefined=k,k(l),f};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
     %script{:src=>"js/lazysizes.min.js", :async=>"true"}
   %body
-    / #fb-root
-    / :javascript
-    /   window.fbAsyncInit = function() {
-    /     FB.init({
-    /       appId      : '195929200899551',
-    /       cookie     : true,
-    /       xfbml      : true,
-    /       version    : 'v2.8'
-    /     });
-    /     FB.AppEvents.logPageView();   
-    /   };
-
-    /   (function(d, s, id){
-    /      var js, fjs = d.getElementsByTagName(s)[0];
-    /      if (d.getElementById(id)) {return;}
-    /      js = d.createElement(s); js.id = id;
-    /      js.src = "//connect.facebook.net/en_US/sdk.js";
-    /      fjs.parentNode.insertBefore(js, fjs);
-    /    }(document, 'script', 'facebook-jssdk'));
-
-    /    //Handle FB Login
-    /   function loginFB(response) {
-    /     if (response.status === 'connected') {
-    /       response = JSON.parse(response);
-    /       console.log('Hi ' + response.authResponse.userID + '!');
-    /     }
-    /     else {
-    /       FB.login();
-    /     }
-    /   }
-
-    /   //Fill form with FB
-    /   /*OnClick*/
-    /   aBttn.addEventListener('click', FB.getLoginStatus(loginFB(response)), false);
     .loading  
       %img{:src=>"res/img/loading.gif", :alt=>"Loading"}
     %header
@@ -160,10 +126,7 @@
           %label Message
         .formItem
           %input{:name=>"submit", :type=>"submit", :value=>" > "}
-        %input{:name => "*honeypot", :type => "hidden"}/
-      / %footer
-      /   %span Check out the code for this site on Github: &nbsp;&nbsp;
-      /   %a.github-button{"aria-label" => "Star waxter013/DeepDuggalsPersonalWebsite on GitHub", "data-style" => "mega", :href => "https://github.com/waxter013/DeepDuggalsPersonalWebsite"} Star
+        %input{:name => "*honeypot", :type => "hidden"}
   %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"}
   %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"}
   %script{:src=>"js/index-dist.js"}
