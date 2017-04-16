@@ -1,5 +1,5 @@
 var audio1 = new Audio('../res/sounds/woosh.wav'),
-  audio2 = new Audio('../res/sounds/tubular-bells.ogg'),
+  audio2 = new Audio('../res/sounds/holidaysinthesun.mp3'),
   musicOnOff = document.querySelector('.music.bttn');
 
 var story = document.querySelector('.story'),
@@ -8,8 +8,8 @@ var story = document.querySelector('.story'),
 
 window.addEventListener('DOMContentLoaded', function() {
   TweenMax.from('.main', 1, {opacity: 0}); //fadeIn
-  TweenMax.staggerFrom('.story .item', 1, {delay: 1.2, opacity: 0}, 0.2);
-  TweenMax.from('.menu', 1, {height: 0, opacity: 0});
+  TweenMax.staggerFrom('.story .item', 1, {delay: 1, opacity: 0}, 0.2);
+  TweenMax.from('.story-menu', 1, {height: 0, opacity: 0});
 
   // Play title audio
   audio1.play();

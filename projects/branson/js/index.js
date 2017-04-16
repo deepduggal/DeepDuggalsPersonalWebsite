@@ -1,5 +1,5 @@
 var audio1 = new Audio('./res/sounds/reverse-clang.wav'),
-    audio2 = new Audio('./res/sounds/holidaysinthesun.mp3'),
+    audio2 = new Audio('./res/sounds/tubular-bells.ogg'),
     musicOnOff = document.querySelector('.music.bttn');
 
 window.addEventListener('DOMContentLoaded', function() {
