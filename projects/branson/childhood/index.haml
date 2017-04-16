@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %meta{:charset => "UTF-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, height=device-height, initial-scale=1.0", :name => "viewport"}
+    %title
+      Welcome!
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css", :rel => "stylesheet"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Lora|Abril+Fatface", :rel => "stylesheet"}
+    %link{:href => "css/index.css", :rel => "stylesheet"}
+%body
+  .music.bttn MUSIC
+  .loading 
+    %h1.title
+      ICONIC
+      %span.episode-title EPISODE 1
+    %h2.subject Richard Branson
+  .main#barba-wrapper
+    .barba-container
+      .story-menu
+        .back{:onclick=>"window.history.back();"} BACK
+        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#childhood'});"} 1. CHILDHOOD
+        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#business'});"} 2. BUSINESS
+        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#theman'});"} 3. THE MAN
+      .story
+        %section#childhood
+          .item
+            .date 1950
+            %p
+              %em A titan is born
+            %p Branson was born in London on July 18. His mother was an air hostess and his father was a barrister. 
+            %img{:src=>"http://ianhendry.com/wp-content/uploads/2013/03/London_PiccadillyCircusPanorama_c1950s_20x10_N1731.gif"}
+          .item
+            .date 1966
+            %p
+              %em Branson leaves highschool
+            %p He nearly failed out of his previous institution, the Scaitcliffe School. 
+            %p His school's headmaster had told him he would either end up in prison or become a millionaire. 
+          .item
+            %p
+              %em Student Magazine. 
+        %section#businesses
+          .item
+            %p
+              %em Businesses COMING SOON :)
+        %section#theman
+          .item
+            %p
+              %em The Man COMING SOON :)
+  / %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"}
+  %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"}
+  %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"}
+  %script{:src=>"js/index.js"}

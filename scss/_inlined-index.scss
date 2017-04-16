@@ -19,6 +19,7 @@ body {
     top: 0;
     overflow-y: auto;
     overflow-x: hidden;
+    animation: appear 2s;
 
     .landing {
       @include size();
@@ -52,16 +53,6 @@ body {
         bottom: 0;
         right: 1rem;
         z-index: 2;
-      }
-    }
-    .landing:hover, .landing:focus, .landing:active {
-      .background{
-        @include transition(all, 60s);
-        -webkit-transform: scale(1.3, 1.3);
-        -o-transform: scale(1.3, 1.3);
-        -ms-transform: scale(1.3, 1.3);
-        -moz-transform: scale(1.3, 1.3);
-        transform: scale(1.3, 1.3);
       }
     }
   }

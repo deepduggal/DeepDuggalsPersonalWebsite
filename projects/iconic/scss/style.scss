@@ -1,0 +1,75 @@
+@mixin size($height: 100%, $width: 100%) {
+  height: $height;
+  width: $width;
+}
+@mixin transition($attr: all, $time: 0.2) {
+  -webkit-transition: $attr $time;
+  -moz-transition: $attr $time;
+  -o-transition: $attr $time;
+  transition: $attr $time;
+}
+@mixin transform($code) {
+  -webkit-transform: $code;
+  -ms-transform: $code;
+  transform: $code;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  
+  .people {
+    @include size();
+    overflow-x: hidden;
+    
+    .person {
+      @include size(100%, 33.333%);
+      float: left;
+      cursor: pointer;
+      overflow: hidden;
+      
+      .background {
+        position: relative;
+        @include size();
+        width: 100%;
+        min-height: 100%; 
+        max-width: 100%;
+        object-fit: cover;
+        z-index: -2;
+        overflow: hidden;
+      }
+      .middle {
+        position: absolute;
+        max-width: 33.333%;
+        max-height: calc(100% - 4rem);
+        z-index: -1;
+        bottom: 0;
+      }
+      .foreground {
+        @include size();
+        position: absolute;
+        max-width: 33.333%;
+        max-height: 100%;
+        bottom: 0;
+        
+        .name {
+          font-size: 4em;
+          font-weight: bold;
+          color: white;
+        }
+      }
+    }
+  }
+}

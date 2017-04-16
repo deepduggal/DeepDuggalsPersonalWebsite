@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+    <title>
+      Welcome!
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Abril+Fatface" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+  </head>
+</html>
+<body>
+  <div class="music bttn">MUSIC</div>
+  <div class="loading">
+    <h1 class="title">
+      ICONIC
+      <span class="episode-title">EPISODE 1</span>
+    </h1>
+    <h2 class="subject">Richard Branson</h2>
+  </div>
+  <div class="main" id="barba-wrapper">
+    <div class="barba-container">
+      <div class="story-menu">
+        <div class="back" onclick="window.history.back();">BACK</div>
+        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#childhood'});">1. CHILDHOOD</div>
+        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#business'});">2. BUSINESS</div>
+        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#theman'});">3. THE MAN</div>
+      </div>
+      <div class="story">
+        <section id="childhood">
+          <div class="item">
+            <div class="date">1950</div>
+            <p>
+              <em>A titan is born</em>
+            </p>
+            <p>Branson was born in London on July 18. His mother was an air hostess and his father was a barrister.</p>
+            <img src="http://ianhendry.com/wp-content/uploads/2013/03/London_PiccadillyCircusPanorama_c1950s_20x10_N1731.gif">
+          </div>
+          <div class="item">
+            <div class="date">1966</div>
+            <p>
+              <em>Branson leaves highschool</em>
+            </p>
+            <p>He nearly failed out of his previous institution, the Scaitcliffe School.</p>
+            <p>His school's headmaster had told him he would either end up in prison or become a millionaire.</p>
+          </div>
+          <div class="item">
+            <p>
+              <em>Student Magazine.</em>
+            </p>
+          </div>
+        </section>
+        <section id="businesses">
+          <div class="item">
+            <p>
+              <em>Businesses COMING SOON :)</em>
+            </p>
+          </div>
+        </section>
+        <section id="theman">
+          <div class="item">
+            <p>
+              <em>The Man COMING SOON :)</em>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"} -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script>
+  <script src="js/index.js"></script>
+</body>

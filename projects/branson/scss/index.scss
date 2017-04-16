@@ -1,0 +1,124 @@
+@mixin size($height: 100%, $width: 100%) {
+  height: $height;
+  width: $width;
+}
+@mixin transition($attr: all, $time: 0.2) {
+  -webkit-transition: $attr $time;
+  -moz-transition: $attr $time;
+  -o-transition: $attr $time;
+  transition: $attr $time;
+}
+@mixin transform($code) {
+  -webkit-transform: $code;
+  -ms-transform: $code;
+  transform: $code;
+}
+
+html, body, #barba-wrapper, .barba-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lora', Helvetica, Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+  background: #282830;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  @include size();
+  background: black;
+
+  .title {
+    position: absolute;
+    top: 18.75%;
+    left: -50%;
+    display: inline-block;
+    font-size: 2rem;
+    letter-spacing: 1rem;
+    font-weight: 300;
+
+    .episode-title {
+      letter-spacing: 1rem;
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-transform: lowercase;
+    }
+  }
+  .subject {
+    position: absolute;
+    top: 37.5%;
+    right: -50%;
+    letter-spacing: 1rem;
+    font-size: 1.75rem;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}
+.music.bttn {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+  cursor: pointer;
+}
+.intro {
+  position: relative;
+  @include size();
+  overflow: hidden;
+
+  .dim {
+    @include size();
+    background: black;
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+.intro > .background {
+  position: absolute;
+  z-index: -2;
+  @include size();
+  object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
+}
+.intro > .foreground {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  padding: 2rem;
+  @include size();
+  text-align: center;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 2em;
+    font-weight: 900;
+    letter-spacing: 0.5em;
+  }
+  .menu {
+    @include size();
+    padding: 2rem 0;
+
+    a {
+      width: 100%;
+      float: left;
+      color: white;
+      text-decoration: none; 
+      padding: 0.5em 0.5em 1em 0.5em;
+      font-weight: bold;
+      letter-spacing: 0.5em;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+@mixin size($height: 100%, $width: 100%) {
+  height: $height;
+  width: $width;
+}
+@mixin transition($attr: all, $time: 0.2) {
+  -webkit-transition: $attr $time;
+  -moz-transition: $attr $time;
+  -o-transition: $attr $time;
+  transition: $attr $time;
+}
+@mixin transform($code) {
+  -webkit-transform: $code;
+  -ms-transform: $code;
+  transform: $code;
+}
+
+html, body, #barba-wrapper, .barba-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lora', Helvetica, Arial, sans-serif;
+  color: black;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+.music.bttn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  cursor: pointer;
+  @include transition(color, 0.3s);
+}
+.music.bttn:hover {
+  color: #b5a492;
+}
+
+.loading {
+  display: none;
+}
+.story-menu {
+  height: 3rem;
+  width: calc(100% - 4rem);
+  padding: 1rem 0; 
+
+  .back {
+    color: #b5a492;
+    padding-right: 2rem;
+  }
+  .back, .chapter {
+    display: inline-block;
+    margin-left: 1rem;
+    cursor: pointer;
+    @include transition(color, 0.3s);
+  }
+  .chapter:hover {
+    color: #b5a492;
+  }
+}
+.story {
+  height: calc(100% - 3rem);
+  width: auto;
+  padding: 1rem;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  section {
+    display: inline;
+    *display: inline;/* For IE7*/
+    *zoom:1;/* For IE7*/
+    vertical-align: top;
+    height: 100%;
+    width: auto;
+  }
+
+  .item {
+    display: inline-block;
+    height: 100%;
+    padding: 1rem;
+    *display:inline;/* For IE7*/
+    *zoom:1;/* For IE7*/
+    vertical-align: top;
+    max-width: 50%;
+    // overflow-: hidden;
+
+    h2 {
+      margin: 0 0 1em 0;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      float: left;
+    }
+    .date {
+      font-family: 'Abril Fatface', 'Roboto', cursive;
+      font-weight: 900;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 150%;
+      white-space: normal;
+    }
+  }
+}

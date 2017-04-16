@@ -1,0 +1,59 @@
+  /////////////////////////
+ ///// Mozingo /////
+////////////////////////
+
+/*
+  TODO: 
+  Add Light, Lighter, Dark, and Darker forEach color
+  Add New Colors:
+    - Indigo 
+    - Tan
+    - Brown
+*/
+
+/* Red */
+$red: #ef4658;
+
+/* Orange */
+$orange: #f4ad49;
+
+/* Yellow */
+$yellowLight: #FFEE58;
+$yellow: #ffda44;
+$yellowDark: #FFCF11;
+
+/* Green */
+$green: #69de92;
+
+/* Blue */
+$blueLight: #88BEF5;
+$blue: #53a2e3;
+$blueDark: #0D47A1;
+
+/* Pink */
+$pinkLight: #F469A9;
+$pink: #f04576;
+
+/* Purple */
+$purpleLighter: #E1BEE7;
+$purpleLight: #BA68C8;
+$purple: #9C27B0;
+$purpleDark: #7B1FA2;
+$purpleDarker: #4A148C;
+
+/* Gray */
+$grayLighter: #888888;
+$grayLight: #424242;
+$gray: #343434;
+$grayDark: #222;
+
+/* Black */
+$black: #36413D;
+
+/* White */
+
+
+/* Color Variants*/
+$royalblue: #4C657E;
+$offwhite: #FCFCFC;
+$eggshell: #FBF7F7;
