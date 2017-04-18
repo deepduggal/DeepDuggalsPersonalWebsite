@@ -23,12 +23,6 @@
   </div>
   <div class="main" id="barba-wrapper">
     <div class="barba-container">
-      <div class="story-menu">
-        <div class="back" onclick="window.history.back();">BACK</div>
-        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#childhood'});">1. CHILDHOOD</div>
-        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#business'});">2. BUSINESS</div>
-        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#theman'});">3. THE MAN</div>
-      </div>
       <div class="story">
         <section id="childhood">
           <div class="item">
@@ -49,8 +43,11 @@
           </div>
           <div class="item">
             <p>
-              <em>Student Magazine.</em>
+              <em>Student Magazine</em>
             </p>
+            <div class="quote">
+              I left school at 16-years-old to start my first business, Student magazine. Launched in 1968, Student magazine was created to provide an alternative to the stale publications and school magazines of the day.
+            </div>
           </div>
         </section>
         <section id="business">
@@ -67,6 +64,12 @@
             </p>
           </div>
         </section>
+      </div>
+      <div class="story-menu">
+        <div class="back" onclick="window.history.back();">BACK</div>
+        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#childhood'});">1. CHILDHOOD</div>
+        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#business'});">2. BUSINESS</div>
+        <div class="chapter" onclick="TweenMax.to(story, 0.4, {scrollTo: '#theman'});">3. THE MAN</div>
       </div>
     </div>
   </div>

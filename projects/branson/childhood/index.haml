@@ -18,11 +18,6 @@
     %h2.subject Richard Branson
   .main#barba-wrapper
     .barba-container
-      .story-menu
-        .back{:onclick=>"window.history.back();"} BACK
-        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#childhood'});"} 1. CHILDHOOD
-        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#business'});"} 2. BUSINESS
-        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#theman'});"} 3. THE MAN
       .story
         %section#childhood
           .item
@@ -39,7 +34,9 @@
             %p His school's headmaster had told him he would either end up in prison or become a millionaire. 
           .item
             %p
-              %em Student Magazine. 
+              %em Student Magazine
+            .quote
+              I left school at 16-years-old to start my first business, Student magazine. Launched in 1968, Student magazine was created to provide an alternative to the stale publications and school magazines of the day.
         %section#business
           .item
             %p
@@ -48,6 +45,11 @@
           .item
             %p
               %em The Man COMING SOON :)
+      .story-menu
+        .back{:onclick=>"window.history.back();"} BACK
+        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#childhood'});"} 1. CHILDHOOD
+        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#business'});"} 2. BUSINESS
+        .chapter{:onclick=>"TweenMax.to(story, 0.4, {scrollTo: '#theman'});"} 3. THE MAN
   / %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"}
   %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"}
   %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"}

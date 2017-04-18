@@ -7,9 +7,6 @@ window.addEventListener('DOMContentLoaded', function() {
   audio1.play();
   TweenMax.from(audio1, 4, {volume: 0}); //fadeIn
 
-  //Load audio for next view
-  audio2.load();
-
   //Loading Text Fade In
   TweenMax.staggerFrom(['.loading .title', '.loading .episode-title'], 2, {opacity: 0}, 1);
   TweenMax.from('.loading .subject', 1, {delay: 3, opacity: 0});
@@ -18,6 +15,9 @@ window.addEventListener('DOMContentLoaded', function() {
   TweenMax.staggerTo(['.loading .title', '.loading .episode-title'], 5.7, {left: '101%', ease: SlowMo.ease.config(0.9, 0.9, false)});
   TweenMax.to('.loading .subject', 5.7, {right: '101%', ease: SlowMo.ease.config(0.9, 0.95, false)});
 
+  //Load audio for next view
+  audio2.load();
+  
   //Play Intro Audio
   setTimeout(function() {
     audio2.play();
