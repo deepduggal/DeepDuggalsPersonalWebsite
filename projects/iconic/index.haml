@@ -1,16 +1,23 @@
-.people
-  .person.jobs
-    %img.background{:src=>"http://eightinc.com/wp-content/uploads/2-applestore_5thavenue3.jpg"}
-    %img.middle{:src=>"https://s3.amazonaws.com/the74million/media-gallery/images/1461008673_4122.png"}
-    .foreground
-      .name.fitText Jobs
-  .person.einstein
-    %img.background{:src=>"http://www.wallpaperup.com/uploads/wallpapers/2012/08/03/7863/big_thumb_27158088ed7b3054cdef676a09374957.jpg"}
-    %img.middle{:src=>"https://www.hajenius.com/images/jubileum/people/albert-einstein.png"}
-    .foreground
-      .name.fitText Einstein
-  .person.musk
-    %img.background{:src=>"http://www.spacex.com/sites/spacex/files/styles/media_gallery_large/public/eutelsatabs_liftoff.jpg?itok=655RUv28"}
-    %img.middle{:src=>"http://www.stickpng.com/assets/images/580b57fbd9996e24bc43be2b.png"}
-    .foreground
-      .name.fitText Musk
+!!!
+%html
+  %head
+    %link{:href=>"css/style.css", :rel=>"stylesheet"}
+  %body
+    .people
+      .person.jobs
+        %img.background{:src=>"http://eightinc.com/wp-content/uploads/2-applestore_5thavenue3.jpg"}
+        %img.middle{:src=>"https://s3.amazonaws.com/the74million/media-gallery/images/1461008673_4122.png"}
+        .foreground
+          .name.fitText Jobs
+      .person.einstein
+        %img.background{:src=>"http://www.wallpaperup.com/uploads/wallpapers/2012/08/03/7863/big_thumb_27158088ed7b3054cdef676a09374957.jpg"}
+        %img.middle{:src=>"https://www.hajenius.com/images/jubileum/people/albert-einstein.png"}
+        .foreground
+          .name.fitText Einstein
+      .person.musk
+        %img.background{:src=>"http://www.spacex.com/sites/spacex/files/styles/media_gallery_large/public/eutelsatabs_liftoff.jpg?itok=655RUv28"}
+        %img.middle{:src=>"http://www.stickpng.com/assets/images/580b57fbd9996e24bc43be2b.png"}
+        .foreground
+          .name.fitText Musk
+    %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"}
+    %script{:src=>"js/index.js"}
